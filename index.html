@@ -115,6 +115,10 @@ footer a{color:var(--blue-deep);font-weight:600;text-decoration:none}
       <div><label for="f-web">Sitio web</label><input type="url" id="f-web" placeholder="https://empresa.com"></div>
       <div><label for="f-linkedin">LinkedIn</label><input type="url" id="f-linkedin" placeholder="https://linkedin.com/in/ana"></div>
     </div>
+    <div class="grid2">
+      <div><label for="f-facebook">Facebook</label><input type="url" id="f-facebook" placeholder="https://facebook.com/ana"></div>
+      <div><label for="f-instagram">Instagram</label><input type="url" id="f-instagram" placeholder="https://instagram.com/ana"></div>
+    </div>
     <label>Foto (opcional — va dentro del archivo .vcf)</label>
     <label class="filebtn">📷 Subir foto<input type="file" id="f-foto" accept="image/*"></label>
     <span class="hint" id="foto-hint">JPG o PNG; se reduce automáticamente. No entra al QR (los QR no cargan fotos).</span>
@@ -171,7 +175,7 @@ footer a{color:var(--blue-deep);font-weight:600;text-decoration:none}
 (function(){
 "use strict";
 var $=function(id){return document.getElementById(id)};
-var fields=["nombre","apellido","puesto","empresa","tel","email","web","linkedin"];
+var fields=["nombre","apellido","puesto","empresa","tel","email","web","linkedin","facebook","instagram"];
 var fotoB64=null; // base64 sin encabezado data:
 var qr=null, lastVcfQR="";
 
@@ -193,7 +197,10 @@ function buildVcf(includePhoto){
   if(val("tel"))L.push("TEL;TYPE=CELL:"+val("tel").replace(/[^+\d]/g,""));
   if(val("email"))L.push(fold("EMAIL;TYPE=INTERNET,WORK:"+esc(val("email"))));
   if(val("web"))L.push(fold("URL:"+esc(val("web"))));
-  if(val("linkedin")){L.push("item1.URL:"+esc(val("linkedin")));L.push("item1.X-ABLabel:LinkedIn");}
+  var it=1;
+  [["linkedin","LinkedIn"],["facebook","Facebook"],["instagram","Instagram"]].forEach(function(r){
+    if(val(r[0])){L.push("item"+it+".URL:"+esc(val(r[0])));L.push("item"+it+".X-ABLabel:"+r[1]);it++;}
+  });
   if(includePhoto&&fotoB64)L.push(fold("PHOTO;ENCODING=b;TYPE=JPEG:"+fotoB64));
   L.push("END:VCARD");
   return L.join("\r\n");
