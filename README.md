@@ -27,6 +27,21 @@ El precio de esa decisión es que la URL no se puede mover una vez que la person
 - La vCard escapa `;` y `\` pero **no** la coma: varios lectores de Android la muestran literal como `\,`
 - `Powered by www.fyware.com` va bajo la tarjeta y al cierre del panel de compartir
 
+## Convención de UTM
+
+Los dos enlaces a fyware.com llevan UTM para poder atribuir el tráfico a la tarjeta exacta que lo generó:
+
+```
+?utm_source=vcard-<slug>&utm_medium=tarjeta-digital&utm_campaign=superfans-2026&utm_content=<posicion>
+```
+
+- `utm_source`: **`vcard-<slug>`**, una por persona. Es lo que permite saber de quién vino la visita
+- `utm_medium`: siempre `tarjeta-digital`
+- `utm_campaign`: el programa, `superfans-2026`
+- `utm_content`: `pie-tarjeta` o `panel-compartir`, para distinguir desde qué punto se pulsó
+
+En GA4 se filtra por `utm_campaign = superfans-2026` para ver el programa completo, y se desglosa por `utm_source` para ver qué tarjetas realmente circulan. **Al clonar una tarjeta hay que cambiar el `utm_source`**, si se queda el de otra persona la atribución se contamina en silencio.
+
 ## Historial
 
 Este repo empezó como `vcard-gratis`, un MVP de generador público de vCard que nunca se compartió ni se usó. Ese generador se eliminó; queda en el historial de git si alguna vez se necesita.
