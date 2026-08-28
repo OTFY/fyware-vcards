@@ -124,16 +124,17 @@ body::after{
   background:linear-gradient(90deg,var(--accent) 0%,var(--accent) 30%,transparent 30%,transparent 100%);
 }
 .share-btn{
-  position:absolute;top:16px;right:16px;z-index:3;
-  width:36px;height:36px;border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  background:transparent;border:1px solid var(--line);
-  color:var(--muted);cursor:pointer;padding:0;
-  transition:color .15s ease,border-color .15s ease;
+  position:absolute;top:14px;right:14px;z-index:3;
+  display:inline-flex;align-items:center;gap:7px;
+  height:34px;padding:0 13px;border-radius:999px;
+  background:var(--accent-soft);border:1px solid var(--line);
+  color:var(--accent);cursor:pointer;
+  font:inherit;font-size:12px;font-weight:600;letter-spacing:.01em;
+  transition:opacity .15s ease;
 }
-.share-btn:hover{color:var(--accent);border-color:var(--accent)}
+.share-btn:hover{opacity:.8}
 .share-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.share-btn svg{width:17px;height:17px;display:block}
+.share-btn svg{width:14px;height:14px;display:block;flex:none}
 
 .head{padding:32px 30px 24px;text-align:center}
 .avatar{
@@ -188,6 +189,14 @@ h1{
 .btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .btn svg{width:17px;height:17px;flex:none}
 .hint{margin:11px 0 0;text-align:center;font-size:11.5px;color:var(--muted)}
+.owner{margin:16px 0 0;text-align:center;font-size:12px;color:var(--muted)}
+.linklike{
+  font:inherit;font-size:12px;font-weight:600;color:var(--accent);
+  background:none;border:none;padding:0;cursor:pointer;
+  border-bottom:1px solid var(--line);
+}
+.linklike:hover{border-color:var(--accent)}
+.linklike:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
 /* ---------- Footer ---------- */
 .powered{margin:22px 0 0;text-align:center;font-size:11.5px;color:var(--muted);letter-spacing:.04em}
@@ -253,11 +262,12 @@ h1{
   <main class="card">
     <div class="crest"></div>
 
-    <button class="share-btn" id="open-share" type="button" aria-label="Compartir esta tarjeta">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <button class="share-btn" id="open-share" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
         <path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/>
       </svg>
+      Compartir
     </button>
 
     <header class="head">
@@ -288,6 +298,7 @@ h1{
         Guardar contacto
       </button>
       <p class="hint">Se agrega directo a los contactos de tu teléfono</p>
+      <p class="owner">¿Es tu tarjeta? <button class="linklike" id="open-share-2" type="button">Compártela con tu QR</button></p>
     </div>
   </main>
 
@@ -423,6 +434,7 @@ h1{
   }
 
   openBtn.addEventListener("click", openSheet);
+  $("open-share-2").addEventListener("click", openSheet);
   closeBtn.addEventListener("click", closeSheet);
   scrim.addEventListener("click", function(e){ if(e.target === scrim) closeSheet(); });
   document.addEventListener("keydown", function(e){
