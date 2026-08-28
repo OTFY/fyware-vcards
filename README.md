@@ -1,10 +1,32 @@
-# vCard Gratis — generador de tarjeta digital con QR
+# Tarjetas digitales Fyware
 
-Herramienta gratuita de Fyware: genera una vCard (.vcf, con foto) y su código QR (PNG/SVG) 100% en el navegador. Sin backend, sin registro — los datos del usuario nunca salen de su navegador.
+Tarjetas de presentación digitales que Fyware produce **a mano** y entrega hechas a personas clave (programa de superfans). No es un generador: cada tarjeta se construye con los datos reales de la persona.
 
-- Página: https://otfy.github.io/vcard-gratis-fyware/
-- Stack: HTML/CSS/JS estático + `lib/qr-code-styling.js` (vendorizada, v1.6.0-rc.1)
-- El QR codifica la vCard SIN foto (límite de capacidad del QR); el .vcf descargable sí incluye la foto (JPEG reducido a 300px, base64)
-- Rol de marketing: activo de enlaces/AEO para fyware.com + puente comercial ("tarjetas con marca para tu equipo" → WhatsApp de Olga). Contexto en el reporte "Reporte SW y Auditoría SEO" (artefacto Claude, sección de contramedidas)
-- Separado A PROPÓSITO del repo fyware-tarjetas (tarjetas corporativas del equipo): no mezclar
-- Pendiente al portar a fyware.com: stream GA4 propio (NO usar G-LNKLX4WKW3 desde github.io para no contaminar el denominador del sitio), hreflang/EN, y canonical hacia el dominio
+- Una carpeta por persona en `t/<slug>/`, servida por GitHub Pages
+- Vive en: `https://otfy.github.io/<repo>/t/<slug>/`
+
+## Cómo funciona
+
+**El QR apunta a la URL de la tarjeta, NO contiene la vCard.** Esto es deliberado:
+
+- Se pueden corregir datos después (puesto, teléfono, correo, más redes) sin invalidar los QR que ya circulan
+- Se puede medir cuántas veces se abre la tarjeta
+
+El precio de esa decisión es que la URL no se puede mover una vez que la persona empieza a repartir su QR. **Las rutas de `t/` no se cambian.**
+
+## Dos vistas, una página
+
+- **Quien escanea** ve la tarjeta y un solo botón: Guardar contacto (descarga el `.vcf`)
+- **La persona dueña** pulsa "Compartir" y obtiene su QR, la liga para copiar y el PNG
+
+## Notas de producción
+
+- `noindex,nofollow`: son tarjetas personales, no contenido para buscadores
+- Sin logos de la empresa de la persona, solo el nombre en texto (usar marcas ajenas en una pieza nuestra no procede)
+- Foto: LinkedIn solo sirve públicamente la miniatura de 100x100; para calidad real hay que pedírsela a la persona
+- La vCard escapa `;` y `\` pero **no** la coma: varios lectores de Android la muestran literal como `\,`
+- `Powered by www.fyware.com` va bajo la tarjeta y al cierre del panel de compartir
+
+## Historial
+
+Este repo empezó como `vcard-gratis`, un MVP de generador público de vCard que nunca se compartió ni se usó. Ese generador se eliminó; queda en el historial de git si alguna vez se necesita.
