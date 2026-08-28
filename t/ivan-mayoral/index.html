@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ivan Mayoral, MBA — Tarjeta digital</title>
+<meta name="description" content="Tarjeta de presentación digital de Ivan Mayoral, MBA. Estrategia Operativa en Cemex México. Guarda el contacto en un toque.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://otfy.github.io/vcard-gratis/t/ivan-mayoral/">
+<meta property="og:title" content="Ivan Mayoral, MBA">
+<meta property="og:description" content="Estrategia Operativa · Cemex México">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://otfy.github.io/vcard-gratis/t/ivan-mayoral/">
+<meta name="theme-color" content="#0D0F11">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F5F7;
+  --card:rgba(255,255,255,.86);
+  --card-solid:#FFFFFF;
+  --ink:#14171B;
+  --ink-2:#3B424A;
+  --muted:#747B84;
+  --line:#E2E4E8;
+  --line-soft:#EDEEF1;
+  --accent:#3E5C76;
+  --accent-soft:#EDF1F6;
+  --on-accent:#FFFFFF;
+  --shadow:0 1px 2px rgba(20,23,27,.05),0 18px 50px rgba(20,23,27,.10);
+  --scrim:rgba(20,23,27,.42);
+  --neb-1:rgba(62,92,118,.16);
+  --neb-2:rgba(116,138,190,.13);
+  --neb-3:rgba(74,148,168,.12);
+  --neb-4:rgba(148,126,178,.10);
+  --grid:rgba(20,23,27,.038);
+  --grain:.030;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B0D10;
+    --card:rgba(22,25,30,.80);
+    --card-solid:#16191E;
+    --ink:#F1F2F4; --ink-2:#C2C7CD; --muted:#8A9199;
+    --line:#272C33; --line-soft:#1F2429;
+    --accent:#7FA6C7; --accent-soft:#18232E; --on-accent:#0B0D10;
+    --shadow:0 1px 2px rgba(0,0,0,.5),0 24px 64px rgba(0,0,0,.55);
+    --scrim:rgba(0,0,0,.62);
+    --neb-1:rgba(56,112,176,.30);
+    --neb-2:rgba(112,80,184,.22);
+    --neb-3:rgba(28,140,152,.20);
+    --neb-4:rgba(76,58,140,.20);
+    --grid:rgba(190,215,255,.050);
+    --grain:.055;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B0D10;
+  --card:rgba(22,25,30,.80);
+  --card-solid:#16191E;
+  --ink:#F1F2F4; --ink-2:#C2C7CD; --muted:#8A9199;
+  --line:#272C33; --line-soft:#1F2429;
+  --accent:#7FA6C7; --accent-soft:#18232E; --on-accent:#0B0D10;
+  --shadow:0 1px 2px rgba(0,0,0,.5),0 24px 64px rgba(0,0,0,.55);
+  --scrim:rgba(0,0,0,.62);
+  --neb-1:rgba(56,112,176,.30);
+  --neb-2:rgba(112,80,184,.22);
+  --neb-3:rgba(28,140,152,.20);
+  --neb-4:rgba(76,58,140,.20);
+  --grid:rgba(190,215,255,.050);
+  --grain:.055;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:Inter,"Segoe UI",system-ui,-apple-system,sans-serif;
+  font-size:15px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  display:flex;align-items:center;justify-content:center;
+  min-height:100vh;padding:34px 18px;
+  position:relative;overflow-x:hidden;
+}
+body.locked{overflow:hidden}
+
+/* ---------- Nebulosa ---------- */
+body::before{
+  content:"";position:fixed;inset:-25%;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(34% 28% at 16% 20%, var(--neb-1), transparent 64%),
+    radial-gradient(30% 24% at 84% 12%, var(--neb-2), transparent 62%),
+    radial-gradient(44% 36% at 74% 82%, var(--neb-3), transparent 66%),
+    radial-gradient(28% 24% at 26% 80%, var(--neb-4), transparent 60%);
+  filter:blur(34px);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size:46px 46px, 46px 46px;
+  -webkit-mask-image:radial-gradient(72% 62% at 50% 44%, #000 0%, transparent 80%);
+          mask-image:radial-gradient(72% 62% at 50% 44%, #000 0%, transparent 80%);
+}
+.grainfix{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:var(--grain);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.stage{width:100%;max-width:420px;position:relative;z-index:1}
+
+/* ---------- Tarjeta ---------- */
+.card{
+  position:relative;
+  background:var(--card);
+  -webkit-backdrop-filter:blur(22px) saturate(130%);
+          backdrop-filter:blur(22px) saturate(130%);
+  border:1px solid var(--line);
+  border-radius:22px;box-shadow:var(--shadow);overflow:hidden;
+}
+.crest{
+  height:3px;
+  background:linear-gradient(90deg,var(--accent) 0%,var(--accent) 30%,transparent 30%,transparent 100%);
+}
+.share-btn{
+  position:absolute;top:16px;right:16px;z-index:3;
+  width:36px;height:36px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  background:transparent;border:1px solid var(--line);
+  color:var(--muted);cursor:pointer;padding:0;
+  transition:color .15s ease,border-color .15s ease;
+}
+.share-btn:hover{color:var(--accent);border-color:var(--accent)}
+.share-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.share-btn svg{width:17px;height:17px;display:block}
+
+.head{padding:32px 30px 24px;text-align:center}
+.avatar{
+  width:84px;height:84px;margin:0 auto 20px;border-radius:50%;
+  border:1px solid var(--line);background:var(--accent-soft);
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Space Grotesk",Inter,sans-serif;font-weight:600;font-size:26px;
+  color:var(--accent);overflow:hidden;
+  box-shadow:0 0 0 5px var(--accent-soft);
+}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+h1{
+  margin:0;font-family:"Space Grotesk",Inter,sans-serif;font-weight:600;
+  font-size:29px;line-height:1.15;letter-spacing:-.022em;color:var(--ink);
+}
+.role{margin:10px 0 0;font-size:14px;font-weight:500;color:var(--ink-2)}
+.org{
+  margin:4px 0 0;font-size:10.5px;font-weight:600;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.18em;
+}
+.creds{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:20px 0 0;padding:0;list-style:none}
+.creds li{
+  font-family:"Space Grotesk",Inter,sans-serif;
+  font-size:10px;font-weight:600;letter-spacing:.10em;text-transform:uppercase;
+  color:var(--accent);background:var(--accent-soft);
+  border:1px solid var(--line);border-radius:999px;padding:4px 11px;
+}
+
+/* ---------- Datos ---------- */
+.rows{border-top:1px solid var(--line-soft);padding:6px 30px 4px}
+.row{display:flex;align-items:baseline;gap:14px;padding:13px 0;border-bottom:1px solid var(--line-soft)}
+.row:last-child{border-bottom:none}
+.row .k{
+  flex:none;width:80px;font-size:9.5px;font-weight:600;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.14em;
+}
+.row .v{font-size:13.5px;color:var(--ink-2);word-break:break-word}
+.row .v a{color:var(--accent);text-decoration:none;font-weight:500}
+.row .v a:hover{text-decoration:underline}
+
+/* ---------- Acción principal ---------- */
+.actions{padding:22px 30px 28px;border-top:1px solid var(--line-soft)}
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  width:100%;font:inherit;font-size:14.5px;font-weight:600;
+  padding:15px 16px;border-radius:12px;text-align:center;cursor:pointer;
+  text-decoration:none;border:1px solid transparent;transition:opacity .15s ease;
+}
+.btn:hover{opacity:.88}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn.ghost{background:transparent;color:var(--ink-2);border-color:var(--line)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn svg{width:17px;height:17px;flex:none}
+.hint{margin:11px 0 0;text-align:center;font-size:11.5px;color:var(--muted)}
+
+/* ---------- Footer ---------- */
+.powered{margin:22px 0 0;text-align:center;font-size:11.5px;color:var(--muted);letter-spacing:.04em}
+.powered a{color:var(--muted);text-decoration:none;font-weight:600;border-bottom:1px solid var(--line);padding-bottom:1px}
+.powered a:hover{color:var(--accent);border-color:var(--accent)}
+
+/* ---------- Panel Compartir ---------- */
+.scrim{
+  position:fixed;inset:0;z-index:40;background:var(--scrim);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;padding:22px 18px;
+  opacity:0;visibility:hidden;transition:opacity .18s ease,visibility .18s ease;
+}
+.scrim.open{opacity:1;visibility:visible}
+.sheet{
+  width:100%;max-width:360px;background:var(--card-solid);
+  border:1px solid var(--line);border-radius:20px;
+  box-shadow:0 24px 70px rgba(0,0,0,.35);
+  padding:24px 24px 22px;text-align:center;
+  transform:translateY(10px) scale(.985);transition:transform .18s ease;
+}
+.scrim.open .sheet{transform:none}
+.sheet h2{
+  margin:0 0 4px;font-family:"Space Grotesk",Inter,sans-serif;
+  font-size:17px;font-weight:600;letter-spacing:-.01em;color:var(--ink);
+}
+.sheet .sub{margin:0 0 18px;font-size:12.5px;color:var(--muted);line-height:1.5}
+.qrframe{
+  display:inline-block;padding:13px;background:#fff;
+  border:1px solid var(--line);border-radius:14px;line-height:0;
+}
+.qrframe canvas,.qrframe svg{width:168px !important;height:168px !important;display:block}
+.linkbox{
+  display:block;width:100%;margin:16px 0 0;padding:10px 12px;
+  background:var(--accent-soft);border:1px solid var(--line);border-radius:10px;
+  font-size:11.5px;color:var(--ink-2);word-break:break-all;line-height:1.45;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+.sheet .stack{display:grid;gap:8px;margin-top:14px}
+.sheet .btn{font-size:13.5px;padding:12px 14px}
+.closex{
+  position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  background:transparent;border:1px solid var(--line);color:var(--muted);cursor:pointer;
+}
+.closex:hover{color:var(--ink)}
+.sheetwrap{position:relative;width:100%;max-width:360px}
+
+@media(max-width:400px){
+  .head{padding:30px 22px 22px}
+  .rows,.actions{padding-left:22px;padding-right:22px}
+  h1{font-size:26px}
+  .row{flex-direction:column;gap:3px}
+  .row .k{width:auto}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+<div class="grainfix" aria-hidden="true"></div>
+
+<div class="stage">
+  <main class="card">
+    <div class="crest"></div>
+
+    <button class="share-btn" id="open-share" type="button" aria-label="Compartir esta tarjeta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+        <path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/>
+      </svg>
+    </button>
+
+    <header class="head">
+      <div class="avatar"><img src="foto-220.jpg" alt="Ivan Mayoral" width="220" height="220"></div>
+      <h1>Ivan Mayoral, MBA</h1>
+      <p class="role">Estrategia Operativa &middot; Soporte Técnico</p>
+      <p class="org">Cemex México</p>
+      <ul class="creds">
+        <li>MBA</li>
+        <li>MPRL</li>
+        <li>Lean Six Sigma Black Belt</li>
+      </ul>
+    </header>
+
+    <section class="rows">
+      <div class="row"><span class="k">Empresa</span><span class="v">Cemex México</span></div>
+      <div class="row"><span class="k">Enfoque</span><span class="v">Excelencia operativa, transformación digital y liderazgo de equipos</span></div>
+      <div class="row"><span class="k">Ubicación</span><span class="v">San Luis Potosí, México</span></div>
+      <div class="row"><span class="k">Formación</span><span class="v">EGADE Business School, Tecnológico de Monterrey</span></div>
+      <div class="row"><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/ivan-mayoral-mba-843b4aa8/" target="_blank" rel="noopener">in/ivan-mayoral-mba</a></span></div>
+    </section>
+
+    <div class="actions">
+      <button class="btn primary" id="dl-vcf" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12M7.5 10.5L12 15l4.5-4.5M4 19h16"/>
+        </svg>
+        Guardar contacto
+      </button>
+      <p class="hint">Se agrega directo a los contactos de tu teléfono</p>
+    </div>
+  </main>
+
+  <p class="powered">Powered by <a href="https://www.fyware.com/" target="_blank" rel="noopener">www.fyware.com</a></p>
+</div>
+
+<!-- Panel Compartir -->
+<div class="scrim" id="scrim" role="dialog" aria-modal="true" aria-labelledby="sheet-title" hidden>
+  <div class="sheetwrap">
+    <div class="sheet">
+      <button class="closex" id="close-share" type="button" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <h2 id="sheet-title">Comparte tu tarjeta</h2>
+      <p class="sub">Quien escanee este código abre tu tarjeta y puede guardar tu contacto.</p>
+      <div class="qrframe" id="qrbox"></div>
+      <code class="linkbox" id="linktext"></code>
+      <div class="stack">
+        <button class="btn primary" id="copy-link" type="button">Copiar liga</button>
+        <button class="btn ghost" id="dl-png" type="button">Descargar QR (PNG)</button>
+        <button class="btn ghost" id="native-share" type="button" hidden>Compartir</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="qr-code-styling.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  var CARD_URL = "https://otfy.github.io/vcard-gratis/t/ivan-mayoral/";
+
+  var DATA = {
+    first:"Ivan",
+    last:"Mayoral",
+    suffix:"MBA",
+    title:"Estrategia Operativa · Soporte Técnico",
+    org:"Cemex México",
+    city:"San Luis Potosí",
+    region:"S.L.P.",
+    country:"México",
+    linkedin:"https://www.linkedin.com/in/ivan-mayoral-mba-843b4aa8/",
+    note:"MBA · MPRL · Lean Six Sigma Black Belt. Excelencia operativa y transformación digital."
+  };
+
+  // Escapa solo separadores estructurales de vCard 3.0.
+  // La coma NO se escapa: en campos de valor único varios Android la muestran como "\,".
+  function esc(s){
+    return String(s == null ? "" : s)
+      .replace(/\\/g, "\\\\")
+      .replace(/;/g, "\\;")
+      .replace(/\r?\n/g, "\\n");
+  }
+  function fold(line){
+    if(line.length <= 75) return line;
+    var out = line.slice(0,75), rest = line.slice(75);
+    while(rest.length > 74){ out += "\r\n " + rest.slice(0,74); rest = rest.slice(74); }
+    return out + "\r\n " + rest;
+  }
+  function buildVcf(){
+    var L = ["BEGIN:VCARD","VERSION:3.0"];
+    L.push(fold("N:" + esc(DATA.last) + ";" + esc(DATA.first) + ";;;" + esc(DATA.suffix)));
+    L.push(fold("FN:" + esc(DATA.first + " " + DATA.last + ", " + DATA.suffix)));
+    L.push(fold("ORG:" + esc(DATA.org)));
+    L.push(fold("TITLE:" + esc(DATA.title)));
+    L.push(fold("ADR;TYPE=WORK:;;;" + esc(DATA.city) + ";" + esc(DATA.region) + ";;" + esc(DATA.country)));
+    // URL genérica = su tarjeta. El perfil de LinkedIn va etiquetado aparte.
+    L.push(fold("URL:" + esc(CARD_URL)));
+    L.push("item1.URL:" + esc(DATA.linkedin));
+    L.push("item1.X-ABLabel:LinkedIn");
+    L.push(fold("NOTE:" + esc(DATA.note)));
+    L.push("END:VCARD");
+    return L.join("\r\n");
+  }
+
+  var VCF = buildVcf();
+  var $ = function(id){ return document.getElementById(id); };
+
+  function download(blob, filename){
+    var url = URL.createObjectURL(blob), a = document.createElement("a");
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
+  }
+
+  // ---- Acción principal: guardar contacto ----
+  $("dl-vcf").addEventListener("click", function(){
+    download(new Blob([VCF], {type:"text/vcard;charset=utf-8"}), "Ivan-Mayoral-MBA.vcf");
+  });
+
+  // ---- Panel compartir ----
+  var scrim = $("scrim"), openBtn = $("open-share"), closeBtn = $("close-share");
+  var qr = null, qrReady = false;
+
+  $("linktext").textContent = CARD_URL.replace(/^https:\/\//, "");
+
+  function buildQR(){
+    if(qrReady) return;
+    qrReady = true;
+    try{
+      qr = new QRCodeStyling({
+        width:520, height:520, type:"canvas", data:CARD_URL, margin:0,
+        qrOptions:{ errorCorrectionLevel:"Q" },
+        dotsOptions:{ type:"square", color:"#14171B" },
+        cornersSquareOptions:{ type:"square", color:"#3E5C76" },
+        cornersDotOptions:{ type:"square", color:"#14171B" },
+        backgroundOptions:{ color:"#ffffff" }
+      });
+      qr.append($("qrbox"));
+    }catch(e){
+      $("qrbox").innerHTML = '<div style="width:168px;height:168px;display:flex;align-items:center;' +
+        'justify-content:center;font-size:11px;color:#747B84;text-align:center;padding:12px">' +
+        'QR no disponible. Copia la liga.</div>';
+    }
+  }
+
+  function openSheet(){
+    buildQR();
+    scrim.hidden = false;
+    // Reflow forzado en lugar de requestAnimationFrame: rAF se congela si la
+    // pestaña no está visible y el panel se quedaría invisible con hidden=false.
+    void scrim.offsetHeight;
+    scrim.classList.add("open");
+    document.body.classList.add("locked");
+    closeBtn.focus();
+  }
+  function closeSheet(){
+    scrim.classList.remove("open");
+    document.body.classList.remove("locked");
+    openBtn.focus();
+    setTimeout(function(){ if(!scrim.classList.contains("open")) scrim.hidden = true; }, 220);
+  }
+
+  openBtn.addEventListener("click", openSheet);
+  closeBtn.addEventListener("click", closeSheet);
+  scrim.addEventListener("click", function(e){ if(e.target === scrim) closeSheet(); });
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape" && scrim.classList.contains("open")) closeSheet();
+  });
+
+  // Copiar liga
+  $("copy-link").addEventListener("click", function(){
+    var btn = this, original = "Copiar liga";
+    function done(ok){
+      btn.textContent = ok ? "Liga copiada" : "Selecciona y copia la liga";
+      setTimeout(function(){ btn.textContent = original; }, 1900);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(CARD_URL).then(function(){ done(true); }, function(){ done(false); });
+    }else{
+      try{
+        var ta = document.createElement("textarea");
+        ta.value = CARD_URL; ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.select();
+        done(document.execCommand("copy"));
+        document.body.removeChild(ta);
+      }catch(e){ done(false); }
+    }
+  });
+
+  // Descargar QR
+  $("dl-png").addEventListener("click", function(){
+    if(qr && qr.download){ qr.download({ name:"Ivan-Mayoral-QR", extension:"png" }); }
+  });
+
+  // Compartir nativo (móvil)
+  if(navigator.share){
+    var ns = $("native-share");
+    ns.hidden = false;
+    ns.addEventListener("click", function(){
+      navigator.share({
+        title:"Ivan Mayoral, MBA",
+        text:"Mi tarjeta de contacto",
+        url:CARD_URL
+      }).catch(function(){});
+    });
+  }
+})();
+</script>
+</body>
+</html>
