@@ -187,6 +187,8 @@ h1{
 .btn.primary{background:var(--accent);color:var(--on-accent)}
 .btn.ghost{background:transparent;color:var(--ink-2);border-color:var(--line)}
 .btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:disabled:hover{opacity:.45}
 .btn svg{width:17px;height:17px;flex:none}
 .hint{margin:11px 0 0;text-align:center;font-size:11.5px;color:var(--muted)}
 
@@ -202,9 +204,12 @@ h1{
   display:flex;align-items:center;justify-content:center;padding:22px 18px;
   opacity:0;visibility:hidden;transition:opacity .18s ease,visibility .18s ease;
 }
+/* Sin esto el atributo hidden no hace nada: display:flex de autor gana
+   sobre el display:none de la hoja del navegador. */
+.scrim[hidden]{display:none}
 .scrim.open{opacity:1;visibility:visible}
 .sheet{
-  width:100%;max-width:360px;background:var(--card-solid);
+  width:100%;background:var(--card-solid);
   border:1px solid var(--line);border-radius:20px;
   box-shadow:0 24px 70px rgba(0,0,0,.35);
   padding:24px 24px 22px;text-align:center;
@@ -241,6 +246,7 @@ h1{
 }
 .closex:hover{color:var(--ink)}
 .sheetwrap{position:relative;width:100%;max-width:360px}
+/* .sheet ya no repite max-width: lo impone .sheetwrap */
 
 @media(max-width:400px){
   .head{padding:30px 22px 22px}
@@ -311,7 +317,7 @@ h1{
       <h2 id="sheet-title">Comparte tu tarjeta</h2>
       <p class="sub">Quien escanee este código abre tu tarjeta y puede guardar tu contacto.</p>
       <div class="qrframe" id="qrbox"></div>
-      <code class="linkbox" id="linktext"></code>
+      <code class="linkbox" id="linktext">otfy.github.io/vcard-gratis-fyware/t/ivan-mayoral/</code>
       <div class="stack">
         <button class="btn primary" id="copy-link" type="button">Copiar liga</button>
         <button class="btn ghost" id="dl-png" type="button">Descargar QR (PNG)</button>
@@ -327,7 +333,18 @@ h1{
 (function(){
   "use strict";
 
+  // ===================================================================
+  // AL CLONAR ESTA TARJETA PARA OTRA PERSONA, CAMBIAR TAMBIEN:
+  //   <head>  : title, description, canonical, og:title, og:description, og:url
+  //   <body>  : foto, nombre, puesto, empresa, credenciales, filas de datos
+  //   enlaces : utm_source=vcard-<slug> en los DOS "Powered by"
+  //   .linkbox: el texto de respaldo de la liga
+  //   abajo   : CARD_URL, DATA y el nombre de archivo del .vcf
+  // Si se queda el utm_source de otra persona, la atribucion se
+  // contamina sin que nadie lo note.
+  // ===================================================================
   var CARD_URL = "https://otfy.github.io/vcard-gratis-fyware/t/ivan-mayoral/";
+  var VCF_FILENAME = "Ivan-Mayoral-MBA.vcf";
 
   var DATA = {
     first:"Ivan",
@@ -350,11 +367,28 @@ h1{
       .replace(/;/g, "\\;")
       .replace(/\r?\n/g, "\\n");
   }
+  // vCard pliega por OCTETOS, no por caracteres, y no se puede cortar a media
+  // letra. Con acentos o emoji (los hay en varios headlines de LinkedIn) contar
+  // con .length y cortar con .slice parte pares sustitutos y corrompe el .vcf.
+  var ENC = (typeof TextEncoder !== "undefined") ? new TextEncoder() : null;
+  function octetos(s){ return ENC ? ENC.encode(s).length : s.length; }
+
   function fold(line){
-    if(line.length <= 75) return line;
-    var out = line.slice(0,75), rest = line.slice(75);
-    while(rest.length > 74){ out += "\r\n " + rest.slice(0,74); rest = rest.slice(74); }
-    return out + "\r\n " + rest;
+    if(octetos(line) <= 75) return line;
+    var chars = Array.from(line);           // itera por code point, no por unidad UTF-16
+    var partes = [], actual = "", bytes = 0, limite = 75;
+    for(var i = 0; i < chars.length; i++){
+      var b = octetos(chars[i]);
+      if(bytes + b > limite){
+        partes.push(actual);
+        actual = ""; bytes = 0;
+        limite = 74;                        // las continuaciones gastan un octeto en el espacio inicial
+      }
+      actual += chars[i];
+      bytes += b;
+    }
+    partes.push(actual);
+    return partes.join("\r\n ");
   }
   function buildVcf(){
     var L = ["BEGIN:VCARD","VERSION:3.0"];
@@ -384,7 +418,7 @@ h1{
 
   // ---- Acción principal: guardar contacto ----
   $("dl-vcf").addEventListener("click", function(){
-    download(new Blob([VCF], {type:"text/vcard;charset=utf-8"}), "Ivan-Mayoral-MBA.vcf");
+    download(new Blob([VCF], {type:"text/vcard;charset=utf-8"}), VCF_FILENAME);
   });
 
   // ---- Panel compartir ----
@@ -410,6 +444,9 @@ h1{
       $("qrbox").innerHTML = '<div style="width:168px;height:168px;display:flex;align-items:center;' +
         'justify-content:center;font-size:11px;color:#747B84;text-align:center;padding:12px">' +
         'QR no disponible. Copia la liga.</div>';
+      // Sin esto el boton de descarga queda vivo y no hace nada al pulsarlo.
+      $("dl-png").disabled = true;
+      $("dl-png").textContent = "QR no disponible";
     }
   }
 
@@ -438,11 +475,15 @@ h1{
   });
 
   // Copiar liga
-  $("copy-link").addEventListener("click", function(){
-    var btn = this, original = "Copiar liga";
+  var copyBtn = $("copy-link");
+  var copyLabel = copyBtn.textContent;   // se lee una vez: en el handler ya diria "Liga copiada"
+  var copyTimer = null;
+  copyBtn.addEventListener("click", function(){
+    var btn = this;
     function done(ok){
       btn.textContent = ok ? "Liga copiada" : "Selecciona y copia la liga";
-      setTimeout(function(){ btn.textContent = original; }, 1900);
+      clearTimeout(copyTimer);             // sin esto, clics seguidos encadenan temporizadores
+      copyTimer = setTimeout(function(){ btn.textContent = copyLabel; }, 1900);
     }
     if(navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(CARD_URL).then(function(){ done(true); }, function(){ done(false); });
