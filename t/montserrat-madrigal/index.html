@@ -356,7 +356,12 @@ h1{
     "region": "",
     "country": "",
     "linkedin": "https://www.linkedin.com/in/montse-madrigal/",
-    "note": "Quality Manager."
+    "note": "Quality Manager.",
+    "street": "",
+    "zip": "",
+    "tel": "",
+    "email": "",
+    "web": ""
 };
 
   // Escapa solo separadores estructurales de vCard 3.0.
@@ -393,18 +398,30 @@ h1{
   function buildVcf(){
     var L = ["BEGIN:VCARD","VERSION:3.0"];
     L.push(fold("N:" + esc(DATA.last) + ";" + esc(DATA.first) + ";;;" + esc(DATA.suffix)));
-    L.push(fold("FN:" + esc(DATA.first + " " + DATA.last + ", " + DATA.suffix)));
+    var FN = DATA.first + " " + DATA.last + (DATA.suffix ? ", " + DATA.suffix : "");
+    L.push(fold("FN:" + esc(FN)));
     // Solo se escriben los campos con dato: un ORG o un ADR vacios hacen que el
     // telefono muestre una empresa o una direccion en blanco.
     if(DATA.org)   L.push(fold("ORG:" + esc(DATA.org)));
     if(DATA.title) L.push(fold("TITLE:" + esc(DATA.title)));
-    if(DATA.city || DATA.country){
-      L.push(fold("ADR;TYPE=WORK:;;;" + esc(DATA.city) + ";" + esc(DATA.region) + ";;" + esc(DATA.country)));
+    if(DATA.street || DATA.city || DATA.country){
+      L.push(fold("ADR;TYPE=WORK:;;" + esc(DATA.street || "") + ";" + esc(DATA.city) + ";" + esc(DATA.region) + ";" + esc(DATA.zip || "") + ";" + esc(DATA.country)));
     }
+    if(DATA.tel)   L.push(fold("TEL;TYPE=CELL,VOICE:" + esc(DATA.tel)));
+    if(DATA.email) L.push(fold("EMAIL;TYPE=WORK,INTERNET:" + esc(DATA.email)));
     // URL genérica = su tarjeta. El perfil de LinkedIn va etiquetado aparte.
     L.push(fold("URL:" + esc(CARD_URL)));
-    L.push("item1.URL:" + esc(DATA.linkedin));
-    L.push("item1.X-ABLabel:LinkedIn");
+    var n = 0;
+    if(DATA.linkedin){
+      n++;
+      L.push(fold("item" + n + ".URL:" + esc(DATA.linkedin)));
+      L.push("item" + n + ".X-ABLabel:LinkedIn");
+    }
+    if(DATA.web){
+      n++;
+      L.push(fold("item" + n + ".URL:" + esc(DATA.web)));
+      L.push("item" + n + ".X-ABLabel:Sitio web");
+    }
     L.push(fold("NOTE:" + esc(DATA.note)));
     L.push("END:VCARD");
     return L.join("\r\n");
