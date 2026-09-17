@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aranza Jimena Fuentes Tuch — Tarjeta digital</title>
+<meta name="description" content="Tarjeta de presentación digital de Aranza Jimena Fuentes Tuch. Periodista de Tecnología en Expansión. Guarda el contacto en un toque.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://otfy.github.io/fyware-vcards/t/aranza-fuentes/">
+<meta property="og:title" content="Aranza Jimena Fuentes Tuch">
+<meta property="og:description" content="Periodista de Tecnología · Expansión">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://otfy.github.io/fyware-vcards/t/aranza-fuentes/">
+<meta name="theme-color" content="#0D0F11">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F5F7;
+  --card:rgba(255,255,255,.86);
+  --card-solid:#FFFFFF;
+  --ink:#14171B;
+  --ink-2:#3B424A;
+  --muted:#747B84;
+  --line:#E2E4E8;
+  --line-soft:#EDEEF1;
+  --accent:#3E5C76;
+  --accent-soft:#EDF1F6;
+  --on-accent:#FFFFFF;
+  --shadow:0 1px 2px rgba(20,23,27,.05),0 18px 50px rgba(20,23,27,.10);
+  --scrim:rgba(20,23,27,.42);
+  --neb-1:rgba(62,92,118,.16);
+  --neb-2:rgba(116,138,190,.13);
+  --neb-3:rgba(74,148,168,.12);
+  --neb-4:rgba(148,126,178,.10);
+  --grid:rgba(20,23,27,.038);
+  --grain:.030;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B0D10;
+    --card:rgba(22,25,30,.80);
+    --card-solid:#16191E;
+    --ink:#F1F2F4; --ink-2:#C2C7CD; --muted:#8A9199;
+    --line:#272C33; --line-soft:#1F2429;
+    --accent:#7FA6C7; --accent-soft:#18232E; --on-accent:#0B0D10;
+    --shadow:0 1px 2px rgba(0,0,0,.5),0 24px 64px rgba(0,0,0,.55);
+    --scrim:rgba(0,0,0,.62);
+    --neb-1:rgba(56,112,176,.30);
+    --neb-2:rgba(112,80,184,.22);
+    --neb-3:rgba(28,140,152,.20);
+    --neb-4:rgba(76,58,140,.20);
+    --grid:rgba(190,215,255,.050);
+    --grain:.055;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B0D10;
+  --card:rgba(22,25,30,.80);
+  --card-solid:#16191E;
+  --ink:#F1F2F4; --ink-2:#C2C7CD; --muted:#8A9199;
+  --line:#272C33; --line-soft:#1F2429;
+  --accent:#7FA6C7; --accent-soft:#18232E; --on-accent:#0B0D10;
+  --shadow:0 1px 2px rgba(0,0,0,.5),0 24px 64px rgba(0,0,0,.55);
+  --scrim:rgba(0,0,0,.62);
+  --neb-1:rgba(56,112,176,.30);
+  --neb-2:rgba(112,80,184,.22);
+  --neb-3:rgba(28,140,152,.20);
+  --neb-4:rgba(76,58,140,.20);
+  --grid:rgba(190,215,255,.050);
+  --grain:.055;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:Inter,"Segoe UI",system-ui,-apple-system,sans-serif;
+  font-size:15px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  display:flex;align-items:center;justify-content:center;
+  min-height:100vh;padding:34px 18px;
+  position:relative;overflow-x:hidden;
+}
+body.locked{overflow:hidden}
+
+/* ---------- Nebulosa ---------- */
+body::before{
+  content:"";position:fixed;inset:-25%;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(34% 28% at 16% 20%, var(--neb-1), transparent 64%),
+    radial-gradient(30% 24% at 84% 12%, var(--neb-2), transparent 62%),
+    radial-gradient(44% 36% at 74% 82%, var(--neb-3), transparent 66%),
+    radial-gradient(28% 24% at 26% 80%, var(--neb-4), transparent 60%);
+  filter:blur(34px);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size:46px 46px, 46px 46px;
+  -webkit-mask-image:radial-gradient(72% 62% at 50% 44%, #000 0%, transparent 80%);
+          mask-image:radial-gradient(72% 62% at 50% 44%, #000 0%, transparent 80%);
+}
+.grainfix{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:var(--grain);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.stage{width:100%;max-width:420px;position:relative;z-index:1}
+
+/* ---------- Tarjeta ---------- */
+.card{
+  position:relative;
+  background:var(--card);
+  -webkit-backdrop-filter:blur(22px) saturate(130%);
+          backdrop-filter:blur(22px) saturate(130%);
+  border:1px solid var(--line);
+  border-radius:22px;box-shadow:var(--shadow);overflow:hidden;
+}
+.crest{
+  height:3px;
+  background:linear-gradient(90deg,var(--accent) 0%,var(--accent) 30%,transparent 30%,transparent 100%);
+}
+.card-tool{
+  position:absolute;top:14px;right:14px;z-index:3;
+  display:inline-flex;align-items:center;gap:7px;
+  height:34px;padding:0 13px;border-radius:999px;
+  background:var(--accent-soft);border:1px solid var(--line);
+  color:var(--accent);cursor:pointer;
+  font:inherit;font-size:12px;font-weight:600;letter-spacing:.01em;
+  transition:opacity .15s ease;
+}
+.card-tool:hover{opacity:.8}
+.card-tool:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.card-tool svg{width:14px;height:14px;display:block;flex:none}
+
+.head{padding:32px 30px 24px;text-align:center}
+.avatar{
+  width:84px;height:84px;margin:0 auto 20px;border-radius:50%;
+  border:1px solid var(--line);background:var(--accent-soft);
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Space Grotesk",Inter,sans-serif;font-weight:600;font-size:26px;
+  color:var(--accent);overflow:hidden;
+  box-shadow:0 0 0 5px var(--accent-soft);
+}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+h1{
+  margin:0;font-family:"Space Grotesk",Inter,sans-serif;font-weight:600;
+  font-size:29px;line-height:1.15;letter-spacing:-.022em;color:var(--ink);
+}
+.role{margin:10px 0 0;font-size:14px;font-weight:500;color:var(--ink-2)}
+.org{
+  margin:4px 0 0;font-size:10.5px;font-weight:600;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.18em;
+}
+.creds{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:20px 0 0;padding:0;list-style:none}
+.creds li{
+  font-family:"Space Grotesk",Inter,sans-serif;
+  font-size:10px;font-weight:600;letter-spacing:.10em;text-transform:uppercase;
+  color:var(--accent);background:var(--accent-soft);
+  border:1px solid var(--line);border-radius:999px;padding:4px 11px;
+}
+
+/* ---------- Datos ---------- */
+.rows{border-top:1px solid var(--line-soft);padding:6px 30px 4px}
+.row{display:flex;align-items:baseline;gap:14px;padding:13px 0;border-bottom:1px solid var(--line-soft)}
+.row:last-child{border-bottom:none}
+.row .k{
+  flex:none;width:80px;font-size:9.5px;font-weight:600;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.14em;
+}
+.row .v{font-size:13.5px;color:var(--ink-2);word-break:break-word}
+.row .v a{color:var(--accent);text-decoration:none;font-weight:500}
+.row .v a:hover{text-decoration:underline}
+
+/* ---------- Acción principal ---------- */
+.actions{padding:22px 30px 28px;border-top:1px solid var(--line-soft)}
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  width:100%;font:inherit;font-size:14.5px;font-weight:600;
+  padding:15px 16px;border-radius:12px;text-align:center;cursor:pointer;
+  text-decoration:none;border:1px solid transparent;transition:opacity .15s ease;
+}
+.btn:hover{opacity:.88}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn.ghost{background:transparent;color:var(--ink-2);border-color:var(--line)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:disabled:hover{opacity:.45}
+.btn svg{width:17px;height:17px;flex:none}
+.hint{margin:11px 0 0;text-align:center;font-size:11.5px;color:var(--muted)}
+
+/* ---------- Footer ---------- */
+.powered{margin:22px 0 0;text-align:center;font-size:11.5px;color:var(--muted);letter-spacing:.04em}
+.powered a{color:var(--muted);text-decoration:none;font-weight:600;border-bottom:1px solid var(--line);padding-bottom:1px}
+.powered a:hover{color:var(--accent);border-color:var(--accent)}
+.aviso{max-width:360px;margin:12px auto 0;text-align:center;font-size:10.5px;
+  line-height:1.55;color:var(--muted);opacity:.78}
+.aviso a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+.aviso a:hover{color:var(--accent)}
+
+/* ---------- Panel Compartir ---------- */
+.scrim{
+  position:fixed;inset:0;z-index:40;background:var(--scrim);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;padding:22px 18px;
+  opacity:0;visibility:hidden;transition:opacity .18s ease,visibility .18s ease;
+}
+/* Sin esto el atributo hidden no hace nada: display:flex de autor gana
+   sobre el display:none de la hoja del navegador. */
+.scrim[hidden]{display:none}
+.scrim.open{opacity:1;visibility:visible}
+.sheet{
+  width:100%;background:var(--card-solid);
+  border:1px solid var(--line);border-radius:20px;
+  box-shadow:0 24px 70px rgba(0,0,0,.35);
+  padding:24px 24px 22px;text-align:center;
+  transform:translateY(10px) scale(.985);transition:transform .18s ease;
+}
+.scrim.open .sheet{transform:none}
+.sheet h2{
+  margin:0 0 4px;font-family:"Space Grotesk",Inter,sans-serif;
+  font-size:17px;font-weight:600;letter-spacing:-.01em;color:var(--ink);
+}
+.sheet .sub{margin:0 0 18px;font-size:12.5px;color:var(--muted);line-height:1.5}
+.qrframe{
+  display:inline-block;padding:13px;background:#fff;
+  border:1px solid var(--line);border-radius:14px;line-height:0;
+}
+.qrframe canvas,.qrframe svg{width:168px !important;height:168px !important;display:block}
+.linkbox{
+  display:block;width:100%;margin:16px 0 0;padding:10px 12px;
+  background:var(--accent-soft);border:1px solid var(--line);border-radius:10px;
+  font-size:11.5px;color:var(--ink-2);word-break:break-all;line-height:1.45;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+.sheet .stack{display:grid;gap:8px;margin-top:14px}
+.sheet .btn{font-size:13.5px;padding:12px 14px}
+.sheet-powered{
+  margin:18px 0 0;padding-top:16px;
+  border-top:1px solid var(--line-soft);
+  font-size:11px;
+}
+.closex{
+  position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  background:transparent;border:1px solid var(--line);color:var(--muted);cursor:pointer;
+}
+.closex:hover{color:var(--ink)}
+.sheetwrap{position:relative;width:100%;max-width:360px}
+/* .sheet ya no repite max-width: lo impone .sheetwrap */
+
+@media(max-width:400px){
+  .head{padding:30px 22px 22px}
+  .rows,.actions{padding-left:22px;padding-right:22px}
+  h1{font-size:26px}
+  .row{flex-direction:column;gap:3px}
+  .row .k{width:auto}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+<div class="grainfix" aria-hidden="true"></div>
+
+<div class="stage">
+  <main class="card">
+    <div class="crest"></div>
+
+    <button class="card-tool" id="tool-open" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="7" height="7" rx="1"/>
+        <rect x="14" y="3" width="7" height="7" rx="1"/>
+        <rect x="3" y="14" width="7" height="7" rx="1"/>
+        <path d="M14 14h3v3M21 17v4h-4M17.5 20.5h.01" stroke-linecap="round"/>
+      </svg>
+      Compartir
+    </button>
+
+    <header class="head">
+      <div class="avatar"><img src="data:image/jpeg;base64,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" alt="Aranza Jimena Fuentes Tuch" width="220" height="220"></div>
+      <h1>Aranza Jimena Fuentes Tuch</h1>
+      <p class="role">Periodista de Tecnología</p>
+      <p class="org">Expansión</p>
+      
+    </header>
+
+    <section class="rows">
+      <div class="row"><span class="k">Empresa</span><span class="v">Expansión</span></div>
+      <div class="row"><span class="k">Enfoque</span><span class="v">Inteligencia artificial, innovación, startups, transformación digital, e-commerce y retail</span></div>
+      <div class="row"><span class="k">Ubicación</span><span class="v">Cuernavaca, Morelos, México</span></div>
+      <div class="row"><span class="k">Formación</span><span class="v">Universidad La Salle de Cuernavaca</span></div>
+      <div class="row"><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/arajimenafuentess/" target="_blank" rel="noopener">in/arajimenafuentess</a></span></div>
+    </section>
+
+    <div class="actions">
+      <button class="btn primary" id="dl-vcf" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12M7.5 10.5L12 15l4.5-4.5M4 19h16"/>
+        </svg>
+        Guardar contacto
+      </button>
+      <p class="hint">Se agrega directo a los contactos de tu teléfono</p>
+    </div>
+  </main>
+
+  <p class="powered">Powered by <a href="https://www.fyware.com/?utm_source=vcard-aranza-fuentes&amp;utm_medium=tarjeta-digital&amp;utm_campaign=tarjetas-digitales-2026&amp;utm_content=pie-tarjeta" target="_blank" rel="noopener">www.fyware.com</a></p>
+  <p class="aviso">Tarjeta elaborada por Fyware con datos públicos del perfil de LinkedIn del titular. Para actualizarla o solicitar su baja: <a href="mailto:oscar.tobias@fyware.com?subject=Tarjeta%20digital%20aranza-fuentes">oscar.tobias@fyware.com</a></p>
+</div>
+
+<!-- Panel Compartir -->
+<div class="scrim" id="scrim" role="dialog" aria-modal="true" aria-labelledby="sheet-title" hidden>
+  <div class="sheetwrap">
+    <div class="sheet">
+      <button class="closex" id="tool-close" type="button" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <h2 id="sheet-title">Comparte tu tarjeta</h2>
+      <p class="sub">Quien escanee este código abre tu tarjeta y puede guardar tu contacto.</p>
+      <div class="qrframe" id="qrbox"></div>
+      <code class="linkbox" id="linktext">otfy.github.io/fyware-vcards/t/aranza-fuentes/</code>
+      <div class="stack">
+        <button class="btn primary" id="copy-link" type="button">Copiar liga</button>
+        <button class="btn ghost" id="dl-png" type="button">Descargar QR (PNG)</button>
+        <button class="btn ghost" id="tool-native" type="button" hidden>Compartir</button>
+      </div>
+      <p class="powered sheet-powered">Powered by <a href="https://www.fyware.com/?utm_source=vcard-aranza-fuentes&amp;utm_medium=tarjeta-digital&amp;utm_campaign=tarjetas-digitales-2026&amp;utm_content=panel-compartir" target="_blank" rel="noopener">www.fyware.com</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="qr-code-styling.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  // ===================================================================
+  // AL CLONAR ESTA TARJETA PARA OTRA PERSONA, CAMBIAR TAMBIEN:
+  //   <head>  : title, description, canonical, og:title, og:description, og:url
+  //   <body>  : foto, nombre, puesto, empresa, credenciales, filas de datos
+  //   enlaces : utm_source=vcard-<slug> en los DOS "Powered by"
+  //   .linkbox: el texto de respaldo de la liga
+  //   abajo   : CARD_URL, DATA y el nombre de archivo del .vcf
+  // Si se queda el utm_source de otra persona, la atribucion se
+  // contamina sin que nadie lo note.
+  // ===================================================================
+  var CARD_URL = "https://otfy.github.io/fyware-vcards/t/aranza-fuentes/";
+  var VCF_FILENAME = "Aranza-Jimena-Fuentes-Tuch.vcf";
+  var INICIALES = "AF";   // respaldo si la foto no carga
+
+  var DATA = {
+    "first": "Aranza Jimena",
+    "last": "Fuentes Tuch",
+    "suffix": "",
+    "title": "Periodista de Tecnología",
+    "org": "Expansión",
+    "city": "Cuernavaca",
+    "region": "",
+    "country": "México",
+    "linkedin": "https://www.linkedin.com/in/arajimenafuentess/",
+    "note": "Periodista de Tecnología."
+};
+
+  // Escapa solo separadores estructurales de vCard 3.0.
+  // La coma NO se escapa: en campos de valor único varios Android la muestran como "\,".
+  function esc(s){
+    return String(s == null ? "" : s)
+      .replace(/\\/g, "\\\\")
+      .replace(/;/g, "\\;")
+      .replace(/\r?\n/g, "\\n");
+  }
+  // vCard pliega por OCTETOS, no por caracteres, y no se puede cortar a media
+  // letra. Con acentos o emoji (los hay en varios headlines de LinkedIn) contar
+  // con .length y cortar con .slice parte pares sustitutos y corrompe el .vcf.
+  var ENC = (typeof TextEncoder !== "undefined") ? new TextEncoder() : null;
+  function octetos(s){ return ENC ? ENC.encode(s).length : s.length; }
+
+  function fold(line){
+    if(octetos(line) <= 75) return line;
+    var chars = Array.from(line);           // itera por code point, no por unidad UTF-16
+    var partes = [], actual = "", bytes = 0, limite = 75;
+    for(var i = 0; i < chars.length; i++){
+      var b = octetos(chars[i]);
+      if(bytes + b > limite){
+        partes.push(actual);
+        actual = ""; bytes = 0;
+        limite = 74;                        // las continuaciones gastan un octeto en el espacio inicial
+      }
+      actual += chars[i];
+      bytes += b;
+    }
+    partes.push(actual);
+    return partes.join("\r\n ");
+  }
+  function buildVcf(){
+    var L = ["BEGIN:VCARD","VERSION:3.0"];
+    L.push(fold("N:" + esc(DATA.last) + ";" + esc(DATA.first) + ";;;" + esc(DATA.suffix)));
+    L.push(fold("FN:" + esc(DATA.first + " " + DATA.last + ", " + DATA.suffix)));
+    // Solo se escriben los campos con dato: un ORG o un ADR vacios hacen que el
+    // telefono muestre una empresa o una direccion en blanco.
+    if(DATA.org)   L.push(fold("ORG:" + esc(DATA.org)));
+    if(DATA.title) L.push(fold("TITLE:" + esc(DATA.title)));
+    if(DATA.city || DATA.country){
+      L.push(fold("ADR;TYPE=WORK:;;;" + esc(DATA.city) + ";" + esc(DATA.region) + ";;" + esc(DATA.country)));
+    }
+    // URL genérica = su tarjeta. El perfil de LinkedIn va etiquetado aparte.
+    L.push(fold("URL:" + esc(CARD_URL)));
+    L.push("item1.URL:" + esc(DATA.linkedin));
+    L.push("item1.X-ABLabel:LinkedIn");
+    L.push(fold("NOTE:" + esc(DATA.note)));
+    L.push("END:VCARD");
+    return L.join("\r\n");
+  }
+
+  var VCF = buildVcf();
+  var $ = function(id){ return document.getElementById(id); };
+
+  // La foto va incrustada en el HTML, asi que no deberia fallar nunca. Esto
+  // cubre el caso de un clon que use un archivo externo: en vez del texto
+  // alternativo suelto dentro del circulo, queda el monograma.
+  var avatarImg = document.querySelector(".avatar img");
+  if(avatarImg){
+    avatarImg.addEventListener("error", function(){
+      var caja = avatarImg.parentNode;
+      avatarImg.remove();
+      caja.textContent = INICIALES;
+    });
+  }
+
+  function download(blob, filename){
+    var url = URL.createObjectURL(blob), a = document.createElement("a");
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
+  }
+
+  // ---- Acción principal: guardar contacto ----
+  $("dl-vcf").addEventListener("click", function(){
+    download(new Blob([VCF], {type:"text/vcard;charset=utf-8"}), VCF_FILENAME);
+  });
+
+  // ---- Panel compartir ----
+  var scrim = $("scrim"), openBtn = $("tool-open"), closeBtn = $("tool-close");
+  var qr = null, qrReady = false;
+
+  $("linktext").textContent = CARD_URL.replace(/^https:\/\//, "");
+
+  function buildQR(){
+    if(qrReady) return;
+    qrReady = true;
+    try{
+      qr = new QRCodeStyling({
+        width:520, height:520, type:"canvas", data:CARD_URL, margin:0,
+        qrOptions:{ errorCorrectionLevel:"Q" },
+        dotsOptions:{ type:"square", color:"#14171B" },
+        cornersSquareOptions:{ type:"square", color:"#3E5C76" },
+        cornersDotOptions:{ type:"square", color:"#14171B" },
+        backgroundOptions:{ color:"#ffffff" }
+      });
+      qr.append($("qrbox"));
+    }catch(e){
+      $("qrbox").innerHTML = '<div style="width:168px;height:168px;display:flex;align-items:center;' +
+        'justify-content:center;font-size:11px;color:#747B84;text-align:center;padding:12px">' +
+        'QR no disponible. Copia la liga.</div>';
+      // Sin esto el boton de descarga queda vivo y no hace nada al pulsarlo.
+      $("dl-png").disabled = true;
+      $("dl-png").textContent = "QR no disponible";
+    }
+  }
+
+  function openSheet(){
+    buildQR();
+    scrim.hidden = false;
+    // Reflow forzado en lugar de requestAnimationFrame: rAF se congela si la
+    // pestaña no está visible y el panel se quedaría invisible con hidden=false.
+    void scrim.offsetHeight;
+    scrim.classList.add("open");
+    document.body.classList.add("locked");
+    closeBtn.focus();
+  }
+  function closeSheet(){
+    scrim.classList.remove("open");
+    document.body.classList.remove("locked");
+    openBtn.focus();
+    setTimeout(function(){ if(!scrim.classList.contains("open")) scrim.hidden = true; }, 220);
+  }
+
+  openBtn.addEventListener("click", openSheet);
+  closeBtn.addEventListener("click", closeSheet);
+  scrim.addEventListener("click", function(e){ if(e.target === scrim) closeSheet(); });
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape" && scrim.classList.contains("open")) closeSheet();
+  });
+
+  // Copiar liga
+  var copyBtn = $("copy-link");
+  var copyLabel = copyBtn.textContent;   // se lee una vez: en el handler ya diria "Liga copiada"
+  var copyTimer = null;
+  copyBtn.addEventListener("click", function(){
+    var btn = this;
+    function done(ok){
+      btn.textContent = ok ? "Liga copiada" : "Selecciona y copia la liga";
+      clearTimeout(copyTimer);             // sin esto, clics seguidos encadenan temporizadores
+      copyTimer = setTimeout(function(){ btn.textContent = copyLabel; }, 1900);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(CARD_URL).then(function(){ done(true); }, function(){ done(false); });
+    }else{
+      try{
+        var ta = document.createElement("textarea");
+        ta.value = CARD_URL; ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.select();
+        done(document.execCommand("copy"));
+        document.body.removeChild(ta);
+      }catch(e){ done(false); }
+    }
+  });
+
+  // Descargar QR
+  $("dl-png").addEventListener("click", function(){
+    if(qr && qr.download){ qr.download({ name:"Aranza-Jimena-Fuentes-Tuch-QR", extension:"png" }); }
+  });
+
+  // Compartir nativo (móvil)
+  if(navigator.share){
+    var ns = $("tool-native");
+    ns.hidden = false;
+    ns.addEventListener("click", function(){
+      navigator.share({
+        title:"Aranza Jimena Fuentes Tuch",
+        text:"Mi tarjeta de contacto",
+        url:CARD_URL
+      }).catch(function(){});
+    });
+  }
+})();
+</script>
+</body>
+</html>
