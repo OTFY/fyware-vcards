@@ -414,6 +414,14 @@ h1{
   var QR_LOGO = "";
   var qrDescarga = null;
 
+  // Contador de aperturas: una imagen de 0 bytes pedida a la hoja de Oscar
+  // con el nombre de la tarjeta. Sin liga configurada no se manda nada.
+  // No identifica a quien abre: solo fecha, hora y cual tarjeta.
+  var CONTADOR = "";
+  if(CONTADOR){
+    try{ new Image().src = CONTADOR + "?t=montserrat-madrigal&n=" + Date.now(); }catch(e){}
+  }
+
   // Escapa solo separadores estructurales de vCard 3.0.
   // La coma NO se escapa: en campos de valor único varios Android la muestran como "\,".
   function esc(s){
