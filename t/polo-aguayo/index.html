@@ -103,6 +103,30 @@ body::after{
   -webkit-mask-image:radial-gradient(72% 62% at 50% 44%, #000 0%, transparent 80%);
           mask-image:radial-gradient(72% 62% at 50% 44%, #000 0%, transparent 80%);
 }
+/* ---------- Motivo de fondo (opcional, por persona) ----------
+   Se apoya en la nebulosa, no la sustituye. El padre pone el desvanecido
+   hacia las orillas; el hijo lleva la silueta y la deriva. */
+.motivo{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;
+  -webkit-mask-image:radial-gradient(78% 70% at 50% 46%, transparent 0%, #000 72%);
+          mask-image:radial-gradient(78% 70% at 50% 46%, transparent 0%, #000 72%);
+}
+.motivo i{
+  position:absolute;inset:-220px 0;display:block;background:var(--accent);opacity:.07;
+  -webkit-mask-repeat:repeat; mask-repeat:repeat;
+  -webkit-mask-size:260px 200px; mask-size:260px 200px;
+  animation:deriva 52s linear infinite;
+}
+.motivo.texto i{
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='260'%20height='200'%3E%3Crect%20x='0'%20y='6'%20width='108'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='20'%20width='95'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='34'%20width='86'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='48'%20width='105'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='62'%20width='35'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='85'%20width='87'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='99'%20width='98'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='113'%20width='86'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='127'%20width='96'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='141'%20width='87'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='155'%20width='35'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='178'%20width='87'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='192'%20width='99'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='6'%20width='101'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='20'%20width='99'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='34'%20width='87'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='48'%20width='49'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='71'%20width='109'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='85'%20width='86'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='99'%20width='106'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='113'%20width='40'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='136'%20width='98'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='150'%20width='99'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='164'%20width='99'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='178'%20width='51'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3C/svg%3E");
+          mask-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='260'%20height='200'%3E%3Crect%20x='0'%20y='6'%20width='108'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='20'%20width='95'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='34'%20width='86'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='48'%20width='105'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='62'%20width='35'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='85'%20width='87'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='99'%20width='98'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='113'%20width='86'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='127'%20width='96'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='141'%20width='87'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='155'%20width='35'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='178'%20width='87'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='192'%20width='99'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='6'%20width='101'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='20'%20width='99'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='34'%20width='87'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='48'%20width='49'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='71'%20width='109'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='85'%20width='86'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='99'%20width='106'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='113'%20width='40'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='136'%20width='98'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='150'%20width='99'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='164'%20width='99'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='178'%20width='51'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3C/svg%3E");
+}
+@keyframes deriva{
+  from{-webkit-mask-position:0 0;          mask-position:0 0}
+  to  {-webkit-mask-position:0 -200px;     mask-position:0 -200px}
+}
+@media (prefers-reduced-motion:reduce){.motivo i{animation:none}}
+
 .grainfix{
   position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:var(--grain);
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
