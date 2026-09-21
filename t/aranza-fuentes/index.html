@@ -104,28 +104,37 @@ body::after{
           mask-image:radial-gradient(72% 62% at 50% 44%, #000 0%, transparent 80%);
 }
 /* ---------- Motivo de fondo (opcional, por persona) ----------
-   Se apoya en la nebulosa, no la sustituye. El padre pone el desvanecido
-   hacia las orillas; el hijo lleva la silueta y la deriva. */
+   Se apoya en la nebulosa, no la sustituye. La tarjeta es translucida,
+   asi que el motivo se alcanza a ver por debajo, como marca de agua. */
 .motivo{
   position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;
-  -webkit-mask-image:radial-gradient(78% 70% at 50% 46%, transparent 0%, #000 72%);
-          mask-image:radial-gradient(78% 70% at 50% 46%, transparent 0%, #000 72%);
 }
-.motivo i{
-  position:absolute;inset:-220px 0;display:block;background:var(--accent);opacity:.07;
-  -webkit-mask-repeat:repeat; mask-repeat:repeat;
-  -webkit-mask-size:260px 200px; mask-size:260px 200px;
-  animation:deriva 52s linear infinite;
+.motivo svg{
+  position:absolute;left:50%;top:44%;width:140vmin;height:140vmin;
+  transform:translate(-50%,-50%);
 }
-.motivo.texto i{
-  -webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='260'%20height='200'%3E%3Crect%20x='0'%20y='6'%20width='108'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='20'%20width='95'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='34'%20width='86'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='48'%20width='105'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='62'%20width='35'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='85'%20width='87'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='99'%20width='98'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='113'%20width='86'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='127'%20width='96'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='141'%20width='87'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='155'%20width='35'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='178'%20width='87'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='192'%20width='99'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='6'%20width='101'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='20'%20width='99'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='34'%20width='87'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='48'%20width='49'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='71'%20width='109'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='85'%20width='86'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='99'%20width='106'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='113'%20width='40'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='136'%20width='98'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='150'%20width='99'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='164'%20width='99'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='178'%20width='51'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3C/svg%3E");
-          mask-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='260'%20height='200'%3E%3Crect%20x='0'%20y='6'%20width='108'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='20'%20width='95'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='34'%20width='86'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='48'%20width='105'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='62'%20width='35'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='85'%20width='87'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='99'%20width='98'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='113'%20width='86'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='127'%20width='96'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='141'%20width='87'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='155'%20width='35'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='178'%20width='87'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='0'%20y='192'%20width='99'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='6'%20width='101'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='20'%20width='99'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='34'%20width='87'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='48'%20width='49'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='71'%20width='109'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='85'%20width='86'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='99'%20width='106'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='113'%20width='40'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='136'%20width='98'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='150'%20width='99'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='164'%20width='99'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3Crect%20x='140'%20y='178'%20width='51'%20height='5'%20rx='2.5'%20fill='%23000'/%3E%3C/svg%3E");
+
+/* globo de noticiero: malla de meridianos y paralelos, mas la senal que sale al aire */
+.motivo.globo{
+  -webkit-mask-image:radial-gradient(84% 76% at 50% 44%, #000 40%, transparent 100%);
+          mask-image:radial-gradient(84% 76% at 50% 44%, #000 40%, transparent 100%);
 }
-@keyframes deriva{
-  from{-webkit-mask-position:0 0;          mask-position:0 0}
-  to  {-webkit-mask-position:0 -200px;     mask-position:0 -200px}
+.motivo.globo .malla{fill:none;stroke:var(--accent);stroke-width:1;opacity:.17}
+.motivo.globo .limbo{stroke-width:1.8}
+.motivo.globo .foco{fill:var(--accent);opacity:.45}
+.motivo.globo .onda{
+  fill:none;stroke:var(--accent);stroke-width:2;opacity:0;
+  transform-origin:center;transform-box:fill-box;
+  animation:onda 7s ease-out infinite;
 }
-@media (prefers-reduced-motion:reduce){.motivo i{animation:none}}
+.motivo.globo .o2{animation-delay:2.33s}
+.motivo.globo .o3{animation-delay:4.66s}
+@keyframes onda{
+  0%  {transform:scale(.35);opacity:.40}
+  65% {opacity:.10}
+  100%{transform:scale(8);opacity:0}
+}
+@media (prefers-reduced-motion:reduce){.motivo .onda{animation:none;opacity:.12}}
 
 .grainfix{
   position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:var(--grain);
@@ -287,7 +296,7 @@ h1{
 </style>
 </head>
 <body>
-<div class="motivo texto" aria-hidden="true"><i></i></div><div class="grainfix" aria-hidden="true"></div>
+<div class="motivo globo" aria-hidden="true"><svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g class="malla"><ellipse cx="300.0" cy="498.8" rx="120.0" ry="35.1"/><ellipse cx="300.0" cy="447.5" rx="183.9" ry="53.8"/><ellipse cx="300.0" cy="378.5" rx="225.5" ry="65.9"/><ellipse cx="300.0" cy="300.0" rx="240.0" ry="70.2" stroke-width="1.6"/><ellipse cx="300.0" cy="221.5" rx="225.5" ry="65.9"/><ellipse cx="300.0" cy="152.5" rx="183.9" ry="53.8"/><ellipse cx="300.0" cy="101.2" rx="120.0" ry="35.1"/><ellipse cx="300.0" cy="300.0" rx="240.0" ry="240.0" transform="rotate(-9.4 300.0 300.0)"/><ellipse cx="300.0" cy="300.0" rx="222.5" ry="240.0" transform="rotate(-9.4 300.0 300.0)"/><ellipse cx="300.0" cy="300.0" rx="172.6" ry="240.0" transform="rotate(-9.4 300.0 300.0)"/><ellipse cx="300.0" cy="300.0" rx="97.6" ry="240.0" transform="rotate(-9.4 300.0 300.0)"/><ellipse cx="300.0" cy="300.0" rx="8.4" ry="240.0" transform="rotate(-9.4 300.0 300.0)"/><ellipse cx="300.0" cy="300.0" rx="82.1" ry="240.0" transform="rotate(-9.4 300.0 300.0)"/><ellipse cx="300.0" cy="300.0" rx="160.6" ry="240.0" transform="rotate(-9.4 300.0 300.0)"/><ellipse cx="300.0" cy="300.0" rx="215.7" ry="240.0" transform="rotate(-9.4 300.0 300.0)"/><ellipse cx="300.0" cy="300.0" rx="239.4" ry="240.0" transform="rotate(-9.4 300.0 300.0)"/><circle cx="300.0" cy="300.0" r="240.0" class="limbo"/></g><g class="senal" transform="translate(196 214)"><circle r="3.4" class="foco"/><circle r="10" class="onda"/><circle r="10" class="onda o2"/><circle r="10" class="onda o3"/></g></svg></div><div class="grainfix" aria-hidden="true"></div>
 
 <div class="stage">
   <main class="card">
