@@ -30,6 +30,7 @@
   --on-accent:#FFFFFF;
   --shadow:0 1px 2px rgba(20,23,27,.05),0 18px 50px rgba(20,23,27,.10);
   --scrim:rgba(20,23,27,.42);
+  --marca:#3E5C76;
   --neb-1:rgba(62,92,118,.16);
   --neb-2:rgba(116,138,190,.13);
   --neb-3:rgba(74,148,168,.12);
@@ -263,6 +264,20 @@ h1{
   border:1px solid var(--line);border-radius:14px;line-height:0;
 }
 .qrframe canvas,.qrframe svg{width:168px !important;height:168px !important;display:block}
+/* El QR como mosaico: cada modulo es un cuadro que sabe volar a su sitio en el logo */
+.mosaico{position:relative;cursor:pointer;line-height:0}
+.mosaico b{
+  position:absolute;left:0;top:0;background:#14171B;
+  transition:transform .8s cubic-bezier(.22,.68,.24,1),
+             background-color .45s ease, opacity .4s ease;
+  will-change:transform;
+}
+.mosaico.es-logo b{background:var(--marca)}
+.qrhint{
+  margin:10px 0 0;font-size:11px;color:var(--muted);text-align:center;
+  cursor:pointer;user-select:none;-webkit-user-select:none;
+}
+@media (prefers-reduced-motion:reduce){.mosaico b{transition:none}}
 .linkbox{
   display:block;width:100%;margin:16px 0 0;padding:10px 12px;
   background:var(--accent-soft);border:1px solid var(--line);border-radius:10px;
@@ -399,6 +414,8 @@ h1{
     "email": "",
     "web": ""
 };
+  var QR_LOGO = "";
+  var qrDescarga = null;
 
   // Escapa solo separadores estructurales de vCard 3.0.
   // La coma NO se escapa: en campos de valor único varios Android la muestran como "\,".
@@ -496,19 +513,205 @@ h1{
 
   $("linktext").textContent = CARD_URL.replace(/^https:\/\//, "");
 
+  // ---- QR ----------------------------------------------------------------
+  // Se dibuja en un canvas fuera de pantalla y de ahi se lee la reticula. Si la
+  // persona trae logo, cada modulo pasa a ser un <b> que puede viajar hasta su
+  // lugar dentro del logo y regresar. Si algo falla en el camino, se cae de pie
+  // y se muestra el canvas de siempre.
+  function opcionesQR(conImagen){
+    var o = {
+      width:520, height:520, type:"canvas", data:CARD_URL, margin:0,
+      qrOptions:{ errorCorrectionLevel:"Q" },
+      dotsOptions:{ type:"square", color:"#14171B" },
+      cornersSquareOptions:{ type:"square", color:"#3E5C76" },
+      cornersDotOptions:{ type:"square", color:"#14171B" },
+      backgroundOptions:{ color:"#ffffff" }
+    };
+    if(conImagen && QR_LOGO){
+      o.image = QR_LOGO;
+      o.imageOptions = { margin:5, imageSize:.24, hideBackgroundDots:true };
+    }
+    return o;
+  }
+
+  // append() de qr-code-styling no deja el canvas puesto en el mismo tick
+  function esperarCanvas(cont, listo){
+    var n = 0;
+    (function mirar(){
+      var cv = cont.querySelector("canvas");
+      if(cv) listo(cv);
+      else if(++n > 40) listo(null);
+      else setTimeout(mirar, 60);
+    })();
+  }
+
+  // qr-code-styling pinta fondo y modulos en pasos distintos, asi que una
+  // lectura temprana puede caer a medio dibujo y dar una reticula falsa.
+  // Solo se acepta cuando dos lecturas seguidas coinciden.
+  function cuentaModulos(m){
+    var k = 0;
+    for(var i = 0; i < m.c.length; i++) k += m.c[i];
+    return k;
+  }
+  function esperarReticula(cv, listo){
+    var intentos = 0, previa = null;
+    (function mirar(){
+      var m = leerReticula(cv);
+      if(m){
+        var k = cuentaModulos(m);
+        if(previa && previa.n === m.n && previa.k === k){ listo(m); return; }
+        previa = { n:m.n, k:k };
+      }
+      if(++intentos > 40){ listo(null); return; }
+      setTimeout(mirar, 60);
+    })();
+  }
+
+  // Devuelve {n, c} con el tamano de la reticula y que modulos estan pintados.
+  // Primero se ubica la caja del codigo, porque la libreria deja una franja
+  // blanca aunque se le pida margen 0. Dentro de la caja, el primer bloque
+  // oscuro es el ojo superior izquierdo y mide 7 modulos.
+  function leerReticula(cv){
+    try{
+      var W = cv.width, d = cv.getContext("2d").getImageData(0, 0, W, W).data;
+      function oscuro(x, y){ return d[(y * W + x) * 4] < 128; }
+      var x0 = W, y0 = W, x1 = -1, y1 = -1, x, y;
+      for(y = 0; y < W; y++){
+        for(x = 0; x < W; x++){
+          if(!oscuro(x, y)) continue;
+          if(x < x0) x0 = x;
+          if(y < y0) y0 = y;
+          if(x > x1) x1 = x;
+          if(y > y1) y1 = y;
+        }
+      }
+      if(x1 < 0) return null;
+      var ancho = x1 - x0 + 1, corrida = 0;
+      while(x0 + corrida <= x1 && oscuro(x0 + corrida, y0 + 2)) corrida++;
+      if(corrida < 7) return null;
+      var modulo = corrida / 7, N = Math.round(ancho / modulo);
+      if(N < 21 || N > 177) return null;
+      var celdas = new Array(N * N);
+      for(y = 0; y < N; y++){
+        for(x = 0; x < N; x++){
+          var px = Math.min(W - 1, x0 + Math.floor((x + 0.5) * modulo)),
+              py = Math.min(W - 1, y0 + Math.floor((y + 0.5) * modulo));
+          celdas[y * N + x] = oscuro(px, py) ? 1 : 0;
+        }
+      }
+      return { n:N, c:celdas };
+    }catch(e){ return null; }
+  }
+
+  function armarMosaico(m){
+    var LADO = 168, N = m.n, paso = LADO / N, piezas = [], x, y;
+    var caja = document.createElement("div");
+    caja.className = "mosaico";
+    caja.style.width = caja.style.height = LADO + "px";
+    for(y = 0; y < N; y++){
+      for(x = 0; x < N; x++){
+        if(!m.c[y * N + x]) continue;
+        var b = document.createElement("b");
+        b.style.width = b.style.height = (paso + 0.6).toFixed(2) + "px";
+        b.style.transform = "translate(" + (x * paso).toFixed(2) + "px," + (y * paso).toFixed(2) + "px)";
+        caja.appendChild(b);
+        piezas.push({ el:b, qx:x * paso, qy:y * paso });
+      }
+    }
+    var marco = $("qrbox");
+    marco.innerHTML = "";
+    marco.appendChild(caja);
+    var pista = document.createElement("p");
+    pista.className = "qrhint";
+    pista.textContent = "Toca el código para ver el logo";
+    marco.parentNode.insertBefore(pista, marco.nextSibling);
+    destinoLogo(N, paso, piezas, caja, pista);
+  }
+
+  // Rasteriza el logo a la misma reticula del QR y saca las celdas de color.
+  function destinoLogo(N, paso, piezas, caja, pista){
+    var img = new Image();
+    img.onload = function(){
+      var celdas = [];
+      try{
+        var c = document.createElement("canvas"); c.width = c.height = N;
+        var cx = c.getContext("2d");
+        cx.fillStyle = "#fff"; cx.fillRect(0, 0, N, N);
+        cx.drawImage(img, 0, 0, N, N);
+        var d = cx.getImageData(0, 0, N, N).data;
+        for(var i = 0; i < N * N; i++){
+          if(d[i * 4] > 110 && d[i * 4 + 1] < 130 && d[i * 4 + 2] < 130){
+            celdas.push([i % N, Math.floor(i / N)]);
+          }
+        }
+      }catch(e){ return; }
+      if(celdas.length < 20) return;   // sin destino util, el QR se queda quieto
+      emparejar(piezas, celdas, paso);
+      activarMosaico(piezas, caja, pista);
+    };
+    img.src = QR_LOGO;
+  }
+
+  // Los dos conjuntos vienen en orden de lectura, asi que emparejarlos por
+  // indice hace que el QR se pliegue sobre el logo en vez de revolverse.
+  function emparejar(piezas, celdas, paso){
+    if(celdas.length > piezas.length){
+      var salto = celdas.length / piezas.length, recorte = [];
+      for(var k = 0; k < piezas.length; k++) recorte.push(celdas[Math.floor(k * salto)]);
+      celdas = recorte;
+    }
+    for(var i = 0; i < piezas.length; i++){
+      if(i < celdas.length){
+        piezas[i].lx = celdas[i][0] * paso;
+        piezas[i].ly = celdas[i][1] * paso;
+      }else{
+        piezas[i].sobra = true;        // modulos de mas: se apagan al ir al logo
+      }
+    }
+  }
+
+  function activarMosaico(piezas, caja, pista){
+    var enLogo = false, CENTRO = 84;
+    function alternar(){
+      enLogo = !enLogo;
+      pista.textContent = enLogo ? "Toca para volver al QR" : "Toca el código para ver el logo";
+      caja.classList.toggle("es-logo", enLogo);
+      for(var i = 0; i < piezas.length; i++){
+        var p = piezas[i], dx = p.qx - CENTRO, dy = p.qy - CENTRO;
+        p.el.style.transitionDelay = Math.round(Math.sqrt(dx * dx + dy * dy) * 2.4) + "ms";
+        if(enLogo){
+          if(p.sobra){
+            p.el.style.opacity = "0";
+            p.el.style.transform = "translate(" + p.qx.toFixed(2) + "px," + p.qy.toFixed(2) + "px) scale(.15)";
+          }else{
+            p.el.style.transform = "translate(" + p.lx.toFixed(2) + "px," + p.ly.toFixed(2) + "px)";
+          }
+        }else{
+          p.el.style.opacity = "";
+          p.el.style.transform = "translate(" + p.qx.toFixed(2) + "px," + p.qy.toFixed(2) + "px)";
+        }
+      }
+    }
+    caja.addEventListener("click", alternar);
+    pista.addEventListener("click", alternar);
+  }
+
   function buildQR(){
     if(qrReady) return;
     qrReady = true;
     try{
-      qr = new QRCodeStyling({
-        width:520, height:520, type:"canvas", data:CARD_URL, margin:0,
-        qrOptions:{ errorCorrectionLevel:"Q" },
-        dotsOptions:{ type:"square", color:"#14171B" },
-        cornersSquareOptions:{ type:"square", color:"#3E5C76" },
-        cornersDotOptions:{ type:"square", color:"#14171B" },
-        backgroundOptions:{ color:"#ffffff" }
+      qr = new QRCodeStyling(opcionesQR(false));
+      if(!QR_LOGO){ qr.append($("qrbox")); return; }
+      var oculto = document.createElement("div");
+      oculto.style.cssText = "position:absolute;left:-9999px;top:0;width:520px;height:520px";
+      document.body.appendChild(oculto);
+      qr.append(oculto);
+      esperarCanvas(oculto, function(cv){
+        if(!cv){ $("qrbox").innerHTML = ""; qr.append($("qrbox")); return; }
+        esperarReticula(cv, function(m){
+          if(m) armarMosaico(m); else $("qrbox").appendChild(cv);
+        });
       });
-      qr.append($("qrbox"));
     }catch(e){
       $("qrbox").innerHTML = '<div style="width:168px;height:168px;display:flex;align-items:center;' +
         'justify-content:center;font-size:11px;color:#747B84;text-align:center;padding:12px">' +
@@ -569,7 +772,13 @@ h1{
 
   // Descargar QR
   $("dl-png").addEventListener("click", function(){
-    if(qr && qr.download){ qr.download({ name:"Christopher-Gutiérrez-QR", extension:"png" }); }
+    // El PNG que se baja si lleva el logo al centro: es el que se imprime.
+    var fuente = qr;
+    if(QR_LOGO){
+      if(!qrDescarga) qrDescarga = new QRCodeStyling(opcionesQR(true));
+      fuente = qrDescarga;
+    }
+    if(fuente && fuente.download){ fuente.download({ name:"Christopher-Gutiérrez-QR", extension:"png" }); }
   });
 
   // Compartir nativo (móvil)
