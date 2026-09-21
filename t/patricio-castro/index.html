@@ -417,7 +417,7 @@ h1{
   // Contador de aperturas: una imagen de 0 bytes pedida a la hoja de Oscar
   // con el nombre de la tarjeta. Sin liga configurada no se manda nada.
   // No identifica a quien abre: solo fecha, hora y cual tarjeta.
-  var CONTADOR = "";
+  var CONTADOR = "https://script.google.com/macros/s/AKfycbyvd9-C1_1AKv3cxFuwN3wJSWWtZGnPfZEWGggEMbGt0Z7W05xIMWC73ooNuxPWOWZ9/exec";
   if(CONTADOR){
     try{ new Image().src = CONTADOR + "?t=patricio-castro&n=" + Date.now(); }catch(e){}
   }
