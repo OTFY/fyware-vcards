@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juan Enrique Diez — Tarjeta digital</title>
+<meta name="description" content="Tarjeta de presentación digital de Juan Enrique Diez. Investigador en entrenamiento inmersivo en Protocolo Helix. Guarda el contacto en un toque.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://otfy.github.io/fyware-vcards/t/juan-diez/">
+<meta property="og:title" content="Juan Enrique Diez">
+<meta property="og:description" content="Investigador en entrenamiento inmersivo · Protocolo Helix">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://otfy.github.io/fyware-vcards/t/juan-diez/">
+<meta name="theme-color" content="#0D0F11">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F5F7;
+  --card:rgba(255,255,255,.86);
+  --card-solid:#FFFFFF;
+  --ink:#14171B;
+  --ink-2:#3B424A;
+  --muted:#747B84;
+  --line:#E2E4E8;
+  --line-soft:#EDEEF1;
+  --accent:#3E5C76;
+  --accent-soft:#EDF1F6;
+  --on-accent:#FFFFFF;
+  --shadow:0 1px 2px rgba(20,23,27,.05),0 18px 50px rgba(20,23,27,.10);
+  --scrim:rgba(20,23,27,.42);
+  --marca:#3E5C76;
+  --neb-1:rgba(62,92,118,.16);
+  --neb-2:rgba(116,138,190,.13);
+  --neb-3:rgba(74,148,168,.12);
+  --neb-4:rgba(148,126,178,.10);
+  --grid:rgba(20,23,27,.038);
+  --grain:.030;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B0D10;
+    --card:rgba(22,25,30,.80);
+    --card-solid:#16191E;
+    --ink:#F1F2F4; --ink-2:#C2C7CD; --muted:#8A9199;
+    --line:#272C33; --line-soft:#1F2429;
+    --accent:#7FA6C7; --accent-soft:#18232E; --on-accent:#0B0D10;
+    --shadow:0 1px 2px rgba(0,0,0,.5),0 24px 64px rgba(0,0,0,.55);
+    --scrim:rgba(0,0,0,.62);
+    --neb-1:rgba(56,112,176,.30);
+    --neb-2:rgba(112,80,184,.22);
+    --neb-3:rgba(28,140,152,.20);
+    --neb-4:rgba(76,58,140,.20);
+    --grid:rgba(190,215,255,.050);
+    --grain:.055;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B0D10;
+  --card:rgba(22,25,30,.80);
+  --card-solid:#16191E;
+  --ink:#F1F2F4; --ink-2:#C2C7CD; --muted:#8A9199;
+  --line:#272C33; --line-soft:#1F2429;
+  --accent:#7FA6C7; --accent-soft:#18232E; --on-accent:#0B0D10;
+  --shadow:0 1px 2px rgba(0,0,0,.5),0 24px 64px rgba(0,0,0,.55);
+  --scrim:rgba(0,0,0,.62);
+  --neb-1:rgba(56,112,176,.30);
+  --neb-2:rgba(112,80,184,.22);
+  --neb-3:rgba(28,140,152,.20);
+  --neb-4:rgba(76,58,140,.20);
+  --grid:rgba(190,215,255,.050);
+  --grain:.055;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:Inter,"Segoe UI",system-ui,-apple-system,sans-serif;
+  font-size:15px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  display:flex;align-items:center;justify-content:center;
+  min-height:100vh;padding:34px 18px;
+  position:relative;overflow-x:hidden;
+}
+body.locked{overflow:hidden}
+
+/* ---------- Nebulosa ---------- */
+body::before{
+  content:"";position:fixed;inset:-25%;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(34% 28% at 16% 20%, var(--neb-1), transparent 64%),
+    radial-gradient(30% 24% at 84% 12%, var(--neb-2), transparent 62%),
+    radial-gradient(44% 36% at 74% 82%, var(--neb-3), transparent 66%),
+    radial-gradient(28% 24% at 26% 80%, var(--neb-4), transparent 60%);
+  filter:blur(34px);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size:46px 46px, 46px 46px;
+  -webkit-mask-image:radial-gradient(72% 62% at 50% 44%, #000 0%, transparent 80%);
+          mask-image:radial-gradient(72% 62% at 50% 44%, #000 0%, transparent 80%);
+}
+/* ---------- Motivo de fondo (opcional, por persona) ----------
+   Se apoya en la nebulosa, no la sustituye. La tarjeta es translucida,
+   asi que el motivo se alcanza a ver por debajo, como marca de agua. */
+.motivo{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;
+}
+.motivo svg{
+  position:absolute;left:50%;top:44%;width:140vmin;height:140vmin;
+  transform:translate(-50%,-50%);
+}
+
+/* globo de noticiero: malla de meridianos y paralelos, mas la senal que sale al aire */
+.motivo.globo{
+  -webkit-mask-image:radial-gradient(84% 76% at 50% 44%, #000 40%, transparent 100%);
+          mask-image:radial-gradient(84% 76% at 50% 44%, #000 40%, transparent 100%);
+}
+.motivo.globo .malla{fill:none;stroke:var(--accent);stroke-width:1;opacity:.17}
+.motivo.globo .limbo{stroke-width:1.8}
+.motivo.globo .foco{fill:var(--accent);opacity:.45}
+.motivo.globo .onda{
+  fill:none;stroke:var(--accent);stroke-width:2;opacity:0;
+  transform-origin:center;transform-box:fill-box;
+  animation:onda 7s ease-out infinite;
+}
+.motivo.globo .o2{animation-delay:2.33s}
+.motivo.globo .o3{animation-delay:4.66s}
+@keyframes onda{
+  0%  {transform:scale(.35);opacity:.40}
+  65% {opacity:.10}
+  100%{transform:scale(8);opacity:0}
+}
+@media (prefers-reduced-motion:reduce){.motivo .onda{animation:none;opacity:.12}}
+
+.grainfix{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:var(--grain);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.stage{width:100%;max-width:420px;position:relative;z-index:1}
+
+/* ---------- Tarjeta ---------- */
+.card{
+  position:relative;
+  background:var(--card);
+  -webkit-backdrop-filter:blur(22px) saturate(130%);
+          backdrop-filter:blur(22px) saturate(130%);
+  border:1px solid var(--line);
+  border-radius:22px;box-shadow:var(--shadow);overflow:hidden;
+}
+.crest{
+  height:3px;
+  background:linear-gradient(90deg,var(--accent) 0%,var(--accent) 30%,transparent 30%,transparent 100%);
+}
+.card-tool{
+  position:absolute;top:14px;right:14px;z-index:3;
+  display:inline-flex;align-items:center;gap:7px;
+  height:34px;padding:0 13px;border-radius:999px;
+  background:var(--accent-soft);border:1px solid var(--line);
+  color:var(--accent);cursor:pointer;
+  font:inherit;font-size:12px;font-weight:600;letter-spacing:.01em;
+  transition:opacity .15s ease;
+}
+.card-tool:hover{opacity:.8}
+.card-tool:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.card-tool svg{width:14px;height:14px;display:block;flex:none}
+
+.head{padding:32px 30px 24px;text-align:center}
+.avatar{
+  width:84px;height:84px;margin:0 auto 20px;border-radius:50%;
+  border:1px solid var(--line);background:var(--accent-soft);
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Space Grotesk",Inter,sans-serif;font-weight:600;font-size:26px;
+  color:var(--accent);overflow:hidden;
+  box-shadow:0 0 0 5px var(--accent-soft);
+}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+h1{
+  margin:0;font-family:"Space Grotesk",Inter,sans-serif;font-weight:600;
+  font-size:29px;line-height:1.15;letter-spacing:-.022em;color:var(--ink);
+}
+.role{margin:10px 0 0;font-size:14px;font-weight:500;color:var(--ink-2)}
+.org{
+  margin:4px 0 0;font-size:10.5px;font-weight:600;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.18em;
+}
+.creds{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:20px 0 0;padding:0;list-style:none}
+.creds li{
+  font-family:"Space Grotesk",Inter,sans-serif;
+  font-size:10px;font-weight:600;letter-spacing:.10em;text-transform:uppercase;
+  color:var(--accent);background:var(--accent-soft);
+  border:1px solid var(--line);border-radius:999px;padding:4px 11px;
+}
+
+/* ---------- Datos ---------- */
+.rows{border-top:1px solid var(--line-soft);padding:6px 30px 4px}
+.row{display:flex;align-items:baseline;gap:14px;padding:13px 0;border-bottom:1px solid var(--line-soft)}
+.row:last-child{border-bottom:none}
+.row .k{
+  flex:none;width:80px;font-size:9.5px;font-weight:600;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.14em;
+}
+.row .v{font-size:13.5px;color:var(--ink-2);word-break:break-word}
+.row .v a{color:var(--accent);text-decoration:none;font-weight:500}
+.row .v a:hover{text-decoration:underline}
+
+/* ---------- Acción principal ---------- */
+.actions{padding:22px 30px 28px;border-top:1px solid var(--line-soft)}
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  width:100%;font:inherit;font-size:14.5px;font-weight:600;
+  padding:15px 16px;border-radius:12px;text-align:center;cursor:pointer;
+  text-decoration:none;border:1px solid transparent;transition:opacity .15s ease;
+}
+.btn:hover{opacity:.88}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn.ghost{background:transparent;color:var(--ink-2);border-color:var(--line)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:disabled:hover{opacity:.45}
+.btn svg{width:17px;height:17px;flex:none}
+.hint{margin:11px 0 0;text-align:center;font-size:11.5px;color:var(--muted)}
+
+/* ---------- Footer ---------- */
+.powered{margin:22px 0 0;text-align:center;font-size:11.5px;color:var(--muted);letter-spacing:.04em}
+.powered a{color:var(--muted);text-decoration:none;font-weight:600;border-bottom:1px solid var(--line);padding-bottom:1px}
+.powered a:hover{color:var(--accent);border-color:var(--accent)}
+.aviso{max-width:360px;margin:12px auto 0;text-align:center;font-size:10.5px;
+  line-height:1.55;color:var(--muted);opacity:.78}
+.aviso a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+.aviso a:hover{color:var(--accent)}
+
+/* ---------- Panel Compartir ---------- */
+.scrim{
+  position:fixed;inset:0;z-index:40;background:var(--scrim);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;padding:22px 18px;
+  opacity:0;visibility:hidden;transition:opacity .18s ease,visibility .18s ease;
+}
+/* Sin esto el atributo hidden no hace nada: display:flex de autor gana
+   sobre el display:none de la hoja del navegador. */
+.scrim[hidden]{display:none}
+.scrim.open{opacity:1;visibility:visible}
+.sheet{
+  width:100%;background:var(--card-solid);
+  border:1px solid var(--line);border-radius:20px;
+  box-shadow:0 24px 70px rgba(0,0,0,.35);
+  padding:24px 24px 22px;text-align:center;
+  transform:translateY(10px) scale(.985);transition:transform .18s ease;
+}
+.scrim.open .sheet{transform:none}
+.sheet h2{
+  margin:0 0 4px;font-family:"Space Grotesk",Inter,sans-serif;
+  font-size:17px;font-weight:600;letter-spacing:-.01em;color:var(--ink);
+}
+.sheet .sub{margin:0 0 18px;font-size:12.5px;color:var(--muted);line-height:1.5}
+.qrframe{
+  display:inline-block;padding:13px;background:#fff;
+  border:1px solid var(--line);border-radius:14px;line-height:0;
+}
+.qrframe canvas,.qrframe svg{width:168px !important;height:168px !important;display:block}
+/* El QR como mosaico: cada modulo es un cuadro que sabe volar a su sitio en el logo */
+.mosaico{position:relative;cursor:pointer;line-height:0}
+.mosaico b{
+  position:absolute;left:0;top:0;background:#14171B;
+  transition:transform .8s cubic-bezier(.22,.68,.24,1),
+             background-color .45s ease, opacity .4s ease;
+  will-change:transform;
+}
+.mosaico.es-logo b{background:var(--marca)}
+.qrframe{position:relative}
+.qr-logo-final{
+  position:absolute;left:13px;top:13px;width:168px;height:168px;padding:8px;box-sizing:border-box;
+  object-fit:contain;opacity:0;pointer-events:none;transition:opacity .35s ease;
+}
+.qrframe.logo-nitido .qr-logo-final{opacity:1}
+.qrframe.logo-nitido .mosaico b{opacity:0 !important;transition-delay:0ms !important}
+.qrhint{
+  margin:10px 0 0;font-size:11px;color:var(--muted);text-align:center;
+  cursor:pointer;user-select:none;-webkit-user-select:none;
+}
+@media (prefers-reduced-motion:reduce){.mosaico b{transition:none}}
+.linkbox{
+  display:block;width:100%;margin:16px 0 0;padding:10px 12px;
+  background:var(--accent-soft);border:1px solid var(--line);border-radius:10px;
+  font-size:11.5px;color:var(--ink-2);word-break:break-all;line-height:1.45;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+.sheet .stack{display:grid;gap:8px;margin-top:14px}
+.sheet .btn{font-size:13.5px;padding:12px 14px}
+.sheet-powered{
+  margin:18px 0 0;padding-top:16px;
+  border-top:1px solid var(--line-soft);
+  font-size:11px;
+}
+.closex{
+  position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  background:transparent;border:1px solid var(--line);color:var(--muted);cursor:pointer;
+}
+.closex:hover{color:var(--ink)}
+.sheetwrap{position:relative;width:100%;max-width:360px}
+/* .sheet ya no repite max-width: lo impone .sheetwrap */
+
+@media(max-width:400px){
+  .head{padding:30px 22px 22px}
+  .rows,.actions{padding-left:22px;padding-right:22px}
+  h1{font-size:26px}
+  .row{flex-direction:column;gap:3px}
+  .row .k{width:auto}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+<div class="grainfix" aria-hidden="true"></div>
+
+<div class="stage">
+  <main class="card">
+    <div class="crest"></div>
+
+    <button class="card-tool" id="tool-open" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="7" height="7" rx="1"/>
+        <rect x="14" y="3" width="7" height="7" rx="1"/>
+        <rect x="3" y="14" width="7" height="7" rx="1"/>
+        <path d="M14 14h3v3M21 17v4h-4M17.5 20.5h.01" stroke-linecap="round"/>
+      </svg>
+      Compartir
+    </button>
+
+    <header class="head">
+      <div class="avatar"><img src="data:image/jpeg;base64,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" alt="Juan Enrique Diez" width="220" height="220"></div>
+      <h1>Juan Enrique Diez</h1>
+      <p class="role">Investigador en entrenamiento inmersivo</p>
+      <p class="org">Protocolo Helix</p>
+      
+    </header>
+
+    <section class="rows">
+      <div class="row"><span class="k">Empresa</span><span class="v">Protocolo Helix</span></div>
+      <div class="row"><span class="k">Enfoque</span><span class="v">Por qué el entrenamiento inmersivo funciona: transferencia del aprendizaje, robustez de competencias, factores humanos y simulación</span></div>
+      <div class="row"><span class="k">Ubicación</span><span class="v">Buenos Aires, Argentina</span></div>
+      <div class="row"><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/juan-enrique-diez-66a057255/" target="_blank" rel="noopener">in/juan-enrique-diez</a></span></div>
+    </section>
+
+    <div class="actions">
+      <button class="btn primary" id="dl-vcf" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12M7.5 10.5L12 15l4.5-4.5M4 19h16"/>
+        </svg>
+        Guardar contacto
+      </button>
+      <p class="hint">Se agrega directo a los contactos de tu teléfono</p>
+    </div>
+  </main>
+
+  <p class="powered">Powered by <a href="https://www.fyware.com/?utm_source=vcard-juan-diez&amp;utm_medium=tarjeta-digital&amp;utm_campaign=tarjetas-digitales-2026&amp;utm_content=pie-tarjeta" target="_blank" rel="noopener">www.fyware.com</a></p>
+  <p class="aviso">Tarjeta elaborada por Fyware con datos públicos del perfil de LinkedIn del titular. Para actualizarla o solicitar su baja: <a href="mailto:oscar.tobias@fyware.com?subject=Tarjeta%20digital%20juan-diez">oscar.tobias@fyware.com</a></p>
+</div>
+
+<!-- Panel Compartir -->
+<div class="scrim" id="scrim" role="dialog" aria-modal="true" aria-labelledby="sheet-title" hidden>
+  <div class="sheetwrap">
+    <div class="sheet">
+      <button class="closex" id="tool-close" type="button" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <h2 id="sheet-title">Comparte tu tarjeta</h2>
+      <p class="sub">Quien escanee este código abre tu tarjeta y puede guardar tu contacto.</p>
+      <div class="qrframe" id="qrbox"></div>
+      <code class="linkbox" id="linktext">otfy.github.io/fyware-vcards/t/juan-diez/</code>
+      <div class="stack">
+        <button class="btn primary" id="copy-link" type="button">Copiar liga</button>
+        <button class="btn ghost" id="dl-png" type="button">Descargar QR (PNG)</button>
+        <button class="btn ghost" id="tool-native" type="button" hidden>Compartir</button>
+      </div>
+      <p class="powered sheet-powered">Powered by <a href="https://www.fyware.com/?utm_source=vcard-juan-diez&amp;utm_medium=tarjeta-digital&amp;utm_campaign=tarjetas-digitales-2026&amp;utm_content=panel-compartir" target="_blank" rel="noopener">www.fyware.com</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="qr-code-styling.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  // ===================================================================
+  // AL CLONAR ESTA TARJETA PARA OTRA PERSONA, CAMBIAR TAMBIEN:
+  //   <head>  : title, description, canonical, og:title, og:description, og:url
+  //   <body>  : foto, nombre, puesto, empresa, credenciales, filas de datos
+  //   enlaces : utm_source=vcard-<slug> en los DOS "Powered by"
+  //   .linkbox: el texto de respaldo de la liga
+  //   abajo   : CARD_URL, DATA y el nombre de archivo del .vcf
+  // Si se queda el utm_source de otra persona, la atribucion se
+  // contamina sin que nadie lo note.
+  // ===================================================================
+  var CARD_URL = "https://otfy.github.io/fyware-vcards/t/juan-diez/";
+  var VCF_FILENAME = "Juan-Enrique-Diez.vcf";
+  var INICIALES = "JD";   // respaldo si la foto no carga
+
+  var DATA = {
+    "first": "Juan Enrique",
+    "last": "Diez",
+    "suffix": "",
+    "title": "Investigador en entrenamiento inmersivo",
+    "org": "Protocolo Helix",
+    "city": "Buenos Aires",
+    "region": "",
+    "country": "",
+    "linkedin": "https://www.linkedin.com/in/juan-enrique-diez-66a057255/",
+    "note": "Investigador en entrenamiento inmersivo.",
+    "street": "",
+    "zip": "",
+    "tel": "",
+    "email": "",
+    "web": ""
+};
+  var QR_LOGO = "";
+  var qrDescarga = null;
+
+  // Contador de aperturas: una imagen de 0 bytes pedida a la hoja de Oscar
+  // con el nombre de la tarjeta. Sin liga configurada no se manda nada.
+  // No identifica a quien abre: solo fecha, hora y cual tarjeta.
+  var CONTADOR = "https://script.google.com/macros/s/AKfycbyvd9-C1_1AKv3cxFuwN3wJSWWtZGnPfZEWGggEMbGt0Z7W05xIMWC73ooNuxPWOWZ9/exec";
+  if(CONTADOR){
+    try{ new Image().src = CONTADOR + "?t=juan-diez&n=" + Date.now(); }catch(e){}
+  }
+
+  // Escapa solo separadores estructurales de vCard 3.0.
+  // La coma NO se escapa: en campos de valor único varios Android la muestran como "\,".
+  function esc(s){
+    return String(s == null ? "" : s)
+      .replace(/\\/g, "\\\\")
+      .replace(/;/g, "\\;")
+      .replace(/\r?\n/g, "\\n");
+  }
+  // vCard pliega por OCTETOS, no por caracteres, y no se puede cortar a media
+  // letra. Con acentos o emoji (los hay en varios headlines de LinkedIn) contar
+  // con .length y cortar con .slice parte pares sustitutos y corrompe el .vcf.
+  var ENC = (typeof TextEncoder !== "undefined") ? new TextEncoder() : null;
+  function octetos(s){ return ENC ? ENC.encode(s).length : s.length; }
+
+  function fold(line){
+    if(octetos(line) <= 75) return line;
+    var chars = Array.from(line);           // itera por code point, no por unidad UTF-16
+    var partes = [], actual = "", bytes = 0, limite = 75;
+    for(var i = 0; i < chars.length; i++){
+      var b = octetos(chars[i]);
+      if(bytes + b > limite){
+        partes.push(actual);
+        actual = ""; bytes = 0;
+        limite = 74;                        // las continuaciones gastan un octeto en el espacio inicial
+      }
+      actual += chars[i];
+      bytes += b;
+    }
+    partes.push(actual);
+    return partes.join("\r\n ");
+  }
+  function buildVcf(){
+    var L = ["BEGIN:VCARD","VERSION:3.0"];
+    L.push(fold("N:" + esc(DATA.last) + ";" + esc(DATA.first) + ";;;" + esc(DATA.suffix)));
+    var FN = DATA.first + " " + DATA.last + (DATA.suffix ? ", " + DATA.suffix : "");
+    L.push(fold("FN:" + esc(FN)));
+    // Solo se escriben los campos con dato: un ORG o un ADR vacios hacen que el
+    // telefono muestre una empresa o una direccion en blanco.
+    if(DATA.org)   L.push(fold("ORG:" + esc(DATA.org)));
+    if(DATA.title) L.push(fold("TITLE:" + esc(DATA.title)));
+    if(DATA.street || DATA.city || DATA.country){
+      L.push(fold("ADR;TYPE=WORK:;;" + esc(DATA.street || "") + ";" + esc(DATA.city) + ";" + esc(DATA.region) + ";" + esc(DATA.zip || "") + ";" + esc(DATA.country)));
+    }
+    if(DATA.tel)   L.push(fold("TEL;TYPE=CELL,VOICE:" + esc(DATA.tel)));
+    if(DATA.email) L.push(fold("EMAIL;TYPE=WORK,INTERNET:" + esc(DATA.email)));
+    // URL genérica = su tarjeta. El perfil de LinkedIn va etiquetado aparte.
+    L.push(fold("URL:" + esc(CARD_URL)));
+    var n = 0;
+    if(DATA.linkedin){
+      n++;
+      L.push(fold("item" + n + ".URL:" + esc(DATA.linkedin)));
+      L.push("item" + n + ".X-ABLabel:LinkedIn");
+    }
+    if(DATA.web){
+      n++;
+      L.push(fold("item" + n + ".URL:" + esc(DATA.web)));
+      L.push("item" + n + ".X-ABLabel:Sitio web");
+    }
+    L.push(fold("NOTE:" + esc(DATA.note)));
+    L.push("END:VCARD");
+    return L.join("\r\n");
+  }
+
+  var VCF = buildVcf();
+  var $ = function(id){ return document.getElementById(id); };
+
+  // La foto va incrustada en el HTML, asi que no deberia fallar nunca. Esto
+  // cubre el caso de un clon que use un archivo externo: en vez del texto
+  // alternativo suelto dentro del circulo, queda el monograma.
+  var avatarImg = document.querySelector(".avatar img");
+  if(avatarImg){
+    avatarImg.addEventListener("error", function(){
+      var caja = avatarImg.parentNode;
+      avatarImg.remove();
+      caja.textContent = INICIALES;
+    });
+  }
+
+  function download(blob, filename){
+    var url = URL.createObjectURL(blob), a = document.createElement("a");
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
+  }
+
+  // ---- Acción principal: guardar contacto ----
+  $("dl-vcf").addEventListener("click", function(){
+    download(new Blob([VCF], {type:"text/vcard;charset=utf-8"}), VCF_FILENAME);
+  });
+
+  // ---- Panel compartir ----
+  var scrim = $("scrim"), openBtn = $("tool-open"), closeBtn = $("tool-close");
+  var qr = null, qrReady = false;
+
+  $("linktext").textContent = CARD_URL.replace(/^https:\/\//, "");
+
+  // ---- QR ----------------------------------------------------------------
+  // Se dibuja en un canvas fuera de pantalla y de ahi se lee la reticula. Si la
+  // persona trae logo, cada modulo pasa a ser un <b> que puede viajar hasta su
+  // lugar dentro del logo y regresar. Si algo falla en el camino, se cae de pie
+  // y se muestra el canvas de siempre.
+  function opcionesQR(conImagen){
+    var o = {
+      width:520, height:520, type:"canvas", data:CARD_URL, margin:0,
+      qrOptions:{ errorCorrectionLevel:"Q" },
+      dotsOptions:{ type:"square", color:"#14171B" },
+      cornersSquareOptions:{ type:"square", color:"#3E5C76" },
+      cornersDotOptions:{ type:"square", color:"#14171B" },
+      backgroundOptions:{ color:"#ffffff" }
+    };
+    if(conImagen && QR_LOGO){
+      o.image = QR_LOGO;
+      o.imageOptions = { margin:5, imageSize:.24, hideBackgroundDots:true };
+    }
+    return o;
+  }
+
+  // append() de qr-code-styling no deja el canvas puesto en el mismo tick
+  function esperarCanvas(cont, listo){
+    var n = 0;
+    (function mirar(){
+      var cv = cont.querySelector("canvas");
+      if(cv) listo(cv);
+      else if(++n > 40) listo(null);
+      else setTimeout(mirar, 60);
+    })();
+  }
+
+  // qr-code-styling pinta fondo y modulos en pasos distintos, asi que una
+  // lectura temprana puede caer a medio dibujo y dar una reticula falsa.
+  // Solo se acepta cuando dos lecturas seguidas coinciden.
+  function cuentaModulos(m){
+    var k = 0;
+    for(var i = 0; i < m.c.length; i++) k += m.c[i];
+    return k;
+  }
+  function esperarReticula(cv, listo){
+    var intentos = 0, previa = null;
+    (function mirar(){
+      var m = leerReticula(cv);
+      if(m){
+        var k = cuentaModulos(m);
+        if(previa && previa.n === m.n && previa.k === k){ listo(m); return; }
+        previa = { n:m.n, k:k };
+      }
+      if(++intentos > 40){ listo(null); return; }
+      setTimeout(mirar, 60);
+    })();
+  }
+
+  // Devuelve {n, c} con el tamano de la reticula y que modulos estan pintados.
+  // Primero se ubica la caja del codigo, porque la libreria deja una franja
+  // blanca aunque se le pida margen 0. Dentro de la caja, el primer bloque
+  // oscuro es el ojo superior izquierdo y mide 7 modulos.
+  function leerReticula(cv){
+    try{
+      var W = cv.width, d = cv.getContext("2d").getImageData(0, 0, W, W).data;
+      function oscuro(x, y){ return d[(y * W + x) * 4] < 128; }
+      var x0 = W, y0 = W, x1 = -1, y1 = -1, x, y;
+      for(y = 0; y < W; y++){
+        for(x = 0; x < W; x++){
+          if(!oscuro(x, y)) continue;
+          if(x < x0) x0 = x;
+          if(y < y0) y0 = y;
+          if(x > x1) x1 = x;
+          if(y > y1) y1 = y;
+        }
+      }
+      if(x1 < 0) return null;
+      var ancho = x1 - x0 + 1, corrida = 0;
+      while(x0 + corrida <= x1 && oscuro(x0 + corrida, y0 + 2)) corrida++;
+      if(corrida < 7) return null;
+      var modulo = corrida / 7, N = Math.round(ancho / modulo);
+      if(N < 21 || N > 177) return null;
+      var celdas = new Array(N * N);
+      for(y = 0; y < N; y++){
+        for(x = 0; x < N; x++){
+          var px = Math.min(W - 1, x0 + Math.floor((x + 0.5) * modulo)),
+              py = Math.min(W - 1, y0 + Math.floor((y + 0.5) * modulo));
+          celdas[y * N + x] = oscuro(px, py) ? 1 : 0;
+        }
+      }
+      return { n:N, c:celdas };
+    }catch(e){ return null; }
+  }
+
+  function armarMosaico(m){
+    var LADO = 168, N = m.n, paso = LADO / N, piezas = [], x, y;
+    var caja = document.createElement("div");
+    caja.className = "mosaico";
+    caja.style.width = caja.style.height = LADO + "px";
+    for(y = 0; y < N; y++){
+      for(x = 0; x < N; x++){
+        if(!m.c[y * N + x]) continue;
+        var b = document.createElement("b");
+        b.style.width = b.style.height = (paso + 0.6).toFixed(2) + "px";
+        b.style.transform = "translate(" + (x * paso).toFixed(2) + "px," + (y * paso).toFixed(2) + "px)";
+        caja.appendChild(b);
+        piezas.push({ el:b, qx:x * paso, qy:y * paso });
+      }
+    }
+    var marco = $("qrbox");
+    marco.innerHTML = "";
+    marco.appendChild(caja);
+    var nitido = document.createElement("img");
+    nitido.className = "qr-logo-final"; nitido.alt = ""; nitido.src = QR_LOGO;
+    marco.appendChild(nitido);
+    var pista = document.createElement("p");
+    pista.className = "qrhint";
+    pista.textContent = "Toca el código para ver el logo";
+    marco.parentNode.insertBefore(pista, marco.nextSibling);
+    destinoLogo(N, paso, piezas, caja, pista);
+  }
+
+  // Rasteriza el logo a la misma reticula del QR y saca las celdas de color.
+  function destinoLogo(N, paso, piezas, caja, pista){
+    var img = new Image();
+    img.onload = function(){
+      var celdas = [];
+      try{
+        var c = document.createElement("canvas"); c.width = c.height = N;
+        var cx = c.getContext("2d"), m = N * 0.05;
+        cx.drawImage(img, m, m, N - 2 * m, N - 2 * m);
+        var d = cx.getImageData(0, 0, N, N).data;
+        for(var i = 0; i < N * N; i++){
+          var r = d[i * 4], g = d[i * 4 + 1], b = d[i * 4 + 2], a = d[i * 4 + 3];
+          if(a > 110 && !(r > 235 && g > 235 && b > 235)) celdas.push([i % N, Math.floor(i / N)]);
+        }
+      }catch(e){ return; }
+      if(celdas.length < 20) return;   // sin destino util, el QR se queda quieto
+      emparejar(piezas, celdas, paso);
+      activarMosaico(piezas, caja, pista);
+    };
+    img.src = QR_LOGO;
+  }
+
+  // Los dos conjuntos vienen en orden de lectura, asi que emparejarlos por
+  // indice hace que el QR se pliegue sobre el logo en vez de revolverse.
+  function emparejar(piezas, celdas, paso){
+    if(celdas.length > piezas.length){
+      var salto = celdas.length / piezas.length, recorte = [];
+      for(var k = 0; k < piezas.length; k++) recorte.push(celdas[Math.floor(k * salto)]);
+      celdas = recorte;
+    }
+    for(var i = 0; i < piezas.length; i++){
+      if(i < celdas.length){
+        piezas[i].lx = celdas[i][0] * paso;
+        piezas[i].ly = celdas[i][1] * paso;
+      }else{
+        piezas[i].sobra = true;        // modulos de mas: se apagan al ir al logo
+      }
+    }
+  }
+
+  function activarMosaico(piezas, caja, pista){
+    var enLogo = false, CENTRO = 84, fundido = null, marco = $("qrbox");
+    var L_OFF = 168 * 0.05, L_TAM = 168 - 2 * L_OFF;   // mismo 5% con que se dibujo la mascara
+    var quieto = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function alternar(){
+      enLogo = !enLogo;
+      if(fundido){ clearTimeout(fundido); fundido = null; }
+      pista.textContent = enLogo ? "Toca para volver al QR" : "Toca el código para ver el logo";
+      caja.classList.toggle("es-logo", enLogo);
+      if(enLogo){
+        fundido = setTimeout(function(){ marco.classList.add("logo-nitido"); }, quieto ? 0 : 1150);
+      }else{
+        marco.classList.remove("logo-nitido");
+      }
+      for(var i = 0; i < piezas.length; i++){
+        var p = piezas[i], dx = p.qx - CENTRO, dy = p.qy - CENTRO;
+        p.el.style.transitionDelay = Math.round(Math.sqrt(dx * dx + dy * dy) * 2.4) + "ms";
+        if(enLogo){
+          if(p.sobra){
+            p.el.style.opacity = "0";
+            p.el.style.transform = "translate(" + p.qx.toFixed(2) + "px," + p.qy.toFixed(2) + "px) scale(.15)";
+          }else{
+            // la pieza viaja con el pedazo exacto del logo que le toca en su destino
+            p.el.style.backgroundColor = "transparent";
+            p.el.style.backgroundImage = "url(" + QR_LOGO + ")";
+            p.el.style.backgroundSize = L_TAM.toFixed(2) + "px " + L_TAM.toFixed(2) + "px";
+            p.el.style.backgroundPosition = (L_OFF - p.lx).toFixed(2) + "px " + (L_OFF - p.ly).toFixed(2) + "px";
+            p.el.style.transform = "translate(" + p.lx.toFixed(2) + "px," + p.ly.toFixed(2) + "px)";
+          }
+        }else{
+          p.el.style.opacity = "";
+          p.el.style.backgroundColor = ""; p.el.style.backgroundImage = "";
+          p.el.style.backgroundSize = ""; p.el.style.backgroundPosition = "";
+          p.el.style.transform = "translate(" + p.qx.toFixed(2) + "px," + p.qy.toFixed(2) + "px)";
+        }
+      }
+    }
+    caja.addEventListener("click", alternar);
+    pista.addEventListener("click", alternar);
+  }
+
+  function buildQR(){
+    if(qrReady) return;
+    qrReady = true;
+    try{
+      qr = new QRCodeStyling(opcionesQR(false));
+      if(!QR_LOGO){ qr.append($("qrbox")); return; }
+      var oculto = document.createElement("div");
+      oculto.style.cssText = "position:absolute;left:-9999px;top:0;width:520px;height:520px";
+      document.body.appendChild(oculto);
+      qr.append(oculto);
+      esperarCanvas(oculto, function(cv){
+        if(!cv){ $("qrbox").innerHTML = ""; qr.append($("qrbox")); return; }
+        esperarReticula(cv, function(m){
+          if(m) armarMosaico(m); else $("qrbox").appendChild(cv);
+        });
+      });
+    }catch(e){
+      $("qrbox").innerHTML = '<div style="width:168px;height:168px;display:flex;align-items:center;' +
+        'justify-content:center;font-size:11px;color:#747B84;text-align:center;padding:12px">' +
+        'QR no disponible. Copia la liga.</div>';
+      // Sin esto el boton de descarga queda vivo y no hace nada al pulsarlo.
+      $("dl-png").disabled = true;
+      $("dl-png").textContent = "QR no disponible";
+    }
+  }
+
+  function openSheet(){
+    buildQR();
+    scrim.hidden = false;
+    // Reflow forzado en lugar de requestAnimationFrame: rAF se congela si la
+    // pestaña no está visible y el panel se quedaría invisible con hidden=false.
+    void scrim.offsetHeight;
+    scrim.classList.add("open");
+    document.body.classList.add("locked");
+    closeBtn.focus();
+  }
+  function closeSheet(){
+    scrim.classList.remove("open");
+    document.body.classList.remove("locked");
+    openBtn.focus();
+    setTimeout(function(){ if(!scrim.classList.contains("open")) scrim.hidden = true; }, 220);
+  }
+
+  openBtn.addEventListener("click", openSheet);
+  closeBtn.addEventListener("click", closeSheet);
+  scrim.addEventListener("click", function(e){ if(e.target === scrim) closeSheet(); });
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape" && scrim.classList.contains("open")) closeSheet();
+  });
+
+  // Copiar liga
+  var copyBtn = $("copy-link");
+  var copyLabel = copyBtn.textContent;   // se lee una vez: en el handler ya diria "Liga copiada"
+  var copyTimer = null;
+  copyBtn.addEventListener("click", function(){
+    var btn = this;
+    function done(ok){
+      btn.textContent = ok ? "Liga copiada" : "Selecciona y copia la liga";
+      clearTimeout(copyTimer);             // sin esto, clics seguidos encadenan temporizadores
+      copyTimer = setTimeout(function(){ btn.textContent = copyLabel; }, 1900);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(CARD_URL).then(function(){ done(true); }, function(){ done(false); });
+    }else{
+      try{
+        var ta = document.createElement("textarea");
+        ta.value = CARD_URL; ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.select();
+        done(document.execCommand("copy"));
+        document.body.removeChild(ta);
+      }catch(e){ done(false); }
+    }
+  });
+
+  // Descargar QR
+  $("dl-png").addEventListener("click", function(){
+    // El PNG que se baja si lleva el logo al centro: es el que se imprime.
+    var fuente = qr;
+    if(QR_LOGO){
+      if(!qrDescarga) qrDescarga = new QRCodeStyling(opcionesQR(true));
+      fuente = qrDescarga;
+    }
+    if(fuente && fuente.download){ fuente.download({ name:"Juan-Enrique-Diez-QR", extension:"png" }); }
+  });
+
+  // Compartir nativo (móvil)
+  if(navigator.share){
+    var ns = $("tool-native");
+    ns.hidden = false;
+    ns.addEventListener("click", function(){
+      navigator.share({
+        title:"Juan Enrique Diez",
+        text:"Mi tarjeta de contacto",
+        url:CARD_URL
+      }).catch(function(){});
+    });
+  }
+})();
+</script>
+</body>
+</html>
