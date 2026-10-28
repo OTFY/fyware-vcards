@@ -1,0 +1,7 @@
+# Vercel (proyecto tarjetas-fyware) solo publica las tarjetas de San Mateo.
+# Las demas tarjetas de este repo siguen solo en GitHub Pages.
+/*
+!/vercel.json
+!/t
+/t/*
+!/t/san-mateo
