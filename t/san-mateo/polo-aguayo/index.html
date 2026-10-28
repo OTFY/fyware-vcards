@@ -393,7 +393,42 @@ h1 .l{display:inline-block}
   to{opacity:1;transform:translateX(480%) skewX(-18deg)}
 }
 
-a:focus-visible{outline:3px solid var(--oro-claro);outline-offset:3px}
+/* ---------- Ayuda cuando el telefono no abre el contacto ----------
+   Pasa en los navegadores dentro de apps (Instagram, Facebook, WhatsApp...):
+   no saben abrir un .vcf y la carga se queda congelada. */
+.ayuda{
+  position:fixed;inset:0;z-index:50;
+  display:flex;align-items:flex-end;justify-content:center;
+  padding:0 10px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(3,18,20,.62);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+}
+.ayuda[hidden]{display:none}
+.ayuda-hoja{
+  width:100%;max-width:420px;padding:24px 20px 12px;border-radius:26px;
+  background:linear-gradient(180deg,#15494D,var(--petroleo));
+  box-shadow:0 -10px 50px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.18);
+  animation:hoja .45s var(--flota) both;
+}
+@keyframes hoja{from{opacity:0;transform:translateY(40px)}}
+.ayuda-titulo{margin:0;font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:30px;line-height:1.1}
+.ayuda-texto{margin:10px 0 18px;font-size:17px;line-height:1.5;color:var(--texto-2)}
+.ayuda-texto b{color:var(--blanco)}
+.ayuda-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;height:58px;border-radius:18px;border:0;cursor:pointer;
+  font:800 17px Manrope,"Segoe UI",sans-serif;text-decoration:none;
+}
+.ayuda-btn svg{width:22px;height:22px;flex:none}
+.ayuda-btn.oro{background:linear-gradient(180deg,#DDD3AE,var(--oro) 52%,var(--oro-hondo));color:var(--petroleo)}
+.ayuda-btn.verde{margin-top:10px;background:linear-gradient(180deg,#43E485,#1EBE5A);color:#06301A}
+.ayuda-cerrar{
+  display:block;width:100%;height:50px;margin-top:6px;border:0;background:none;cursor:pointer;
+  color:var(--texto-2);font:700 16px Manrope,"Segoe UI",sans-serif;
+}
+@media (prefers-reduced-motion:reduce){.ayuda-hoja{animation:none}}
+
+a:focus-visible,button:focus-visible{outline:3px solid var(--oro-claro);outline-offset:3px}
 
 .anima .entra{animation:entra .9s var(--curva) backwards;animation-delay:var(--d,0ms)}
 @keyframes entra{
@@ -514,6 +549,22 @@ a:focus-visible{outline:3px solid var(--oro-claro);outline-offset:3px}
   </div>
 </div>
 
+<div class="ayuda" id="ayuda" role="dialog" aria-modal="true" aria-labelledby="ayuda-titulo" hidden>
+  <div class="ayuda-hoja">
+    <p class="ayuda-titulo" id="ayuda-titulo">¿No se abrió el contacto?</p>
+    <p class="ayuda-texto" id="ayuda-texto"></p>
+    <a class="ayuda-btn oro" id="ayuda-descargar" data-accion="guardar-descarga" href="Polo-Aguayo.vcf" download="Polo-Aguayo.vcf">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 20h14"/></svg>
+      Descargar contacto
+    </a>
+    <a class="ayuda-btn verde" data-accion="whatsapp-ayuda" href="https://wa.me/524612726475?text=Hola%20Polo%2C%20te%20escribo%20desde%20tu%20tarjeta%20de%20San%20Mateo." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 12.05 0Zm0 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 5.45 0 9.884 4.434 9.881 9.892-.003 5.45-4.437 9.884-9.885 9.884Z"/></svg>
+      Mejor escribirle por WhatsApp
+    </a>
+    <button class="ayuda-cerrar" id="ayuda-cerrar" type="button">Cerrar</button>
+  </div>
+</div>
+
 <script>
 (function(){
   "use strict";
@@ -582,13 +633,50 @@ a:focus-visible{outline:3px solid var(--oro-claro);outline-offset:3px}
     });
   }
 
-  // Guardar: aviso en el boton mientras el telefono abre la ficha del contacto.
-  var txt = document.getElementById("guardar-txt"), t = null;
-  document.getElementById("guardar").addEventListener("click", function(){
+  // Guardar contacto. Safari y Chrome abren el .vcf como ficha de contacto; los
+  // navegadores dentro de apps (Instagram, Facebook, WhatsApp...) se quedan
+  // cargando. En esas apps se muestra la ayuda de una vez; en cualquier otro,
+  // si a los 2.6 s la pagina sigue al frente, tambien. Si el telefono si abrio
+  // la ficha, la pagina se oculta o pierde el foco y la ayuda no sale.
+  var ua = navigator.userAgent || "";
+  var esIOS = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var esAndroid = /Android/.test(ua);
+  var dentroDeApp = /FBAN|FBAV|FB_IAB|Instagram|LinkedInApp|musical_ly|BytedanceWebview|Snapchat|Line\/|WhatsApp|Twitter/i.test(ua);
+  var ayuda = document.getElementById("ayuda"), ayudaTexto = document.getElementById("ayuda-texto");
+  var archivo = document.getElementById("ayuda-descargar").getAttribute("download");
+  var txt = document.getElementById("guardar-txt"), espera = null, regreso = null;
+
+  function textoAyuda(){
+    if(esIOS) return "Esta app no deja guardar contactos. Abre la tarjeta en <b>Safari</b>: toca la brújula o el menú <b>⋯</b> y elige <b>Abrir en Safari</b>. Ahí vuelve a tocar Guardar contacto.";
+    if(esAndroid) return "Si ya se descargó, toca el aviso <b>" + archivo + "</b> para agregarlo a tus contactos. Si no, abre la tarjeta en <b>Chrome</b> desde el menú <b>⋮</b>.";
+    return "Se descargó el archivo <b>" + archivo + "</b>. Ábrelo para agregarlo a tus contactos.";
+  }
+  function abreAyuda(){
+    clearTimeout(espera);
+    txt.textContent = "Guardar contacto";
+    ayudaTexto.innerHTML = textoAyuda();
+    ayuda.hidden = false;
+    document.getElementById("ayuda-cerrar").focus();
+    avisa("san-mateo-servicios-funerarios-polo-aguayo-ayuda");
+  }
+  function cierraAyuda(){ ayuda.hidden = true; document.getElementById("guardar").focus(); }
+  function cancela(){ clearTimeout(espera); }
+
+  document.getElementById("guardar").addEventListener("click", function(e){
+    if(dentroDeApp){ e.preventDefault(); abreAyuda(); return; }
     txt.textContent = "Abriendo contacto…";
-    clearTimeout(t);
-    t = setTimeout(function(){ txt.textContent = "Guardar contacto"; }, 4000);
+    clearTimeout(espera); clearTimeout(regreso);
+    espera = setTimeout(function(){
+      if(document.visibilityState === "visible") abreAyuda();
+    }, 2600);
+    regreso = setTimeout(function(){ txt.textContent = "Guardar contacto"; }, 4000);
   });
+  window.addEventListener("pagehide", cancela);
+  window.addEventListener("blur", cancela);
+  document.addEventListener("visibilitychange", function(){ if(document.hidden) cancela(); });
+  document.getElementById("ayuda-cerrar").addEventListener("click", cierraAyuda);
+  ayuda.addEventListener("click", function(e){ if(e.target === ayuda) cierraAyuda(); });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape" && !ayuda.hidden) cierraAyuda(); });
 
   // Red de seguridad: toda la entrada termina antes de 2.6 s. Si a los 4 s un
   // acceso sigue invisible (navegador lento o en pausa), se apaga la animacion
