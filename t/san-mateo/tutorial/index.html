@@ -31,7 +31,7 @@ a{color:#D6CCA6}
   var listo = false;
   function sigue(){
     if (listo) return; listo = true;
-    if (DESTINO) { location.replace(DESTINO); }
+    if (DESTINO) { location.replace(DESTINO + location.search); }   // ?prueba sigue hasta el video
     else { document.getElementById("mensaje").textContent = "El video estará aquí muy pronto."; }
   }
   try {
