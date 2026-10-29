@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tutorial del llavero · San Mateo</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0D3A3E">
+<!--
+  A esta liga apunta el QR impreso de la tarjeta de agradecimiento (29 oct 2026).
+  Cuenta cada escaneo en la hoja "Tarjetas - aperturas QR vCards" con la clave
+  san-mateo-qr-tutorial y manda al video. El QR no cambia: para cambiar el video,
+  solo se cambia DESTINO. Con ?prueba la clave termina en -prueba.
+-->
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{min-height:100dvh;display:grid;place-items:center;padding:24px 16px;text-align:center;
+  font:500 17px/1.5 Manrope,system-ui,sans-serif;color:rgba(255,255,255,.86);
+  background:radial-gradient(90% 45% at 50% 0%,rgba(255,246,222,.18),rgba(214,204,166,0) 70%),
+  linear-gradient(180deg,#11464A 0%,#0D3A3E 35%,#072427 100%)}
+h1{font:600 30px/1.2 Georgia,serif;color:#FFF6DE;margin-bottom:10px}
+a{color:#D6CCA6}
+</style></head>
+<body><main>
+  <h1>Tutorial del llavero</h1>
+  <p id="mensaje">Abriendo el video…</p>
+</main>
+<script>
+(function(){
+  var DESTINO = "";   // liga del video tutorial; vacia = todavia no hay video
+  var CONTADOR = "https://script.google.com/macros/s/AKfycbyvd9-C1_1AKv3cxFuwN3wJSWWtZGnPfZEWGggEMbGt0Z7W05xIMWC73ooNuxPWOWZ9/exec";
+  var clave = "san-mateo-qr-tutorial" + (/[?&]prueba\b/.test(location.search) ? "-prueba" : "");
+  var listo = false;
+  function sigue(){
+    if (listo) return; listo = true;
+    if (DESTINO) { location.replace(DESTINO); }
+    else { document.getElementById("mensaje").textContent = "El video estará aquí muy pronto."; }
+  }
+  try {
+    fetch(CONTADOR + "?t=" + encodeURIComponent(clave) + "&n=" + Date.now(), { mode:"no-cors", keepalive:true })
+      .then(sigue, sigue);
+  } catch (e) { sigue(); }
+  setTimeout(sigue, 900);   // si el contador tarda, no se hace esperar a nadie
+})();
+</script>
+</body></html>
