@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Cristina Ramírez · San Mateo</title>
+<meta name="description" content="Cristina Ramírez, Equipo de Ventas en San Mateo Recintos Funerarios. Guarda su contacto o escríbele por WhatsApp.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://tarjetas-fyware.vercel.app/t/san-mateo/cristina-ramirez/">
+<meta property="og:title" content="Cristina Ramírez · San Mateo">
+<meta property="og:description" content="Equipo de Ventas · San Mateo Recintos Funerarios">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://tarjetas-fyware.vercel.app/t/san-mateo/cristina-ramirez/">
+<meta name="theme-color" content="#0D3A3E">
+<meta name="color-scheme" content="dark">
+<style>html,body{background:#072427}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Las tipografias no bloquean el primer dibujo: con mala senal, o en redes que
+     bloquean Google Fonts, la hoja normal dejaba la pantalla en blanco hasta que
+     llegaba (28 oct 2026, Polo la abrio desde WhatsApp y la vio en blanco). -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet"></noscript>
+<script>
+  // La entrada animada solo se enciende con JS y sin "reducir movimiento":
+  // si algo falla, la tarjeta se ve completa y quieta.
+  if(!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)){
+    document.documentElement.classList.add("anima");
+  }
+</script>
+<style>
+/* Tarjeta de asesor de San Mateo. Colores y tipografias del sitio
+   (sanmateofuneraria.com): verde petroleo #0D3A3E, dorado #B7AA7E,
+   Cormorant Garamond en titulos y Manrope en texto.
+   Idea rectora (Oscar, 28 oct 2026): que quien la abre sienta "un toque celestial".
+   Luz que desciende (fulgor, rayos, aureola) y polvo que asciende.
+   Pensada para gente mayor: accesos de 80 a 108 px de alto, texto de 16 a 19 px
+   y contraste AA o mejor en todo lo que se lee. */
+@property --giro{syntax:"<angle>";inherits:false;initial-value:0deg}
+:root{
+  color-scheme:dark;
+  --petroleo:#0D3A3E; --petroleo-2:#0A3033; --petroleo-3:#072427;
+  --oro:#B7AA7E; --oro-claro:#D6CCA6; --oro-hondo:#A2935F;
+  --luz:#FFF6DE;
+  --verde:#25D366;
+  --blanco:#FFFFFF; --texto-2:rgba(255,255,255,.80); --texto-3:rgba(255,255,255,.64);
+  --curva:cubic-bezier(.2,.75,.25,1);
+  --flota:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  min-height:100vh;
+  background:var(--petroleo-3);
+  color:var(--blanco);
+  font-family:Manrope,"Segoe UI",system-ui,-apple-system,sans-serif;
+  font-size:17px;line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+  -webkit-text-size-adjust:100%;
+}
+
+/* ---------- Pantalla ---------- */
+.app{
+  position:relative;isolation:isolate;overflow:clip;
+  width:100%;max-width:440px;min-height:100vh;min-height:100svh;margin:0 auto;
+  display:flex;flex-direction:column;
+  background:linear-gradient(180deg, #11464A 0%, var(--petroleo) 30%, var(--petroleo-2) 62%, var(--petroleo-3) 100%);
+}
+.app::after{   /* viñeta: oscurece las orillas y lleva la mirada al centro */
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(130% 85% at 50% 36%, transparent 52%, rgba(3,18,20,.62) 100%);
+}
+@media (min-width:600px){
+  body{padding:40px 0;background:radial-gradient(60% 50% at 50% 30%, #0E4246, var(--petroleo-3) 70%)}
+  .app{min-height:0;border-radius:38px;box-shadow:0 40px 120px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.07)}
+}
+
+/* ---------- Cielo ---------- */
+.fondo{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.aurora{position:absolute;border-radius:50%;will-change:transform}
+.a1{
+  width:135%;aspect-ratio:1;left:-48%;top:-22%;
+  background:radial-gradient(closest-side, rgba(44,128,132,.55), rgba(44,128,132,0));
+  animation:deriva1 24s ease-in-out infinite alternate;
+}
+.a2{
+  width:115%;aspect-ratio:1;right:-55%;top:-10%;
+  background:radial-gradient(closest-side, rgba(196,180,124,.24), rgba(196,180,124,0));
+  mix-blend-mode:screen;
+  animation:deriva2 29s ease-in-out infinite alternate;
+}
+.a3{
+  width:160%;aspect-ratio:1;left:-30%;bottom:-78%;
+  background:radial-gradient(closest-side, rgba(18,104,96,.60), rgba(18,104,96,0));
+  animation:deriva3 33s ease-in-out infinite alternate;
+}
+@keyframes deriva1{to{transform:translate3d(20%,14%,0) scale(1.16)}}
+@keyframes deriva2{to{transform:translate3d(-34%,20%,0) scale(.9)}}
+@keyframes deriva3{to{transform:translate3d(12%,-18%,0) scale(1.12)}}
+/* la fuente de luz: un cielo que se abre arriba al centro */
+.cielo{
+  position:absolute;left:50%;top:-34%;width:150%;aspect-ratio:1;border-radius:50%;
+  transform:translateX(-50%);
+  background:radial-gradient(closest-side, rgba(255,246,222,.30), rgba(214,204,166,.10) 46%, rgba(214,204,166,0) 100%);
+  mix-blend-mode:screen;
+}
+.fulgor{   /* el destello del primer segundo; despues desaparece */
+  position:absolute;left:50%;top:-30%;width:170%;aspect-ratio:1;border-radius:50%;
+  transform:translateX(-50%);opacity:0;
+  background:radial-gradient(closest-side, rgba(255,250,236,.75), rgba(255,240,205,.22) 38%, rgba(255,240,205,0) 72%);
+  mix-blend-mode:screen;
+}
+.rayos{   /* luz que baja desde arriba, como en una capilla */
+  position:absolute;left:50%;top:-6%;width:190%;height:88%;
+  transform:translateX(-50%);transform-origin:50% 0;
+  background:repeating-conic-gradient(from 180deg at 50% 0%,
+    rgba(255,244,214,0) 0deg, rgba(255,244,214,.095) 2.4deg, rgba(255,244,214,0) 5.6deg, rgba(255,244,214,0) 9.5deg);
+  -webkit-mask-image:radial-gradient(55% 80% at 50% 0%, #000 10%, transparent 76%);
+          mask-image:radial-gradient(55% 80% at 50% 0%, #000 10%, transparent 76%);
+  animation:respira 11s ease-in-out infinite alternate;
+}
+@keyframes respira{
+  from{opacity:.55;transform:translateX(-50%) rotate(-2.5deg)}
+  to{opacity:1;transform:translateX(-50%) rotate(2.5deg)}
+}
+/* niebla: dos capas de nube muy tenue que cruzan despacio en sentidos opuestos */
+.niebla{
+  position:absolute;left:0;top:0;height:58%;opacity:.15;
+  width:calc(100% + 600px);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='320'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.0045 .011' numOctaves='4' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .97 0 0 0 0 .9 0 0 0 1.9 -.95'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  background-size:600px 320px;
+  -webkit-mask-image:linear-gradient(180deg,#000 8%,transparent 100%);
+          mask-image:linear-gradient(180deg,#000 8%,transparent 100%);
+  animation:niebla 90s linear infinite;
+}
+.niebla.n2{
+  top:8%;opacity:.10;width:calc(100% + 900px);background-size:900px 480px;
+  animation:niebla2 150s linear infinite;
+}
+@keyframes niebla{to{transform:translateX(-600px)}}
+@keyframes niebla2{from{transform:translateX(-900px)}to{transform:translateX(0)}}
+#polvo{position:absolute;inset:0;width:100%;height:100%}
+.grano{
+  position:absolute;inset:0;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* Apertura: el cielo se ilumina, los rayos se abren y la niebla aparece */
+.anima .fulgor{animation:fulgor 2.4s cubic-bezier(.3,0,.2,1) .05s both}
+@keyframes fulgor{
+  0%{opacity:0;transform:translateX(-50%) scale(.35)}
+  22%{opacity:1;transform:translateX(-50%) scale(.9)}
+  100%{opacity:0;transform:translateX(-50%) scale(1.15)}
+}
+.anima .cielo{animation:abre 2.2s var(--flota) .1s backwards}
+@keyframes abre{from{opacity:0;transform:translateX(-50%) scale(.4)}}
+.anima .rayos{animation:rayos-abren 2.2s var(--flota) .15s backwards, respira 11s ease-in-out 2.4s infinite alternate}
+@keyframes rayos-abren{from{opacity:0;transform:translateX(-50%) scaleY(.35) rotate(0deg)}}
+.anima .niebla{animation:niebla 90s linear infinite, aparece-suave 3s ease .4s backwards}
+.anima .niebla.n2{animation:niebla2 150s linear infinite, aparece-suave 3s ease .7s backwards}
+@keyframes aparece-suave{from{opacity:0}}
+
+/* ---------- Portada ---------- */
+.poster{
+  position:relative;isolation:isolate;
+  min-height:clamp(340px, 52svh, 470px);
+  padding:calc(24px + env(safe-area-inset-top)) 24px 2px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+.poster.con-foto{min-height:clamp(400px, 62svh, 540px)}
+/* La foto se desvanece con mascara, no con un color encima: asi se funde con el
+   fondo sin dejar una linea donde termina la portada. */
+.poster-foto{
+  position:absolute;inset:0;z-index:-2;width:100%;height:100%;
+  object-fit:cover;object-position:50% 22%;
+  -webkit-mask-image:linear-gradient(180deg,#000 52%,transparent 100%);
+          mask-image:linear-gradient(180deg,#000 52%,transparent 100%);
+}
+.poster.con-foto::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,
+    rgba(7,36,39,.70) 0%, rgba(7,36,39,0) 26%, rgba(7,36,39,0) 44%,
+    rgba(7,36,39,.55) 72%, rgba(7,36,39,0) 100%);
+}
+.arte{
+  position:relative;flex:1;width:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:4px 0 18px;
+}
+.arcos{
+  position:absolute;left:50%;top:50%;width:390px;height:390px;z-index:-1;
+  transform:translate(-50%,-46%);pointer-events:none;overflow:visible;
+  -webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 88%);
+          mask-image:linear-gradient(180deg,#000 30%,transparent 88%);
+}
+.arcos .arco{fill:none;stroke:var(--oro-claro);stroke-width:1;stroke-dasharray:1;stroke-dashoffset:0}
+.anima .arcos .arco{stroke-dashoffset:1;animation:traza 2s var(--curva) forwards;animation-delay:calc(300ms + var(--i) * 150ms)}
+@keyframes traza{to{stroke-dashoffset:0}}
+
+.lockup{display:flex;flex-direction:column;align-items:center;gap:16px}
+.halo{position:relative;display:flex;align-items:center;justify-content:center}
+/* Aureola: un resplandor y un aro de luz, mas brillante arriba, que respira */
+.aureola{
+  position:absolute;left:50%;top:50%;width:216px;height:216px;margin:-108px 0 0 -108px;
+  border-radius:50%;pointer-events:none;z-index:-1;
+  filter:drop-shadow(0 0 7px rgba(255,240,200,.55));
+}
+.aureola::before{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle, rgba(255,244,214,.26) 0%, rgba(255,244,214,.08) 42%, rgba(255,244,214,0) 68%);
+}
+.aureola::after{
+  content:"";position:absolute;inset:26px;border-radius:50%;padding:1.2px;
+  background:linear-gradient(180deg, rgba(255,248,226,.95), rgba(214,204,166,.30) 55%, rgba(214,204,166,0) 88%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+}
+.aureola{animation:late 6s ease-in-out infinite alternate}
+@keyframes late{from{transform:scale(1);opacity:.82}to{transform:scale(1.045);opacity:1}}
+.anima .aureola{animation:nace 1.8s var(--flota) .2s backwards, late 6s ease-in-out 2s infinite alternate}
+@keyframes nace{from{opacity:0;transform:scale(.5)}}
+
+.mono{display:block;width:150px;height:auto;overflow:visible;filter:drop-shadow(0 0 22px rgba(183,170,126,.30))}
+.mono .trazo{display:none}
+.anima .mono .trazo{
+  display:inline;fill:none;stroke:var(--luz);stroke-width:.7;
+  stroke-dasharray:1;stroke-dashoffset:1;
+  animation:traza 1.3s ease-in-out .2s forwards, apaga .6s ease 1.3s forwards;
+}
+.anima .mono .relleno{opacity:0;animation:aparece .8s ease .9s forwards}
+/* el monograma nace en luz blanca y se enfria a oro */
+.anima .mono{animation:de-luz 1.9s ease .8s backwards}
+@keyframes de-luz{
+  from{filter:brightness(2.6) drop-shadow(0 0 26px rgba(255,248,226,.95))}
+  to{filter:brightness(1) drop-shadow(0 0 22px rgba(183,170,126,.30))}
+}
+@keyframes apaga{to{opacity:0}}
+@keyframes aparece{to{opacity:1}}
+.wordmark{display:block;height:15px;width:auto;color:var(--oro-claro)}
+.anima .wordmark{animation:barrido 1.2s var(--curva) .9s backwards}
+@keyframes barrido{
+  from{clip-path:inset(0 50% 0 50%);opacity:0}
+  to{clip-path:inset(0 0 0 0);opacity:1}
+}
+.con-foto .arcos,.con-foto .aureola{display:none}
+.con-foto .arte{justify-content:flex-start;padding-top:0}
+.con-foto .lockup{gap:8px}
+.con-foto .mono{width:46px;filter:drop-shadow(0 1px 6px rgba(0,0,0,.35))}
+.con-foto .mono .relleno{fill:var(--blanco)}
+.con-foto .wordmark{height:10px;color:var(--blanco)}
+
+.identidad{width:100%;padding-bottom:4px}
+h1{
+  margin:0;
+  font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;font-weight:600;
+  font-size:clamp(40px, 12vw, 48px);line-height:1.02;letter-spacing:-.012em;
+  color:var(--blanco);text-wrap:balance;
+  text-shadow:0 0 22px rgba(255,244,214,.16);
+}
+h1 .p{display:inline-block;white-space:nowrap}
+h1 .l{display:inline-block}
+/* cada letra aparece desde la luz */
+.anima h1 .l{animation:letra 1.1s var(--flota) backwards;animation-delay:calc(450ms + var(--i) * 42ms)}
+@keyframes letra{
+  from{opacity:0;transform:translateY(.28em);filter:blur(10px);text-shadow:0 0 26px rgba(255,248,226,.95)}
+  to{opacity:1;transform:none;filter:none;text-shadow:0 0 22px rgba(255,244,214,.16)}
+}
+.puesto{margin:10px 0 0;font-size:17px;font-weight:700;color:var(--oro-claro);letter-spacing:.005em}
+.empresa{margin:4px 0 0;font-size:15px;font-weight:500;color:var(--texto-3)}
+
+/* ---------- Accesos: vidrio con brillo en la orilla ---------- */
+.accesos{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:20px 20px 0}
+.acceso{
+  position:relative;overflow:hidden;isolation:isolate;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  min-height:104px;padding:16px 8px 14px;border-radius:26px;
+  background:linear-gradient(160deg, rgba(255,255,255,.13), rgba(255,255,255,.035) 62%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.20),
+    inset 0 -1px 0 rgba(0,0,0,.22),
+    0 18px 40px rgba(0,0,0,.24);
+  -webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);
+  color:var(--blanco);text-decoration:none;
+  font-size:16px;font-weight:700;letter-spacing:-.005em;line-height:1.15;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+  transform:perspective(700px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
+  transition:transform .5s var(--flota);
+}
+.acceso::before{   /* orilla de luz, mas brillante arriba a la izquierda */
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+  background:linear-gradient(155deg, rgba(255,250,236,.55), rgba(255,255,255,.08) 34%, rgba(255,255,255,0) 60%, rgba(214,204,166,.30));
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+}
+.acceso::after{   /* reflejo que sigue al cursor en compu */
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;
+  background:radial-gradient(220px circle at var(--mx,50%) var(--my,0%), rgba(255,248,226,.16), transparent 62%);
+  transition:opacity .3s ease;
+}
+.acceso:hover::after{opacity:1}
+.acceso:active{transform:scale(.96);transition-duration:.12s}
+.onda{   /* luz que se abre desde donde toca el dedo */
+  position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;
+  pointer-events:none;z-index:-1;
+  background:radial-gradient(circle, rgba(255,248,226,.75), rgba(255,248,226,0) 70%);
+  animation:onda .7s ease-out forwards;
+}
+@keyframes onda{to{transform:scale(42);opacity:0}}
+.ico{
+  position:relative;flex:none;width:50px;height:50px;border-radius:16px;
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.30),0 6px 16px rgba(0,0,0,.24);
+}
+.ico svg{width:27px;height:27px;display:block}
+.ico.wa{background:linear-gradient(180deg,#43E485,#1EBE5A)}
+.ico.fb{background:linear-gradient(180deg,#2D8BFF,#1468E0)}
+.ico.web{background:linear-gradient(180deg,var(--oro-claro),var(--oro-hondo));color:var(--petroleo)}
+
+/* WhatsApp: ancho completo, tinte verde, un haz de luz que recorre la orilla
+   y un pulso suave en el icono. Es el boton que le da al asesor el numero del cliente. */
+.acceso.wa{
+  grid-column:1 / -1;flex-direction:row;justify-content:flex-start;gap:14px;
+  min-height:88px;padding:16px 16px 16px 18px;text-align:left;
+  background:linear-gradient(160deg, rgba(37,211,102,.20), rgba(255,255,255,.04) 62%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.20),
+    inset 0 -1px 0 rgba(0,0,0,.22),
+    0 18px 40px rgba(0,0,0,.24),
+    0 0 46px rgba(37,211,102,.14);
+}
+.haz{
+  position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;
+  background:conic-gradient(from var(--giro),
+    rgba(37,211,102,0) 0deg, rgba(37,211,102,0) 230deg,
+    rgba(37,211,102,.85) 300deg, #D2FFE1 332deg, rgba(37,211,102,0) 360deg);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  animation:gira 4.8s linear infinite;
+}
+@keyframes gira{to{--giro:360deg}}
+.ico.wa::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;
+  animation:latido 2.8s ease-out 2.2s infinite;
+}
+@keyframes latido{
+  0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}
+  70%,100%{box-shadow:0 0 0 15px rgba(37,211,102,0)}
+}
+.wa .txt{display:flex;flex-direction:column;gap:3px}
+.wa .txt b{font-size:19px;font-weight:800;letter-spacing:-.01em}
+.wa .txt small{font-size:15px;font-weight:600;color:var(--texto-2)}
+.ir{
+  margin-left:auto;flex:none;width:38px;height:38px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.10);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);
+}
+.ir svg{width:18px;height:18px}
+
+/* entran flotando, sin rebote: ligeros, como suspendidos */
+.anima .acceso{animation:flota 1.2s var(--flota) backwards;animation-delay:var(--d,0ms)}
+@keyframes flota{
+  from{opacity:0;transform:translateY(34px);filter:blur(8px)}
+  to{opacity:1;transform:none;filter:none}
+}
+
+.pie{margin-top:auto;padding:24px 20px 2px;text-align:center;font-size:13px;color:var(--texto-3)}
+.pie a{color:var(--texto-2);font-weight:700;text-decoration:none}
+.pie a:hover{color:var(--oro-claro)}
+.anima .pie{animation:entra .9s var(--curva) 1.6s backwards}
+
+/* ---------- Guardar contacto, siempre a la mano del pulgar ---------- */
+.barra{
+  position:sticky;bottom:0;z-index:5;
+  padding:14px 20px calc(16px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg, rgba(7,36,39,0), rgba(7,36,39,.94) 40%);
+}
+.cta{
+  position:relative;overflow:hidden;isolation:isolate;
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  height:64px;border-radius:20px;
+  background:linear-gradient(180deg, #DDD3AE 0%, var(--oro) 52%, var(--oro-hondo) 100%);
+  color:var(--petroleo);text-decoration:none;
+  font-size:18px;font-weight:800;letter-spacing:-.005em;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 -2px 0 rgba(0,0,0,.10),0 14px 34px rgba(214,196,140,.32);
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+  transition:transform .45s var(--flota);
+}
+.cta:active{transform:scale(.97);transition-duration:.12s}
+.cta svg{width:23px;height:23px;flex:none}
+.cta::after{   /* un destello al llegar para que el ojo encuentre el boton */
+  content:"";position:absolute;top:0;bottom:0;left:-40%;width:34%;
+  background:linear-gradient(100deg, transparent, rgba(255,255,255,.6), transparent);
+  transform:translateX(-120%) skewX(-18deg);opacity:0;
+}
+.anima .cta{animation:sube 1.1s var(--flota) 1.15s backwards}
+.anima .cta::after{animation:destello 1.3s var(--curva) 2.1s both}
+@keyframes sube{from{opacity:0;transform:translateY(110%)}to{opacity:1;transform:none}}
+@keyframes destello{
+  from{opacity:1;transform:translateX(-120%) skewX(-18deg)}
+  to{opacity:1;transform:translateX(480%) skewX(-18deg)}
+}
+
+/* ---------- Ayuda cuando el telefono no abre el contacto ----------
+   Pasa en los navegadores dentro de apps (Instagram, Facebook, WhatsApp...):
+   no saben abrir un .vcf y la carga se queda congelada. */
+.ayuda{
+  position:fixed;inset:0;z-index:50;
+  display:flex;align-items:flex-end;justify-content:center;
+  padding:0 10px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(3,18,20,.62);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+}
+.ayuda[hidden]{display:none}
+.ayuda-hoja{
+  width:100%;max-width:420px;padding:24px 20px 12px;border-radius:26px;
+  background:linear-gradient(180deg,#15494D,var(--petroleo));
+  box-shadow:0 -10px 50px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.18);
+  animation:hoja .45s var(--flota) both;
+}
+@keyframes hoja{from{opacity:0;transform:translateY(40px)}}
+.ayuda-titulo{margin:0;font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:30px;line-height:1.1}
+.ayuda-texto{margin:10px 0 18px;font-size:17px;line-height:1.5;color:var(--texto-2)}
+.ayuda-texto b{color:var(--blanco)}
+.ayuda-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;height:58px;border-radius:18px;border:0;cursor:pointer;
+  font:800 17px Manrope,"Segoe UI",sans-serif;text-decoration:none;
+}
+.ayuda-btn svg{width:22px;height:22px;flex:none}
+.ayuda-btn.oro{background:linear-gradient(180deg,#DDD3AE,var(--oro) 52%,var(--oro-hondo));color:var(--petroleo)}
+.ayuda-btn.verde{margin-top:10px;background:linear-gradient(180deg,#43E485,#1EBE5A);color:#06301A}
+.ayuda-cerrar{
+  display:block;width:100%;height:50px;margin-top:6px;border:0;background:none;cursor:pointer;
+  color:var(--texto-2);font:700 16px Manrope,"Segoe UI",sans-serif;
+}
+@media (prefers-reduced-motion:reduce){.ayuda-hoja{animation:none}}
+
+a:focus-visible,button:focus-visible{outline:3px solid var(--oro-claro);outline-offset:3px}
+
+.anima .entra{animation:entra .9s var(--curva) backwards;animation-delay:var(--d,0ms)}
+@keyframes entra{
+  from{opacity:0;transform:translateY(12px);filter:blur(8px)}
+  to{opacity:1;transform:none;filter:none}
+}
+@media (max-height:720px){   /* iPhone SE y pantallas bajas: portada compacta para que quepan los accesos */
+  .poster:not(.con-foto){min-height:0;padding-top:calc(30px + env(safe-area-inset-top))}
+  .arte{padding-bottom:12px}
+  .mono{width:112px}
+  .aureola{width:150px;height:150px;margin:-75px 0 0 -75px}
+  .aureola::after{inset:16px}
+  .arcos{width:300px;height:300px}
+  h1{font-size:38px}
+  .puesto{margin-top:6px}
+  .accesos{padding-top:16px;gap:10px}
+  .acceso{min-height:92px}
+  .acceso.wa{min-height:80px}
+  .pie{padding-top:16px}
+}
+@media (max-width:350px){
+  .accesos{gap:10px;padding-left:12px;padding-right:12px}
+  .acceso.wa{gap:12px;padding-left:14px}
+  .barra{padding-left:12px;padding-right:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  .aurora,.rayos,.niebla,.haz,.aureola,.ico.wa::after{animation:none}
+  .chispa{display:none}
+  .acceso,.cta{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="fondo" aria-hidden="true">
+    <i class="aurora a1"></i><i class="aurora a2"></i><i class="aurora a3"></i>
+    <i class="cielo"></i>
+    <i class="niebla"></i><i class="niebla n2"></i>
+    <i class="rayos"></i>
+    <i class="fulgor"></i>
+    <canvas id="polvo"></canvas>
+    <i class="grano"></i>
+  </div>
+
+  <header class="poster ">
+    
+    <div class="arte">
+      <svg class="arcos" viewBox="0 0 400 400" aria-hidden="true">
+        <defs>
+          <radialGradient id="chispa-luz">
+            <stop offset="0" stop-color="#FFF8E2"/>
+            <stop offset=".35" stop-color="#D6CCA6" stop-opacity=".7"/>
+            <stop offset="1" stop-color="#D6CCA6" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <path class="arco" style="--i:0" pathLength="1" d="M130 400V200a70 70 0 0 1 140 0v200" opacity=".22"/>
+        <path class="arco" style="--i:1" pathLength="1" d="M95 400V200a105 105 0 0 1 210 0v200" opacity=".15"/>
+        <path class="arco" style="--i:2" pathLength="1" d="M60 400V200a140 140 0 0 1 280 0v200" opacity=".10"/>
+        <path class="arco" style="--i:3" pathLength="1" d="M25 400V200a175 175 0 0 1 350 0v200" opacity=".06"/>
+        <circle class="chispa" r="8" fill="url(#chispa-luz)" opacity="0">
+          <animateMotion dur="9s" begin="2.4s" repeatCount="indefinite" path="M95 400V200a105 105 0 0 1 210 0v200"/>
+          <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.25;.75;1" dur="9s" begin="2.4s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+      <div class="lockup">
+        <div class="halo">
+          <span class="aureola" aria-hidden="true"></span>
+          <svg class="mono" viewBox="-20.58 0 227.58 121.62" role="img" aria-label="San Mateo">
+            <defs>
+              <path id="sm" pathLength="1" fill-rule="evenodd" d="M36.62 53.12L37.38 53.12L37.62 52.88L36.88 52.88ZM39.25 52.12L40.12 52L39.50 51.88ZM0 96.88L0.25 98.62L1.38 102.62L1.50 103.75L4 109.50L5.38 111.38L8.88 115L10.50 116.38L14.25 118.75L17.50 120L22.12 121.12L25.25 121.25L26.88 121.50L32.25 121.38L36.50 120.88L38.38 120.25L41 119.75L41.88 119.25L43.50 119L46.38 117.75L51.12 116.75L53.38 115.62L55.25 115.25L59.25 113.50L61 113L61.62 112.50L65.12 110.88L66.12 110.12L67.88 109.38L69.50 108.25L71.25 107.38L72.12 106.62L74.25 105.50L75.88 104.25L76.75 103.88L78.38 102.62L79.38 102.12L80.62 100.88L81.62 100.25L83 98.88L84.50 97.88L86.12 96.50L87 95.50L90.12 93L97.12 86.12L97.38 86.12L97.88 86.75L97.88 89.25L98.25 92.25L98.75 93.62L98.88 94.88L99.62 96.50L101.12 98L102 98.50L104.75 98.75L106.88 97.75L108 96.88L109.12 95.38L110 93.50L111.50 89.12L112.38 85.50L112.75 82.62L113.62 79.12L113.75 75.25L114.38 69.88L114.75 63.62L114.75 38.88L114.50 33L115.12 30L115.88 28L118.38 23.88L120.12 22L121.50 21.25L122.38 21.12L123 21.38L124.25 22.62L125 24.12L125.75 29.50L125.75 31.25L125.12 35.50L124.75 40.88L124.38 43.25L124.12 49.25L124.75 52L124.88 53.38L125.38 55L125.75 55.75L126.50 56.50L126.88 56.62L127.50 56.50L128.25 55.88L129 53.88L129.50 51.25L129.62 41.25L129.25 34.62L129.25 31.25L129.62 28.75L130.38 26L130.62 23.12L131 22.12L131.50 19.62L133.12 15.12L133.88 13.88L135.12 11L136 9.88L136.75 8.50L138.75 6.25L140.38 5.25L141.50 5.38L142.88 7.12L143.38 10.12L143.38 13.88L143 16.88L142.75 22L142.38 23.75L142 27.62L141.75 32.75L140.88 36.38L140.62 40.75L140.38 41.62L140.25 43.88L139.88 46L139.38 52.62L138.88 55L138.62 57.38L138.50 63.62L138.38 63.75L138.50 76.75L138.75 77.75L138.75 79.25L139.50 82L139.62 83.75L140 85.50L140.62 86.88L140.75 88.25L141.62 89.88L142 91.25L143.38 93.88L146.38 98.12L149.62 101.62L152.38 103.38L153.25 104.12L154.25 104.50L155.25 105.25L156.75 106L158.88 106.62L161.25 107.62L167 108.25L171 108.25L174.38 107.75L176.62 107.62L179.38 106.50L180.50 106.38L183.38 105.50L184.62 104.62L186 104.25L187.38 103.38L188.62 102.88L189 102.50L190.88 101.75L191.75 100.88L194 99.50L197.38 96.62L198.38 96.12L200.75 94.12L203.62 91.12L204.50 89.62L206.88 86.88L206.62 86.62L206.12 86.75L205 87.88L204.75 88.50L204 89.38L199.88 93.38L198 94.88L196.75 95.62L196.38 96.12L194.88 97.25L193.75 98.50L190.88 100.50L189.25 101.12L188.12 102L186.62 102.38L183.50 104L181.62 104.38L179.62 105.25L177.25 105.62L176.12 106L173 106.25L166.88 106.12L163.75 105.50L162 104.50L160.25 103.88L157.38 102L155.50 100.25L153.75 98L152.25 95.75L149.88 91L149.50 89.12L148.62 86.75L148.50 85.38L147.88 83.12L147.50 80.50L147.25 74.88L146.75 70.50L146.75 64.88L147 62.38L147 58.12L147.62 50.25L147.75 45.12L148.88 31.50L149.38 27.88L149.50 21.38L149.62 21.25L149.50 10.12L149.12 8.62L148.25 6.50L147.50 5.25L146.62 4.38L145.38 3.50L144.50 3.12L143.12 2.88L140 2.88L138.62 3.38L137.12 4.38L136.12 5.38L134.88 7L133.75 9.25L133.12 10L131.75 12.88L131.62 13.75L130.88 15.12L130.38 17.25L129.50 19L129.38 20.25L128.62 22.75L128.12 23.50L127.50 23.50L127 23L126.12 21.38L125.12 20.25L124 19.50L122.38 19.12L121 19.75L119.88 20L119.12 20.50L117.12 22.38L114.75 25.75L114.12 26L113.62 25.38L113.50 23.75L112.62 21.62L112.38 20L111.38 16.62L110.50 15L110.25 13.88L108.88 11.25L107.62 9.50L104.75 6.88L103.62 6.50L101.62 6.25L100.50 6.50L99.75 6.88L99.25 7.38L99 8L99 9.25L99.38 9.62L100 9.62L101.38 8.88L101.88 9L102.38 9.50L104.50 14.12L104.75 16.38L105.88 19.75L105.88 20.88L106.88 26.88L107 29.38L107.62 32.62L107.88 38.25L107.75 42.88L106.62 46.12L105.75 49.50L104.88 51.12L104.62 52.75L102.75 58.12L102.38 60.62L101.25 63.88L100.75 66.38L100.75 67.25L100.25 69.12L100.25 70.12L99.25 74L99 78.25L98.75 79.38L96.50 82.38L85 93.62L82.38 95.62L79.38 98.38L78.12 99L74.75 101.88L71.25 104.12L70.38 104.50L69.50 105.25L67 106.50L62 109.50L59.88 110.38L57.12 112L55.62 112.38L54.25 113.12L53.12 113.12L52.75 112.75L56 109.38L59.38 105L60.88 102.25L61.88 99.50L62.62 98.25L63.25 95.62L63.62 94.75L64.88 87.88L65.12 83.75L65.12 79.88L64.88 75.75L64.12 70.88L63.62 68.50L63.25 67.62L63 65.50L62 62.75L60.62 57.38L59.75 55.75L59.50 54.25L58.62 52.25L58.25 50.62L57.75 49.75L57.38 48L56.38 46L55 41.62L55 40.88L55.88 39.75L57.50 38.50L61.25 34.62L63.38 32L64 30.75L64.88 29.62L66.50 26.88L67.25 25.12L67.38 24L68.62 20.50L68.88 18.12L68.88 12.38L68.62 10.12L67.88 8.50L67.50 7.12L66.50 5.12L64.50 3L63.62 2.25L62.12 1.38L58.38 0.12L57.25 0L54.38 0.38L53.88 0.62L51.38 1.12L49.75 2L47.88 3.38L45.62 5.62L44.38 7.50L42.88 11L42.62 12.88L42 14.75L41.75 18.12L41.88 23.25L42.62 26.75L42.88 29.75L43.38 31.75L43.88 32.75L44.12 34.50L45 37.75L46.12 40.25L46.50 42.25L48.25 47.12L48.75 49.25L49.62 50.88L49.75 51.88L50.50 53.62L50.75 55L51.88 57.75L52.12 59.50L53.88 65L54.25 67.38L55 69.25L56.25 75.88L56.62 79.88L57.12 82.25L57.12 85L56.75 87.50L56.62 90.50L55.75 96.25L55.12 98.62L54.38 100.12L52.88 104.38L51.88 106.38L49.12 110.25L46 113.38L43.25 115.25L42.12 115.75L41 116.62L37.75 117.88L36.12 118.75L34.62 119.12L33.62 119.12L32.25 119.50L28.75 120L23.88 119.88L19.25 118.75L18.12 118L15.25 116.62L14.38 115.75L13.38 115.25L10.75 112.62L8.75 109.88L7.12 106.50L6.75 104.62L5.75 102.38L5.12 98.62L4.75 94.88L4.88 88.88L5.38 86.88L5.75 84L6.50 82.38L6.88 80.62L7.88 77.88L8.50 77L9.12 75.62L14.12 68.75L18 64.88L19.75 63.38L25.50 59.12L28.88 57.25L30.12 56.88L31.25 56L32.25 55.75L34.75 54.62L35.38 54L35.38 53.62L33.12 53.75L31.50 54.75L29 55.75L27.25 56.88L26 57.25L24 58.25L23.25 58.88L21.75 59.50L16.12 63.75L13.88 65.75L9.25 70.38L7.25 73L6.38 74.62L5.75 75.38L4.38 78.25L3.50 79.62L1.62 84.12L1.25 86.38L0.25 90L0 92.38ZM107.50 52.38L108 53.38L108 62.62L107.88 62.75L108 67.25L107.75 70.50L107.12 74.38L107.12 76.50L106.62 81.88L105.75 87.75L104.88 90L104.62 91.62L103.62 93.75L103.12 94.25L102.75 94.25L101.88 93.50L101.50 92.75L100.88 89.62L100.88 85.25L101.50 78.12L102 76.75L103 68.88L103.38 67.75L103.62 65.25L104.50 62.25L104.75 59.88L105.50 58.25L106.75 53L107.25 52.38ZM58.50 1.88L60.88 2.62L63.38 4.12L65.12 6L66.12 7.62L66.75 9.25L67.38 12.62L67.25 17.50L66.25 22.75L65.50 24L65.25 25.12L62.88 29.50L60.75 32.62L57.38 36.50L55.62 38.12L54.88 38.50L54.38 38.50L53.50 37.75L53 36.75L52.50 35L52 34.12L51.75 31.88L50.62 28.75L50.50 27.12L49.75 23.12L49.50 19.62L49.50 14.25L49.75 11.25L50.75 7L52.25 4.38L53.50 3.25L54.50 2.62L57.12 1.88Z"/>
+              <linearGradient id="foil" x1="0" y1="0" x2="1" y2=".55">
+                <stop offset="0" stop-color="#B7AA7E"/>
+                <stop offset=".40" stop-color="#C3B68A"/>
+                <stop offset=".50" stop-color="#F8F0D2"/>
+                <stop offset=".60" stop-color="#C3B68A"/>
+                <stop offset="1" stop-color="#B7AA7E"/>
+                <animateTransform attributeName="gradientTransform" type="translate" values="-1.2 0;1.2 0;1.2 0" keyTimes="0;.3;1" dur="7s" begin="2.6s" repeatCount="indefinite"/>
+              </linearGradient>
+            </defs>
+            <use class="relleno" href="#sm" fill="url(#foil)"/>
+            <use class="trazo" href="#sm"/>
+          </svg>
+        </div>
+        <svg class="wordmark" viewBox="0 0 359.38 42.62" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M191 1.50L190.50 1.12L189.88 1.25L189 2.12L188.62 3L187.88 3.88L185.38 8.88L185.25 9.50L182.38 14.62L179.38 20.88L178.75 21.62L177.62 24.12L176.75 25.38L174.88 29.12L174.38 29.75L174 31L173.25 31.88L172.88 32.75L172.25 33.25L171.75 33.25L170.88 32.50L170.50 31.62L169.62 30.38L165.88 22.75L165.25 22L164.88 20.88L160.75 13L159.88 11.88L159.38 10.62L157.62 7.62L155.75 3.75L154.75 2.12L153.88 1.25L153.12 1.25L152.62 1.88L152.25 3L151.62 6.75L151.50 9.38L150.50 12.62L150.38 14.75L149.88 17L149.25 22.38L148.38 25.75L148 30.25L147.25 33.12L146.88 36.12L146.38 37.50L146 39.75L146.12 41.12L147 41.62L148.75 41.62L149.62 40.88L150.38 30.62L151.25 26.75L151.62 22.75L151.62 20.62L152.62 16.38L153 13.25L153.25 12.25L153.62 11.75L153.88 11.62L154.38 11.75L155.12 12.62L156.38 15.38L156.88 16L159 20.25L159.62 22L160.38 23L162 26.38L164.50 30.62L165.25 32.62L166.12 33.75L166.50 34.75L168.12 37.38L169.62 40.38L170.12 40.88L170.88 41L171.62 40.50L176.62 30.12L177.50 29L181 21.75L181.50 21.12L182 19.88L185 14.62L185.75 12.88L186.38 11.88L187 11.25L187.25 11.25L187.75 11.62L188.12 12.38L188.75 15.12L189 17.75L189.75 21.12L190 24.50L190.88 28.50L191.25 32.75L192 36.25L192.25 40.50L192.62 41.25L193 41.50L196.62 41.62L197.25 41.38L197.75 40.62L197.25 37.38L196.75 36L196.12 31.12L195.62 29.62L195.12 25L194.50 22.50L194.38 20.12L193.38 16.12L192.88 11L192.25 8.38L192 5.62ZM115.88 1.38L115.38 1.12L113.38 1.12L113 1.25L112.50 1.88L113.25 9.25L113.25 17L113.38 17.12L113.25 31.88L112.75 32.50L112.38 32.38L110.12 30.50L108 28.50L106.38 26.50L99.50 19.75L95.38 15.25L88.75 8.75L87.75 7.50L83.38 3L81.12 1.25L80.12 1.38L79.88 1.88L80 12.50L79.88 12.62L79.75 32.88L79.38 39.38L79.12 40.12L79.12 40.75L79.50 41.25L80.88 41.62L82.25 41.50L82.88 41L83 40.62L82.25 25.62L82.25 11L82.62 10.38L83.12 10.38L86.25 13.50L87.75 14.75L110.38 38L111.50 38.88L114.25 41.75L114.75 42L115.25 41.75L115.50 41.25L115.50 28.50L115.62 28.38L115.50 21.12L115.75 17.50L116 5.75L116.25 1.88ZM283.38 1.38L283 2.50L283.12 3L283 40.50L283.25 41.12L283.88 41.50L288.38 41.50L288.50 41.62L300.75 41.62L300.88 41.50L303.50 41.62L304.38 41.38L305 40.62L304.88 39.25L304.38 38.88L303.12 38.88L301.75 39.25L300.25 39.38L290 39.50L288.50 39.25L287.88 38.62L287.75 28.25L287.88 28.12L287.88 23L288.12 22.25L289.12 21.62L300.50 21.75L301.50 22L302.12 21.75L302.38 21.38L302.50 19.75L302.25 19.38L301.75 19.12L294.12 19.62L288.62 19.50L288 18.88L287.75 17.75L287.88 17.12L287.75 6.88L287.88 3.88L288.38 3.25L289 3L294.12 2.88L294.25 3L301.62 3.12L302.62 3.38L304 3.38L304.62 2.75L304.75 2.25L304.62 1.62L303.75 1L283.88 1.12ZM243 1.12L242.25 1.88L242.25 2.62L242.88 3.12L244.12 3.25L248 2.88L253.88 2.88L254.62 3.12L255.12 3.62L255.25 4L255.12 40.88L255.38 41.38L255.75 41.62L259.50 41.50L260 41.25L260.38 40.75L260.38 36.62L260.25 36.50L260.38 4L260.75 3.38L261.50 3L273.38 3.12L274 2.50L274 1.62L273.50 1L270 1L269.88 1.12L243.38 1ZM223.12 1L222.62 1.12L221.50 2.62L221.25 3.50L219.50 7L219.12 8.38L218.12 10L217 12.88L215.25 16.12L213.38 20.75L212.62 21.75L212.12 23.12L210.25 26.62L209.88 27.88L209.12 29.12L209 29.75L208.25 31L207.75 32.38L205.25 37.25L204.50 38.25L204.12 39.62L203.62 40.50L203.62 41L204.25 41.50L206.75 41.62L207.75 40.88L208 39.50L208.50 38.38L209.12 36L209.88 34.50L210.25 32.88L211.12 31.38L211.25 30.75L212 29.50L212.50 28L213.12 26.88L214.25 25.88L217.88 25.88L218 25.75L218.88 25.88L225.88 25.75L226 25.88L229.25 25.88L229.75 26.12L230.38 26.88L232.38 31L232.62 32L233.62 33.75L235 37.38L236 39.12L236.38 41L237 41.50L241.12 41.62L242.12 41L242.25 40.62L242.12 40.12L241.62 39.25L241.25 38L240.62 37.12L239.62 34.62L237.12 29.75L235.75 26L234 22.88L233.75 21.88L232.62 20.12L232.38 19.25L230.50 15.38L230.12 14.12L229.25 12.50L229 11.50L228.25 10.25L227.75 8.88L227 7.75L226.62 6.38L224.38 2ZM221.62 8.25L222.38 8.75L224 12.25L224.50 12.88L225.12 14.75L226.75 18.12L227.25 19.75L228.62 22.38L228.62 23L228 23.62L215.88 23.75L215.12 23.50L214.62 23L214.62 22.38L215.12 21.75L215.62 20.38L216.88 18.25L217.38 16.75L218.75 14.25L219.12 12.75L220.12 10.88L220.38 10L220.88 9ZM50.75 0.88L49 3.75L48.12 6.25L46 10.25L44.62 13.62L43.62 15.38L42.50 18.25L41.38 20.25L41.12 21.38L39.12 25L39 25.62L35.88 31.88L35.62 32.75L33.75 36L32 39.62L31.50 40.25L31.50 41.12L31.88 41.50L33.50 41.62L34.75 41.50L35.50 41L35.88 39.38L36.88 37.50L37.88 34.12L38.88 32.25L39.25 30.88L40 29.62L41 27.12L41.62 26.12L42.12 25.88L53.50 25.88L53.62 26L57.38 25.88L58.12 26.38L59.12 27.88L60.62 31.50L61.50 33L61.88 34.38L63.50 38.25L64.25 40.88L64.88 41.38L65.75 41.62L69.75 41.50L70.38 41L70.38 40.38L69.50 39.12L69.25 38.12L66 31.38L65 28.75L64.25 27.50L63.75 26.12L61.62 21.88L61.38 20.88L60.50 19.50L59.38 16.88L58 14.38L57.75 13.50L56.25 10.38L55.88 9.12L55 7.62L53.75 4.38L52.75 2.88L52 1.25L51.50 0.88ZM49.62 8L49.88 8L50.50 8.88L52.50 13.38L53.75 15.62L55 19L56.75 22.50L56.62 23L55.88 23.62L47.75 23.75L47.62 23.88L43.88 23.75L43.12 23.50L42.75 23.12L42.75 22.25L43.25 21.50L43.50 20.50L44.62 18.62L45.12 17.12L46.88 13.75L47 13.12L48 11.50L48.88 9.12ZM331.88 0.12L326.75 1.38L324.25 2.38L322.12 3.50L319.12 6L317.50 8L315.25 11.38L313.62 15.25L313 19L313 21.75L313.38 25.75L313.75 27.62L314.38 28.88L314.75 30.38L315.75 32.38L317.25 34.62L319.62 36.88L321.88 38.62L324.25 40L328.50 41.62L332 42.38L333.75 42.50L338.50 42.38L343.38 41.50L345.50 40.75L347 40.50L350.88 38.25L354 35.38L355.25 33.75L357.75 29.50L358.38 27.62L358.62 25.38L359.25 22.50L359.25 20L358.38 14.88L357.38 11.62L356.38 10.12L355.88 9L354.50 7.25L352.25 5L351 4.38L349.50 3.25L345.38 1.62L340.25 0.25L338.12 0ZM335.12 1.50L338 1.62L339.50 2.12L342.12 2.62L344.25 3.50L346.50 5L348.38 6.75L350.50 9.62L350.75 10.50L351.88 12.50L352.88 16.38L353.38 21.50L353 26.25L352 30.62L350 34.38L348 36.62L346.75 37.38L346 38.12L344.38 39L341.50 40.25L337.62 40.75L334.12 40.75L331.38 40.38L327.88 38.88L325.25 37.12L322.62 34.50L321.38 32.38L321.12 31.50L320.50 30.50L320.25 28.50L319.50 26.50L319.12 24.75L319 17.88L319.25 15.38L320.12 12.62L320.38 11.12L322.12 7.88L324.12 5.75L327.75 3.25L331.25 2.12ZM22.38 1.25L20.75 1L18.75 0.25L17.50 0L13.12 0L11.12 0.25L6.38 1.62L3.75 3.38L2.25 5.12L1.12 7.62L0.75 9.25L0.88 13.12L1.12 14L2.25 16.25L4.38 18.75L7 20.38L7.88 21.12L12.62 23.50L13.62 23.75L14.50 24.50L17.50 26.38L18.75 27.62L20 29.38L20.50 30.88L20.62 33.50L19.75 36.12L18.12 38.12L16.75 39.25L14.88 40.25L12.62 40.75L9.62 40.88L6.50 40.50L3.62 39L2.12 37.62L1.38 36.38L0.62 36.25L0.12 37.25L0 39.75L0.88 40.88L5 42.25L10.12 42.50L12.38 42.38L16.62 41.38L19.62 40.12L21 39.12L22.25 37.88L23 36.75L24.12 34.50L24.88 31.25L24.88 29.25L24.25 26.50L23 24.12L22 22.88L20.38 21.75L13.50 18.12L12.50 17.88L8 15.12L6.50 13.62L5.38 11.62L5.12 9.62L5.38 6.75L5.88 5.38L7.38 3.62L9.50 2.38L12.75 1.62L14.50 1.62L16.38 1.88L18.25 2.38L20.50 3.50L21.12 4.25L22.62 5L23 4.62L23.25 2.25L23.12 1.88Z"/></svg>
+      </div>
+    </div>
+    <div class="identidad">
+      <h1 id="nombre">Cristina Ramírez</h1>
+      <p class="puesto entra" style="--d:950ms">Equipo de Ventas</p>
+      <p class="empresa entra" style="--d:1030ms">Recintos Funerarios · Celaya</p>
+    </div>
+  </header>
+
+  <nav class="accesos" aria-label="Contacto">
+    <a class="acceso wa" data-accion="wa" style="--d:1100ms" href="https://wa.me/524612788134?text=Hola%2C%20Cristina.%0AVi%20tu%20tarjeta%20digital%20y%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20servicios%20de%20SAN%20MATEO.%20%C2%BFMe%20puedes%20dar%20informaci%C3%B3n%3F" target="_blank" rel="noopener">
+      <span class="haz" aria-hidden="true"></span>
+      <span class="ico wa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></span>
+      <span class="txt"><b>WhatsApp</b><small>Envíame un mensaje</small></span>
+      <span class="ir" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="acceso" data-accion="fb" style="--d:1200ms" href="https://www.facebook.com/profile.php?id=61578520631131" target="_blank" rel="noopener">
+      <span class="ico fb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.26-1.5 1.54-1.5h1.6V4.33c-.28-.04-1.24-.12-2.35-.12-2.32 0-3.9 1.42-3.9 4.02v2.17H7.8v3h2.6V21h3.1Z"/></svg></span>
+      Facebook
+    </a>
+    <a class="acceso" data-accion="web" style="--d:1280ms" href="https://sanmateofuneraria.com" target="_blank" rel="noopener">
+      <span class="ico web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></svg></span>
+      Sitio web
+    </a>
+  </nav>
+
+  <p class="pie">Tarjeta digital creada por <a href="https://www.fyware.com/es/?utm_source=vcard-cristina-ramirez&amp;utm_medium=tarjeta-digital&amp;utm_campaign=san-mateo-servicios-funerarios-2026&amp;utm_content=pie-tarjeta" target="_blank" rel="noopener">Fyware</a></p>
+
+  <div class="barra">
+    <a class="cta" data-accion="guardar" href="Cristina-Ramirez.vcf" type="text/vcard" id="guardar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2.5 20.5a6.5 6.5 0 0 1 13 0"/><path d="M19 8v6M16 11h6"/></svg>
+      <span id="guardar-txt">Guardar contacto</span>
+    </a>
+  </div>
+</div>
+
+<div class="ayuda" id="ayuda" role="dialog" aria-modal="true" aria-labelledby="ayuda-titulo" hidden>
+  <div class="ayuda-hoja">
+    <p class="ayuda-titulo" id="ayuda-titulo">¿No se abrió el contacto?</p>
+    <p class="ayuda-texto" id="ayuda-texto"></p>
+    <a class="ayuda-btn oro" id="ayuda-descargar" data-accion="descarga" href="Cristina-Ramirez.vcf" download="Cristina-Ramirez.vcf">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 20h14"/></svg>
+      Descargar contacto
+    </a>
+    <a class="ayuda-btn verde" data-accion="wa-ayuda" href="https://wa.me/524612788134?text=Hola%2C%20Cristina.%0AVi%20tu%20tarjeta%20digital%20y%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20servicios%20de%20SAN%20MATEO.%20%C2%BFMe%20puedes%20dar%20informaci%C3%B3n%3F" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 12.05 0Zm0 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 5.45 0 9.884 4.434 9.881 9.892-.003 5.45-4.437 9.884-9.885 9.884Z"/></svg>
+      Mejor escribirle por WhatsApp
+    </a>
+    <button class="ayuda-cerrar" id="ayuda-cerrar" type="button">Cerrar</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var quieto = !document.documentElement.classList.contains("anima");
+
+  // Contador: un aviso a la hoja de Oscar con una clave. Al abrir manda la clave
+  // de la tarjeta (san-mateo-asesor); cada boton manda clave-accion con codigo
+  // corto (-wa, -fb, -web, -guardar; en la ayuda -ayuda, -descarga, -wa-ayuda),
+  // porque el script de la hoja guarda solo 40 caracteres. No identifica a quien abre: solo
+  // fecha, hora y la clave. keepalive deja salir el aviso aunque el telefono
+  // cambie de pantalla al tocar el boton.
+  function avisa(clave){
+    var url = "https://script.google.com/macros/s/AKfycbyvd9-C1_1AKv3cxFuwN3wJSWWtZGnPfZEWGggEMbGt0Z7W05xIMWC73ooNuxPWOWZ9/exec?t=" + encodeURIComponent(clave) + "&n=" + Date.now();
+    try{ fetch(url, { mode:"no-cors", keepalive:true }).catch(function(){}); }
+    catch(e){ try{ new Image().src = url; }catch(x){} }
+  }
+  avisa("san-mateo-cristina-ramirez");
+  document.querySelectorAll("[data-accion]").forEach(function(el){
+    el.addEventListener("click", function(){ avisa("san-mateo-cristina-ramirez-" + el.getAttribute("data-accion")); });
+  });
+
+  // Nombre letra por letra. El lector de pantalla lee el nombre completo del
+  // aria-label; las letras sueltas van ocultas para el.
+  var h1 = document.getElementById("nombre"), n = 0;
+  h1.setAttribute("aria-label", h1.textContent);
+  var palabras = h1.textContent.split(" ");
+  h1.textContent = "";
+  palabras.forEach(function(pal, k){
+    var p = document.createElement("span");
+    p.className = "p"; p.setAttribute("aria-hidden", "true");
+    Array.from(pal).forEach(function(ch){
+      var l = document.createElement("span");
+      l.className = "l"; l.textContent = ch; l.style.setProperty("--i", n++);
+      p.appendChild(l);
+    });
+    h1.appendChild(p);
+    if(k < palabras.length - 1) h1.appendChild(document.createTextNode(" "));
+  });
+
+  // Toque: luz que se abre desde el dedo y vibracion corta en Android.
+  function ola(el, e){
+    var r = el.getBoundingClientRect(), o = document.createElement("span");
+    o.className = "onda";
+    o.style.left = ((e.clientX || r.left + r.width / 2) - r.left) + "px";
+    o.style.top = ((e.clientY || r.top + r.height / 2) - r.top) + "px";
+    el.appendChild(o);
+    o.addEventListener("animationend", function(){ o.remove(); });
+    if(navigator.vibrate){ try{ navigator.vibrate(8); }catch(x){} }
+  }
+  document.querySelectorAll(".acceso, .cta").forEach(function(el){
+    el.addEventListener("pointerdown", function(e){ ola(el, e); });
+  });
+
+  // En compu: el vidrio se inclina un poco y el reflejo sigue al cursor.
+  if(!quieto && window.matchMedia && matchMedia("(hover:hover) and (pointer:fine)").matches){
+    document.querySelectorAll(".acceso").forEach(function(el){
+      el.addEventListener("pointermove", function(e){
+        var r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        el.style.setProperty("--mx", (x * 100).toFixed(1) + "%");
+        el.style.setProperty("--my", (y * 100).toFixed(1) + "%");
+        el.style.setProperty("--rx", ((0.5 - y) * 8).toFixed(2) + "deg");
+        el.style.setProperty("--ry", ((x - 0.5) * 8).toFixed(2) + "deg");
+      });
+      el.addEventListener("pointerleave", function(){
+        el.style.setProperty("--rx", "0deg"); el.style.setProperty("--ry", "0deg");
+      });
+    });
+  }
+
+  // Guardar contacto. Safari y Chrome abren el .vcf como ficha de contacto; los
+  // navegadores dentro de apps (Instagram, Facebook, WhatsApp...) se quedan
+  // cargando. En esas apps se muestra la ayuda de una vez; en cualquier otro,
+  // si a los 2.6 s la pagina sigue al frente, tambien. Si el telefono si abrio
+  // la ficha, la pagina se oculta o pierde el foco y la ayuda no sale.
+  var ua = navigator.userAgent || "";
+  var esIOS = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var esAndroid = /Android/.test(ua);
+  var dentroDeApp = /FBAN|FBAV|FB_IAB|Instagram|LinkedInApp|musical_ly|BytedanceWebview|Snapchat|Line\/|WhatsApp|Twitter/i.test(ua);
+  var ayuda = document.getElementById("ayuda"), ayudaTexto = document.getElementById("ayuda-texto");
+  var archivo = document.getElementById("ayuda-descargar").getAttribute("download");
+  var txt = document.getElementById("guardar-txt"), espera = null, regreso = null;
+
+  function textoAyuda(){
+    if(esIOS) return "Esta app no deja guardar contactos. Abre la tarjeta en <b>Safari</b>: toca la brújula o el menú <b>⋯</b> y elige <b>Abrir en Safari</b>. Ahí vuelve a tocar Guardar contacto.";
+    if(esAndroid) return "Si ya se descargó, toca el aviso <b>" + archivo + "</b> para agregarlo a tus contactos. Si no, abre la tarjeta en <b>Chrome</b> desde el menú <b>⋮</b>.";
+    return "Se descargó el archivo <b>" + archivo + "</b>. Ábrelo para agregarlo a tus contactos.";
+  }
+  function abreAyuda(){
+    clearTimeout(espera);
+    txt.textContent = "Guardar contacto";
+    ayudaTexto.innerHTML = textoAyuda();
+    ayuda.hidden = false;
+    document.getElementById("ayuda-cerrar").focus();
+    avisa("san-mateo-cristina-ramirez-ayuda");
+  }
+  function cierraAyuda(){ ayuda.hidden = true; document.getElementById("guardar").focus(); }
+  function cancela(){ clearTimeout(espera); }
+
+  document.getElementById("guardar").addEventListener("click", function(e){
+    if(dentroDeApp){ e.preventDefault(); abreAyuda(); return; }
+    txt.textContent = "Abriendo contacto…";
+    clearTimeout(espera); clearTimeout(regreso);
+    espera = setTimeout(function(){
+      if(document.visibilityState === "visible") abreAyuda();
+    }, 2600);
+    regreso = setTimeout(function(){ txt.textContent = "Guardar contacto"; }, 4000);
+  });
+  window.addEventListener("pagehide", cancela);
+  window.addEventListener("blur", cancela);
+  document.addEventListener("visibilitychange", function(){ if(document.hidden) cancela(); });
+  document.getElementById("ayuda-cerrar").addEventListener("click", cierraAyuda);
+  ayuda.addEventListener("click", function(e){ if(e.target === ayuda) cierraAyuda(); });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape" && !ayuda.hidden) cierraAyuda(); });
+
+  // Red de seguridad: toda la entrada termina antes de 2.6 s. Si a los 4 s un
+  // acceso sigue invisible (navegador lento o en pausa), se apaga la animacion
+  // y la tarjeta se muestra completa.
+  if(!quieto){
+    setTimeout(function(){
+      var wa = document.querySelector(".acceso.wa");
+      if(wa && parseFloat(getComputedStyle(wa).opacity) < 1){
+        document.documentElement.classList.remove("anima");
+      }
+    }, 4000);
+  }
+
+  // Con "reducir movimiento" se detienen tambien las animaciones SVG.
+  if(quieto){
+    document.querySelectorAll("svg").forEach(function(s){ if(s.pauseAnimations) s.pauseAnimations(); });
+  }
+
+  // El cielo en un solo lienzo: estrellas que titilan arriba, algunos destellos
+  // de cuatro puntas y polvo dorado que sube despacio, como luz de vela.
+  // Se dibuja a 2x como maximo y el navegador lo pausa cuando la pestaña no se ve.
+  var cv = document.getElementById("polvo"), cx = cv.getContext && cv.getContext("2d");
+  if(!cx) return;
+  var W = 0, H = 0, motas = [], estrellas = [], destellos = [], antes = 0;
+  function medir(){
+    var dpr = Math.min(2, window.devicePixelRatio || 1), r = cv.getBoundingClientRect();
+    W = r.width; H = r.height;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function mota(abajo){
+    return { x:Math.random() * W, y:abajo ? H + 10 : Math.random() * H,
+             r:.5 + Math.random() * 1.6, v:5 + Math.random() * 10,
+             f:Math.random() * 6.283, a:.22 + Math.random() * .5 };
+  }
+  function estrella(){
+    return { x:Math.random() * W, y:Math.random() * H * .6, r:.35 + Math.random() * .75,
+             f:Math.random() * 6.283, s:.0012 + Math.random() * .0024, a:.35 + Math.random() * .55 };
+  }
+  function destello(){
+    return { x:W * (.1 + Math.random() * .8), y:H * (.04 + Math.random() * .28),
+             f:Math.random() * 6.283, s:.0008 + Math.random() * .0008, l:5 + Math.random() * 5 };
+  }
+  function brilla(d, ahora){
+    var k = .5 + .5 * Math.sin(ahora * d.s + d.f);
+    k = k * k * k;                      // picos cortos: aparece, brilla y se va
+    if(k < .02) return;
+    var L = d.l * (.6 + .4 * k), g;
+    cx.lineWidth = .8;
+    g = cx.createLinearGradient(d.x - L, d.y, d.x + L, d.y);
+    g.addColorStop(0, "rgba(255,248,226,0)"); g.addColorStop(.5, "rgba(255,248,226," + (.9 * k).toFixed(3) + ")"); g.addColorStop(1, "rgba(255,248,226,0)");
+    cx.strokeStyle = g; cx.beginPath(); cx.moveTo(d.x - L, d.y); cx.lineTo(d.x + L, d.y); cx.stroke();
+    g = cx.createLinearGradient(d.x, d.y - L, d.x, d.y + L);
+    g.addColorStop(0, "rgba(255,248,226,0)"); g.addColorStop(.5, "rgba(255,248,226," + (.9 * k).toFixed(3) + ")"); g.addColorStop(1, "rgba(255,248,226,0)");
+    cx.strokeStyle = g; cx.beginPath(); cx.moveTo(d.x, d.y - L); cx.lineTo(d.x, d.y + L); cx.stroke();
+    cx.fillStyle = "rgba(255,250,236," + (.14 * k).toFixed(3) + ")";
+    cx.beginPath(); cx.arc(d.x, d.y, L * .55, 0, 6.283); cx.fill();
+    cx.fillStyle = "rgba(255,252,242," + k.toFixed(3) + ")";
+    cx.beginPath(); cx.arc(d.x, d.y, 1.1, 0, 6.283); cx.fill();
+  }
+  function dibujar(ahora){
+    var dt = Math.min(.05, (ahora - antes) / 1000 || 0), i, m, s, al; antes = ahora;
+    cx.clearRect(0, 0, W, H);
+    cx.globalCompositeOperation = "lighter";
+    for(i = 0; i < estrellas.length; i++){
+      s = estrellas[i];
+      al = s.a * (.3 + .7 * (.5 + .5 * Math.sin(ahora * s.s + s.f)));
+      cx.fillStyle = "rgba(255,250,236," + al.toFixed(3) + ")";
+      cx.beginPath(); cx.arc(s.x, s.y, s.r, 0, 6.283); cx.fill();
+    }
+    for(i = 0; i < destellos.length; i++) brilla(destellos[i], ahora);
+    for(i = 0; i < motas.length; i++){
+      m = motas[i];
+      if(!quieto){
+        m.y -= m.v * dt;
+        m.x += Math.sin(ahora * .0006 + m.f) * .16;
+        if(m.y < -12) motas[i] = m = mota(true);
+      }
+      var borde = Math.min(1, m.y / (H * .25), (H - m.y) / (H * .15));
+      al = m.a * (.6 + .4 * Math.sin(ahora * .0021 + m.f)) * Math.max(0, borde);
+      if(m.r > 1.3){
+        cx.fillStyle = "rgba(230,214,160," + (al * .16).toFixed(3) + ")";
+        cx.beginPath(); cx.arc(m.x, m.y, m.r * 4, 0, 6.283); cx.fill();
+      }
+      cx.fillStyle = "rgba(238,224,176," + al.toFixed(3) + ")";
+      cx.beginPath(); cx.arc(m.x, m.y, m.r, 0, 6.283); cx.fill();
+    }
+    if(!quieto) requestAnimationFrame(dibujar);
+  }
+  medir();
+  var chico = W < 400, k;
+  for(k = 0; k < (chico ? 34 : 46); k++) motas.push(mota(false));
+  for(k = 0; k < (chico ? 26 : 36); k++) estrellas.push(estrella());
+  for(k = 0; k < (chico ? 4 : 5); k++) destellos.push(destello());
+  window.addEventListener("resize", function(){
+    medir();
+    estrellas = estrellas.map(estrella); destellos = destellos.map(destello);
+  });
+  requestAnimationFrame(dibujar);
+})();
+</script>
+</body>
+</html>
