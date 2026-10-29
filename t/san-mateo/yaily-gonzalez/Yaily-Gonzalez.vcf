@@ -1,7 +1,7 @@
 BEGIN:VCARD
 VERSION:3.0
-N:;Yaily;;;
-FN:Yaily
+N:Gonzalez;Yaily;;;
+FN:Yaily Gonzalez
 ORG:San Mateo Recintos Funerarios
 TITLE:Supervisor de Ventas
 TEL;TYPE=CELL,VOICE:+52 461 127 9673
@@ -13,7 +13,7 @@ item1.URL:https://wa.me/524611279673
 item1.X-ABLabel:WhatsApp
 item2.URL:https://www.facebook.com/profile.php?id=61578520631131
 item2.X-ABLabel:Facebook
-item3.URL:https://tarjetas-fyware.vercel.app/t/san-mateo/yaily/
+item3.URL:https://tarjetas-fyware.vercel.app/t/san-mateo/yaily-gonzalez/
 item3.X-ABLabel:Tarjeta digital
 NOTE:Supervisor de Ventas en San Mateo Recintos Funerarios. Previsión fune
  raria y servicios inmediatos: cremación, velación en capilla o a domicil
