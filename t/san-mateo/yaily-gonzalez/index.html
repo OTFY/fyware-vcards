@@ -362,9 +362,14 @@ h1 .l{display:inline-block}
   to{opacity:1;transform:none;filter:none}
 }
 
-.pie{margin-top:auto;padding:24px 20px 2px;text-align:center;font-size:13px;color:var(--texto-3)}
-.pie a{color:var(--texto-2);font-weight:700;text-decoration:none}
-.pie a:hover{color:var(--oro-claro)}
+.pie{margin-top:auto;padding:24px 20px 2px;text-align:center;font-size:15px;color:var(--texto-3)}
+/* Fyware un poco mas grande, con un destello azul que lo cruza cada pocos segundos (Oscar, 29 oct 2026) */
+.pie a{font-size:18px;font-weight:800;letter-spacing:.03em;text-decoration:none;color:var(--blanco);
+  background:linear-gradient(110deg,var(--blanco) 0%,var(--blanco) 42%,#7FD4FF 50%,var(--blanco) 58%,var(--blanco) 100%);
+  background-size:260% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;animation:destello 4.5s ease-in-out 2.6s infinite}
+.pie a:hover{-webkit-text-fill-color:var(--oro-claro)}
+@keyframes destello{0%{background-position:100% 0}38%,100%{background-position:0 0}}
 .anima .pie{animation:entra .9s var(--curva) 1.6s backwards}
 
 /* ---------- Guardar contacto, siempre a la mano del pulgar ---------- */
@@ -464,6 +469,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--oro-claro);outline-
   .aurora,.rayos,.niebla,.haz,.aureola,.ico.wa::after{animation:none}
   .chispa{display:none}
   .acceso,.cta{transition:none}
+  .pie a{animation:none}
 }
 </style>
 </head>
