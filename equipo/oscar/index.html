@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Óscar Tobías | Fyware</title>
+<meta name="description" content="Óscar Tobías, Head of Growth and Marketing en Fyware. Soluciones inmersivas VR y AR para entrenamiento industrial.">
+<meta property="og:title" content="Óscar Tobías | Fyware">
+<meta property="og:description" content="Head of Growth and Marketing en Fyware. Prepared for reality.">
+<meta property="og:image" content="https://tarjetas-fyware.vercel.app/equipo/oscar/img/oscar.png">
+<meta property="og:url" content="https://tarjetas-fyware.vercel.app/equipo/oscar/">
+<meta property="og:type" content="profile">
+<meta name="theme-color" content="#111111">
+<link rel="icon" type="image/png" href="img/fy-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #111111;
+    --panel: #1c1f1f;
+    --panel-2: #2b2e2e;
+    --text: #ffffff;
+    --muted: #a3a3a3;
+    --accent: #e83833;
+    --whatsapp: #25d366;
+    --ring: rgba(56, 132, 255, 0.35);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-image:
+      radial-gradient(ellipse 90% 55% at 50% -10%, rgba(30, 90, 190, 0.25), transparent 60%),
+      radial-gradient(ellipse 70% 40% at 50% 115%, rgba(232, 56, 51, 0.12), transparent 60%);
+    background-attachment: fixed;
+  }
+  .card {
+    width: 100%;
+    max-width: 430px;
+    padding: 40px 22px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .photo-wrap {
+    width: 178px;
+    height: 178px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow:
+      0 0 0 3px rgba(255,255,255,0.06),
+      0 0 44px 6px var(--ring),
+      0 18px 40px rgba(0,0,0,0.55);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  h1 {
+    margin-top: 22px;
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+  .role {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-align: center;
+  }
+  .company {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.5;
+  }
+  .company .wordmark { width: 148px; height: auto; display: inline-block; margin-bottom: 8px; }
+  .divider {
+    width: 44px; height: 3px; border-radius: 2px;
+    background: var(--accent);
+    margin: 22px auto 6px;
+  }
+  .buttons {
+    width: 100%;
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 15px 18px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--text);
+    background: var(--panel);
+    border: 1px solid rgba(255,255,255,0.08);
+    font-size: 15.5px;
+    font-weight: 600;
+    transition: transform 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+  }
+  .btn:active { transform: scale(0.98); }
+  .btn:hover { background: var(--panel-2); border-color: rgba(255,255,255,0.16); }
+  .btn .ico {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.07);
+  }
+  .btn .ico svg { width: 21px; height: 21px; fill: #ffffff; }
+  .btn .label { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+  .btn .label small { font-size: 12px; font-weight: 400; color: var(--muted); }
+  .btn-save { background: var(--accent); border-color: var(--accent); }
+  .btn-save:hover { background: #f24a45; border-color: #f24a45; }
+  .btn-save .ico { background: rgba(255,255,255,0.16); }
+  .btn-save .label small { color: rgba(255,255,255,0.85); }
+  .btn-wa .ico { background: var(--whatsapp); }
+  .btn-wa .ico svg { fill: #ffffff; }
+  .section-label {
+    width: 100%;
+    margin-top: 26px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding-left: 4px;
+  }
+  footer {
+    margin-top: 38px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  footer img { width: 34px; height: auto; opacity: 0.55; filter: brightness(3.2); }
+  footer p { font-size: 12px; color: var(--muted); letter-spacing: 0.06em; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: #e6e6e6; }
+  /* Foto en mosaico: cada pieza carga un pedazo de la foto y sabe volar a su
+     lugar dentro del isotipo. Sin JS, la <img> de siempre sigue ahi. */
+  .photo-wrap { position: relative; overflow: hidden; cursor: pointer; touch-action: manipulation;
+    transition: background-color .5s ease; }
+  .photo-wrap.es-logo { background: #1c1f1f; }
+  .mosaico-foto { position: absolute; inset: 0; transition: opacity .25s ease; }
+  .photo-wrap.en-reposo .mosaico-foto { opacity: 0; }
+  .foto-pista {
+    margin: 10px 0 -8px; font-size: 11px; letter-spacing: 0.04em;
+    color: var(--muted); text-align: center; cursor: pointer; touch-action: manipulation;
+    user-select: none; -webkit-user-select: none; opacity: .8;
+  }
+  .mosaico-foto b {
+    position: absolute; left: 0; top: 0; display: block;
+    background-image: url("img/oscar.png"); background-size: 178px 178px;
+    background-repeat: no-repeat;
+    transition: transform .8s cubic-bezier(.22,.68,.24,1),
+                background-color .45s ease, opacity .4s ease;
+  }
+  .photo-wrap img.logo-final {
+    position: absolute; left: 12%; top: 12%; width: 76%; height: 76%;
+    object-fit: contain; opacity: 0; pointer-events: none;
+    transition: opacity .35s ease;
+  }
+  .photo-wrap.logo-nitido .logo-final { opacity: 1; }
+  .photo-wrap.logo-nitido .mosaico-foto b { opacity: 0 !important; transition-delay: 0ms !important; }
+  @media (prefers-reduced-motion: reduce) {
+    .photo-wrap, .mosaico-foto b { transition: none; }
+  }
+
+  /* ---- Panel de QR ---- */
+  .card { position: relative; }
+  .card-tool { position: absolute; top: 14px; right: 14px; z-index: 5;
+    display: inline-flex; align-items: center; gap: 6px; padding: 7px 11px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); color: var(--muted);
+    font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; touch-action: manipulation;
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  .card-tool:hover { color: var(--text); border-color: rgba(255,255,255,.3); }
+  .scrim { position: fixed; inset: 0; z-index: 40; background: rgba(0,0,0,.62);
+    display: flex; align-items: center; justify-content: center; padding: 18px;
+    opacity: 0; transition: opacity .2s ease; }
+  .scrim.open { opacity: 1; }
+  .scrim[hidden] { display: none; }
+  .sheet { position: relative; width: min(360px, 94vw); background: var(--panel);
+    border: 1px solid rgba(255,255,255,.08); border-radius: 18px; padding: 24px 22px 18px;
+    text-align: center; color: var(--text); box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+  .sheet h2 { margin: 0 0 6px; font-size: 18px; font-weight: 800; }
+  .sheet .sub { margin: 0 0 16px; font-size: 13px; color: var(--muted); }
+  .closex { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.12); background: transparent; color: var(--muted); cursor: pointer;
+    display: flex; align-items: center; justify-content: center; }
+  .qrframe { display: inline-block; padding: 13px; background: #ffffff; border-radius: 14px; line-height: 0;
+    transition: background-color .45s ease; }
+  .qrframe.es-logo { background: #111111; }
+  .qrframe canvas { width: 168px !important; height: 168px !important; display: block; }
+  .mosaico { position: relative; cursor: pointer; line-height: 0; touch-action: manipulation; }
+  .mosaico b { position: absolute; left: 0; top: 0; background: #14171B;
+    transition: transform .8s cubic-bezier(.22,.68,.24,1), background-color .45s ease, opacity .4s ease; }
+  .qrframe { position: relative; }
+  .qrframe.es-logo .mosaico b { background: #ffffff; }
+  .qr-logo-final { position: absolute; left: 13px; top: 13px; width: 168px; height: 168px; padding: 10px;
+    box-sizing: border-box; object-fit: contain; opacity: 0; pointer-events: none; transition: opacity .35s ease; }
+  .qrframe.logo-nitido .qr-logo-final { opacity: 1; }
+  .qrframe.logo-nitido .mosaico b { opacity: 0 !important; transition-delay: 0ms !important; }
+  .qrhint { margin: 10px 0 0; font-size: 11px; color: var(--muted); cursor: pointer; touch-action: manipulation;
+    user-select: none; -webkit-user-select: none; }
+  .linkbox { display: block; margin: 14px 0 0; padding: 10px 12px; background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.08); border-radius: 10px; font-size: 11.5px; color: var(--muted);
+    word-break: break-all; line-height: 1.45; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .stack { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+  .stack .btn2 { width: 100%; padding: 11px 14px; border-radius: 12px; font: inherit; font-weight: 700; font-size: 14px;
+    cursor: pointer; border: 1px solid rgba(255,255,255,.12); background: transparent; color: var(--text); }
+  .stack .btn2.primary { background: var(--accent); border-color: var(--accent); }
+  @media (prefers-reduced-motion: reduce) { .mosaico b, .qrframe, .scrim { transition: none; } }
+</style>
+</head>
+<body>
+  <main class="card">
+    <button class="card-tool" id="tool-open" type="button" aria-label="Compartir tarjeta y ver QR">
+      <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm8-2h3v3h-3v-3zm5 0h3v3h-3v-3zm-5 5h3v3h-3v-3zm5 0h3v3h-3v-3z"/></svg>
+      <span>Compartir</span>
+    </button>
+    <div class="photo-wrap">
+      <img src="img/oscar.png" alt="Foto de Óscar Tobías">
+    </div>
+    <h1>Óscar Tobías</h1>
+    <p class="role">Head of Growth and Marketing</p>
+    <p class="company"><img class="wordmark" src="img/fyware-logo-white.png" alt="FYWARE"><br>Soluciones inmersivas VR y AR para la industria.</p>
+    <div class="divider"></div>
+
+    <div class="buttons">
+      <a class="btn btn-save" href="oscar-tobias.vcf" download="Oscar-Tobias-Fyware.vcf">
+        <span class="ico">
+          <svg viewBox="0 0 24 24"><path d="M12 15.575c-.183 0-.358-.073-.487-.202l-4.5-4.5a.687.687 0 1 1 .974-.973l3.325 3.326V2.687a.688.688 0 0 1 1.376 0v10.539l3.325-3.326a.687.687 0 1 1 .974.973l-4.5 4.5a.687.687 0 0 1-.487.202Zm9 1.8v2.937A2.69 2.69 0 0 1 18.312 23H5.688A2.69 2.69 0 0 1 3 20.312v-2.937a.688.688 0 0 1 1.375 0v2.937c0 .724.589 1.313 1.313 1.313h12.624c.724 0 1.313-.589 1.313-1.313v-2.937a.688.688 0 0 1 1.375 0Z"/></svg>
+        </span>
+        <span class="label">Guardar contacto<small>Agrega mis datos a tu teléfono</small></span>
+      </a>
+
+      <a class="btn btn-wa" href="https://wa.me/5214443077907?text=Hola%20%C3%93scar%2C%20escane%C3%A9%20tu%20QR%20y%20me%20gustar%C3%ADa%20platicar%20contigo." target="_blank" rel="noopener">
+        <span class="ico">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </span>
+        <span class="label">WhatsApp<small>+52 1 444 307 7907</small></span>
+      </a>
+
+      <a class="btn" href="mailto:oscar.tobias@fyware.com">
+        <span class="ico">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm-.4 2L12 11.88 4.4 6h15.2ZM4 18V7.25l7.4 5.73a1 1 0 0 0 1.2 0L20 7.25V18H4Z"/></svg>
+        </span>
+        <span class="label">Correo<small>oscar.tobias@fyware.com</small></span>
+      </a>
+
+
+      <a class="btn" href="https://www.linkedin.com/in/oscarg-tobias/" target="_blank" rel="noopener">
+        <span class="ico">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </span>
+        <span class="label">LinkedIn<small>Óscar Tobías</small></span>
+      </a>
+
+      <p class="section-label">Conoce Fyware</p>
+
+      <a class="btn" href="https://www.fyware.com/es/?utm_source=tarjeta-digital&amp;utm_medium=qr&amp;utm_campaign=credenciales-equipo-2026&amp;utm_content=oscar-tobias" target="_blank" rel="noopener">
+        <span class="ico">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm7.93 9h-3.02a15.65 15.65 0 0 0-1.27-5.54A8.03 8.03 0 0 1 19.93 11ZM12 4.04c.83 1.2 1.7 3.33 1.9 6.96h-3.8c.2-3.63 1.07-5.76 1.9-6.96ZM8.36 5.46A15.65 15.65 0 0 0 7.09 11H4.07a8.03 8.03 0 0 1 4.29-5.54ZM4.07 13h3.02c.14 2.08.58 3.94 1.27 5.54A8.03 8.03 0 0 1 4.07 13ZM12 19.96c-.83-1.2-1.7-3.33-1.9-6.96h3.8c-.2 3.63-1.07 5.76-1.9 6.96Zm3.64-1.42A15.65 15.65 0 0 0 16.91 13h3.02a8.03 8.03 0 0 1-4.29 5.54Z"/></svg>
+        </span>
+        <span class="label">Sitio web<small>fyware.com</small></span>
+      </a>
+
+      <a class="btn" href="https://www.linkedin.com/company/fyware" target="_blank" rel="noopener">
+        <span class="ico">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </span>
+        <span class="label">LinkedIn<small>Fyware</small></span>
+      </a>
+
+      <a class="btn" href="https://www.facebook.com/fyware" target="_blank" rel="noopener">
+        <span class="ico">
+          <svg viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
+        </span>
+        <span class="label">Facebook<small>@fyware</small></span>
+      </a>
+
+      <a class="btn" href="https://www.instagram.com/fyware_xr/" target="_blank" rel="noopener">
+        <span class="ico">
+          <svg viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+        </span>
+        <span class="label">Instagram<small>@fyware_xr</small></span>
+      </a>
+    </div>
+
+  <div class="scrim" id="scrim" hidden>
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+      <button class="closex" id="tool-close" type="button" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <h2 id="sheet-title">Comparte tu tarjeta</h2>
+      <p class="sub">Quien escanee este código abre tu tarjeta y puede guardar tu contacto.</p>
+      <div class="qrframe" id="qrbox"></div>
+      <code class="linkbox" id="linktext">tarjetas-fyware.vercel.app/equipo/oscar/</code>
+      <div class="stack">
+        <button class="btn2 primary" id="copy-link" type="button">Copiar liga</button>
+        <button class="btn2" id="dl-png" type="button">Descargar QR (PNG)</button>
+        <button class="btn2" id="tool-native" type="button" hidden>Compartir</button>
+      </div>
+    </div>
+  </div>
+
+    <footer>
+      <img src="img/fy-logo.png" alt="Fyware">
+      <p><a href="https://www.fyware.com/es/?utm_source=tarjeta-digital&amp;utm_medium=qr&amp;utm_campaign=credenciales-equipo-2026&amp;utm_content=oscar-tobias" target="_blank" rel="noopener">fyware.com</a> | Prepared for reality</p>
+    </footer>
+  </main>
+<script src="qr-code-styling.js"></script>
+<script>
+(function(){
+  // ---- Panel de QR: el codigo como mosaico que se vuelve el isotipo ----
+  var CARD_URL = "https://tarjetas-fyware.vercel.app/equipo/oscar/";
+  var LOGO_QR = document.querySelector('script[data-logo]') ? "" : null; // se resuelve abajo
+  var $ = function(id){ return document.getElementById(id); };
+  var scrim = $("scrim"), openBtn = $("tool-open"), closeBtn = $("tool-close");
+  var qr = null, qrDescarga = null, qrReady = false;
+
+  // el isotipo blanco ya vive en la pagina como data URI (variable LOGO de la foto);
+  // aqui se toma del <img class="logo-final"> cuando exista, o del <b> de respaldo
+  function logoDataURI(){
+    var img = document.querySelector(".logo-final");
+    return img ? img.getAttribute("src") : "";
+  }
+
+  function opcionesQR(conImagen){
+    var o = {
+      width:520, height:520, type:"canvas", data:CARD_URL, margin:0,
+      qrOptions:{ errorCorrectionLevel:"H" },
+      dotsOptions:{ type:"square", color:"#14171B" },
+      cornersSquareOptions:{ type:"square", color:"#e83833" },
+      cornersDotOptions:{ type:"square", color:"#14171B" },
+      backgroundOptions:{ color:"#ffffff" }
+    };
+    if(conImagen){
+      o.image = "img/fy-logo.png";
+      o.imageOptions = { margin:6, imageSize:.22, hideBackgroundDots:true };
+    }
+    return o;
+  }
+
+  function esperarCanvas(cont, listo){
+    var n = 0;
+    (function mirar(){
+      var cv = cont.querySelector("canvas");
+      if(cv) listo(cv); else if(++n > 40) listo(null); else setTimeout(mirar, 60);
+    })();
+  }
+  function cuentaModulos(m){ var k = 0; for(var i = 0; i < m.c.length; i++) k += m.c[i]; return k; }
+  function esperarReticula(cv, listo){
+    var intentos = 0, previa = null;
+    (function mirar(){
+      var m = leerReticula(cv);
+      if(m){
+        var k = cuentaModulos(m);
+        if(previa && previa.n === m.n && previa.k === k){ listo(m); return; }
+        previa = { n:m.n, k:k };
+      }
+      if(++intentos > 40){ listo(null); return; }
+      setTimeout(mirar, 60);
+    })();
+  }
+  // Ubica la caja oscura del codigo (la libreria deja franja blanca aunque margin sea 0),
+  // mide el ojo superior izquierdo (7 modulos) y muestrea cada celda.
+  function leerReticula(cv){
+    try{
+      var W = cv.width, d = cv.getContext("2d").getImageData(0, 0, W, W).data;
+      function oscuro(x, y){ var i = (y * W + x) * 4; return (d[i] + d[i+1] + d[i+2]) / 3 < 150; }
+      var x0 = W, y0 = W, x1 = -1, y1 = -1, x, y;
+      for(y = 0; y < W; y++) for(x = 0; x < W; x++){ if(!oscuro(x, y)) continue; if(x < x0) x0 = x; if(y < y0) y0 = y; if(x > x1) x1 = x; if(y > y1) y1 = y; }
+      if(x1 < 0) return null;
+      var ancho = x1 - x0 + 1, corrida = 0;
+      while(x0 + corrida <= x1 && oscuro(x0 + corrida, y0 + 2)) corrida++;
+      if(corrida < 7) return null;
+      var modulo = corrida / 7, N = Math.round(ancho / modulo);
+      if(N < 21 || N > 177) return null;
+      var celdas = new Array(N * N);
+      for(y = 0; y < N; y++) for(x = 0; x < N; x++){
+        var px = Math.min(W - 1, x0 + Math.floor((x + 0.5) * modulo)), py = Math.min(W - 1, y0 + Math.floor((y + 0.5) * modulo));
+        celdas[y * N + x] = oscuro(px, py) ? 1 : 0;
+      }
+      return { n:N, c:celdas };
+    }catch(e){ return null; }
+  }
+
+  function armarMosaico(m){
+    var LADO = 168, N = m.n, paso = LADO / N, piezas = [], x, y;
+    var caja = document.createElement("div");
+    caja.className = "mosaico"; caja.style.width = caja.style.height = LADO + "px";
+    for(y = 0; y < N; y++) for(x = 0; x < N; x++){
+      if(!m.c[y * N + x]) continue;
+      var b = document.createElement("b");
+      b.style.width = b.style.height = (paso + 0.6).toFixed(2) + "px";
+      b.style.transform = "translate(" + (x * paso).toFixed(2) + "px," + (y * paso).toFixed(2) + "px)";
+      caja.appendChild(b); piezas.push({ el:b, qx:x * paso, qy:y * paso });
+    }
+    var marco = $("qrbox"); marco.innerHTML = ""; marco.appendChild(caja);
+    var nitido = document.createElement("img"); nitido.className = "qr-logo-final"; nitido.alt = "";
+    nitido.src = logoDataURI(); marco.appendChild(nitido);
+    var pista = document.createElement("p"); pista.className = "qrhint"; pista.textContent = "Toca el código para ver el logo";
+    marco.parentNode.insertBefore(pista, marco.nextSibling);
+    destinoLogo(N, paso, piezas, caja, pista, marco);
+  }
+  // El isotipo (blanco sobre transparente) se rasteriza a la reticula del QR: celdas con alfa.
+  function destinoLogo(N, paso, piezas, caja, pista, marco){
+    var uri = logoDataURI(); if(!uri) return;
+    var img = new Image();
+    img.onload = function(){
+      var celdas = [];
+      try{
+        var c = document.createElement("canvas"); c.width = c.height = N;
+        var cx = c.getContext("2d"), m = N * 0.06;
+        cx.drawImage(img, m, m, N - 2 * m, N - 2 * m);
+        var d = cx.getImageData(0, 0, N, N).data;
+        for(var i = 0; i < N * N; i++){ if(d[i * 4 + 3] > 110) celdas.push([i % N, Math.floor(i / N)]); }
+      }catch(e){ return; }
+      if(celdas.length < 20) return;
+      emparejar(piezas, celdas, paso);
+      activarMosaico(piezas, caja, pista, marco);
+    };
+    img.src = uri;
+  }
+  function emparejar(piezas, celdas, paso){
+    if(celdas.length > piezas.length){
+      var salto = celdas.length / piezas.length, rec = [];
+      for(var k = 0; k < piezas.length; k++) rec.push(celdas[Math.floor(k * salto)]);
+      celdas = rec;
+    }
+    var salto2 = piezas.length / celdas.length;
+    for(var i = 0; i < piezas.length; i++) piezas[i].sobra = true;
+    for(var j = 0; j < celdas.length; j++){
+      var p = piezas[Math.min(piezas.length - 1, Math.floor(j * salto2))];
+      p.sobra = false; p.lx = celdas[j][0] * paso; p.ly = celdas[j][1] * paso;
+    }
+  }
+  function activarMosaico(piezas, caja, pista, marco){
+    var enLogo = false, C = 84, fundido = null, URI = logoDataURI();
+    var L_OFF = 168 * 0.06, L_TAM = 168 - 2 * L_OFF;   // mismo 6% con que se dibujo la mascara
+    var quieto = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function alternar(){
+      enLogo = !enLogo;
+      if(fundido){ clearTimeout(fundido); fundido = null; }
+      pista.textContent = enLogo ? "Toca para volver al QR" : "Toca el código para ver el logo";
+      marco.classList.toggle("es-logo", enLogo);
+      if(enLogo){
+        fundido = setTimeout(function(){ marco.classList.add("logo-nitido"); }, quieto ? 0 : 1150);
+      }else{
+        marco.classList.remove("logo-nitido");
+      }
+      for(var i = 0; i < piezas.length; i++){
+        var p = piezas[i], dx = p.qx - C, dy = p.qy - C;
+        p.el.style.transitionDelay = Math.round(Math.sqrt(dx * dx + dy * dy) * 2.4) + "ms";
+        if(enLogo){
+          if(p.sobra){ p.el.style.opacity = "0"; p.el.style.transform = "translate(" + p.qx.toFixed(2) + "px," + p.qy.toFixed(2) + "px) scale(.15)"; }
+          else {
+            // la pieza viaja con el pedazo exacto del isotipo que le toca en su destino
+            p.el.style.backgroundColor = "transparent";
+            p.el.style.backgroundImage = "url(" + URI + ")";
+            p.el.style.backgroundSize = L_TAM.toFixed(2) + "px " + L_TAM.toFixed(2) + "px";
+            p.el.style.backgroundPosition = (L_OFF - p.lx).toFixed(2) + "px " + (L_OFF - p.ly).toFixed(2) + "px";
+            p.el.style.transform = "translate(" + p.lx.toFixed(2) + "px," + p.ly.toFixed(2) + "px)";
+          }
+        }else{
+          p.el.style.opacity = "";
+          p.el.style.backgroundColor = ""; p.el.style.backgroundImage = "";
+          p.el.style.backgroundSize = ""; p.el.style.backgroundPosition = "";
+          p.el.style.transform = "translate(" + p.qx.toFixed(2) + "px," + p.qy.toFixed(2) + "px)";
+        }
+      }
+    }
+    caja.addEventListener("click", alternar);
+    pista.addEventListener("click", alternar);
+  }
+
+  function buildQR(){
+    if(qrReady) return; qrReady = true;
+    try{
+      qr = new QRCodeStyling(opcionesQR(false));
+      var oculto = document.createElement("div");
+      oculto.style.cssText = "position:absolute;left:-9999px;top:0;width:520px;height:520px";
+      document.body.appendChild(oculto);
+      qr.append(oculto);
+      esperarCanvas(oculto, function(cv){
+        if(!cv){ $("qrbox").innerHTML = ""; qr.append($("qrbox")); return; }
+        esperarReticula(cv, function(m){ if(m) armarMosaico(m); else $("qrbox").appendChild(cv); });
+      });
+    }catch(e){
+      $("qrbox").innerHTML = '<div style="width:168px;height:168px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#747B84;text-align:center;padding:12px">QR no disponible. Copia la liga.</div>';
+      $("dl-png").disabled = true; $("dl-png").textContent = "QR no disponible";
+    }
+  }
+  function openSheet(){
+    buildQR(); scrim.hidden = false; void scrim.offsetHeight; scrim.classList.add("open");
+    document.body.style.overflow = "hidden"; closeBtn.focus();
+  }
+  function closeSheet(){
+    scrim.classList.remove("open"); document.body.style.overflow = "";
+    openBtn.focus(); setTimeout(function(){ if(!scrim.classList.contains("open")) scrim.hidden = true; }, 220);
+  }
+  openBtn.addEventListener("click", openSheet);
+  closeBtn.addEventListener("click", closeSheet);
+  scrim.addEventListener("click", function(e){ if(e.target === scrim) closeSheet(); });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape" && !scrim.hidden) closeSheet(); });
+
+  $("copy-link").addEventListener("click", function(){
+    var b = this, ok = function(){ b.textContent = "Liga copiada"; setTimeout(function(){ b.textContent = "Copiar liga"; }, 1800); };
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(CARD_URL).then(ok, ok); }
+    else { var r = document.createRange(); r.selectNodeContents($("linktext")); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); try{ document.execCommand("copy"); }catch(e){} ok(); }
+  });
+  // El PNG que se baja lleva el isotipo gris al centro: es el que se imprime.
+  $("dl-png").addEventListener("click", function(){
+    if(!qrDescarga) qrDescarga = new QRCodeStyling(opcionesQR(true));
+    if(qrDescarga.download) qrDescarga.download({ name:"Oscar-Tobias-Fyware-QR", extension:"png" });
+  });
+  if(navigator.share){
+    var ns = $("tool-native"); ns.hidden = false;
+    ns.addEventListener("click", function(){ navigator.share({ title:document.title, url:CARD_URL }).catch(function(){}); });
+  }
+})();
+</script>
+<script>
+(function(){
+  // Aviso de apertura a la hoja de conteo: solo fecha, hora y cual tarjeta.
+  try{ new Image().src = "https://script.google.com/macros/s/AKfycbyvd9-C1_1AKv3cxFuwN3wJSWWtZGnPfZEWGggEMbGt0Z7W05xIMWC73ooNuxPWOWZ9/exec?t=equipo-oscar&n=" + Date.now(); }catch(e){}
+
+  var LOGO = "data:image/png;base64,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";
+  var wrap = document.querySelector(".photo-wrap");
+  var foto = wrap && wrap.querySelector("img");
+  if(!wrap || !foto) return;
+
+  var LADO = 178, N = 20, paso = LADO / N, pista = null;
+  var L_OFF = LADO * 0.12, L_TAM = LADO * 0.76;   // mismo 12% / 76% que .logo-final
+
+  function rebanadaFoto(p){
+    p.el.style.backgroundImage = 'url("img/oscar.png")';
+    p.el.style.backgroundSize = LADO + "px " + LADO + "px";
+    p.el.style.backgroundPosition = (-p.fx).toFixed(2) + "px " + (-p.fy).toFixed(2) + "px";
+  }
+  function rebanadaLogo(p){
+    p.el.style.backgroundImage = "url(" + LOGO + ")";
+    p.el.style.backgroundSize = L_TAM.toFixed(2) + "px " + L_TAM.toFixed(2) + "px";
+    p.el.style.backgroundPosition = (L_OFF - p.lx).toFixed(2) + "px " + (L_OFF - p.ly).toFixed(2) + "px";
+  }
+
+  function armar(){
+    var caja = document.createElement("div"), piezas = [], x, y;
+    caja.className = "mosaico-foto";
+    for(y = 0; y < N; y++){
+      for(x = 0; x < N; x++){
+        var b = document.createElement("b");
+        b.style.width = b.style.height = (paso + 0.6).toFixed(2) + "px";
+        b.style.backgroundPosition = (-x * paso).toFixed(2) + "px " + (-y * paso).toFixed(2) + "px";
+        b.style.transform = "translate(" + (x * paso).toFixed(2) + "px," + (y * paso).toFixed(2) + "px)";
+        caja.appendChild(b);
+        piezas.push({ el:b, fx:x * paso, fy:y * paso });
+      }
+    }
+    wrap.appendChild(caja);
+    var nitido = document.createElement("img");
+    nitido.className = "logo-final"; nitido.alt = ""; nitido.src = LOGO;
+    wrap.appendChild(nitido);
+    wrap.classList.add("en-reposo");
+    pista = document.createElement("p");
+    pista.className = "foto-pista";
+    pista.textContent = "Toca para ver el logo";
+    wrap.parentNode.insertBefore(pista, wrap.nextSibling);
+    destino(piezas, caja);
+  }
+
+  // El isotipo se rasteriza a la misma reticula, al 76% para que quepa en el circulo.
+  function destino(piezas, caja){
+    var img = new Image();
+    img.onload = function(){
+      var celdas = [];
+      try{
+        var c = document.createElement("canvas"); c.width = c.height = N;
+        var cx = c.getContext("2d"), m = N * 0.12;
+        cx.drawImage(img, m, m, N * 0.76, N * 0.76);
+        var d = cx.getImageData(0, 0, N, N).data;
+        for(var i = 0; i < N * N; i++){
+          if(d[i * 4 + 3] > 110) celdas.push([i % N, Math.floor(i / N)]);
+        }
+      }catch(e){ return; }
+      if(celdas.length < 20) return;
+      emparejar(piezas, celdas);
+      activar(piezas);
+    };
+    img.src = LOGO;
+  }
+
+  // Las dos listas van en orden de lectura: la foto se pliega sobre el logo.
+  function emparejar(piezas, celdas){
+    if(celdas.length > piezas.length){
+      var salto = celdas.length / piezas.length, rec = [];
+      for(var k = 0; k < piezas.length; k++) rec.push(celdas[Math.floor(k * salto)]);
+      celdas = rec;
+    }
+    // repartir las piezas que si forman logo a lo largo de toda la foto,
+    // para que no se vacie solo la mitad de abajo
+    var salto2 = piezas.length / celdas.length;
+    for(var i = 0; i < piezas.length; i++) piezas[i].sobra = true;
+    for(var j = 0; j < celdas.length; j++){
+      var p = piezas[Math.min(piezas.length - 1, Math.floor(j * salto2))];
+      p.sobra = false; p.lx = celdas[j][0] * paso; p.ly = celdas[j][1] * paso;
+    }
+  }
+
+  function activar(piezas){
+    var enLogo = false, C = LADO / 2, fundido = null;
+    var quieto = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function alternar(){
+      enLogo = !enLogo;
+      if(fundido){ clearTimeout(fundido); fundido = null; }
+      wrap.classList.toggle("es-logo", enLogo);
+      if(pista) pista.textContent = enLogo ? "Toca para ver la foto" : "Toca para ver el logo";
+      if(enLogo){
+        wrap.classList.remove("en-reposo");
+        foto.style.visibility = "hidden";
+        // 800 ms de vuelo + el mayor escalonado (~300 ms): despues, el logo nitido encima
+        fundido = setTimeout(function(){ wrap.classList.add("logo-nitido"); }, quieto ? 0 : 1150);
+      }else{
+        wrap.classList.remove("logo-nitido");
+        fundido = setTimeout(function(){
+          foto.style.visibility = "";
+          wrap.classList.add("en-reposo");
+        }, quieto ? 0 : 1150);
+      }
+      wrap.setAttribute("aria-label", enLogo ? "Logo de Fyware. Toca para ver la foto" : "Foto. Toca para ver el logo de Fyware");
+      for(var i = 0; i < piezas.length; i++){
+        var p = piezas[i], dx = p.fx - C, dy = p.fy - C;
+        p.el.style.transitionDelay = Math.round(Math.sqrt(dx * dx + dy * dy) * 2.4) + "ms";
+        if(enLogo){
+          if(p.sobra){
+            p.el.style.opacity = "0";
+            p.el.style.transform = "translate(" + p.fx.toFixed(2) + "px," + p.fy.toFixed(2) + "px) scale(.15)";
+          }else{
+            rebanadaLogo(p);
+            p.el.style.transform = "translate(" + p.lx.toFixed(2) + "px," + p.ly.toFixed(2) + "px)";
+          }
+        }else{
+          p.el.style.opacity = "";
+          rebanadaFoto(p);
+          p.el.style.transform = "translate(" + p.fx.toFixed(2) + "px," + p.fy.toFixed(2) + "px)";
+        }
+      }
+    }
+    wrap.setAttribute("role", "button");
+    wrap.setAttribute("tabindex", "0");
+    wrap.setAttribute("aria-label", "Foto. Toca para ver el logo de Fyware");
+    wrap.addEventListener("click", alternar);
+    if(pista) pista.addEventListener("click", alternar);
+    wrap.addEventListener("keydown", function(e){ if(e.key === "Enter" || e.key === " "){ e.preventDefault(); alternar(); } });
+  }
+
+  if(foto.complete && foto.naturalWidth) armar(); else foto.addEventListener("load", armar);
+})();
+</script>
+</body>
+</html>
