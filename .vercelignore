@@ -1,6 +1,5 @@
 # Vercel (proyecto tarjetas-fyware) solo publica las tarjetas de San Mateo
-# y la de Oscar (equipo/oscar/, copia de fyware-tarjetas/oscar con la liga de Vercel),
-# y la presentacion de AIST26 (aist26/, 24 nov 2026).
+# y la de Oscar (equipo/oscar/, copia de fyware-tarjetas/oscar con la liga de Vercel).
 # Las demas tarjetas de este repo siguen solo en GitHub Pages.
 /*
 !/vercel.json
@@ -10,4 +9,3 @@
 !/equipo
 /equipo/*
 !/equipo/oscar
-!/aist26
